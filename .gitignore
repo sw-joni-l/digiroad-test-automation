@@ -1,0 +1,5 @@
+**/logs
+**/pabot_results
+**/sikuli_captured
+*.pyc
+__pycache__
