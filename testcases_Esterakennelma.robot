@@ -7,6 +7,9 @@
 Documentation       Regression testcases for Digiroad
 Resource            variables.robot
 
+Suite Setup         LoginToLivi
+Suite Teardown      Close Browser
+
 Test Setup          Testin Aloitus
 
 
@@ -28,7 +31,7 @@ Esterakennelma 3
     [Tags]              Este  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...   - Esterakennelman väri muuttuu tyypin mukaan.
-    PO_Este.Este_3  6711626, 240853
+    PO_Este.Este_3  6818415,341991
 
 Esterakennelma 4
     [Tags]              Este  Mandatory

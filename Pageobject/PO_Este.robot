@@ -16,7 +16,7 @@ Este_1  [arguments]  ${testipaikka}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
     Log  Vaihdetaan mittakaava 1:20000
-#    Odota sivun latautuminen
+    #Odota sivun latautuminen
     wait until Screen Contain                       esterakennelma_e1.png     5
     Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
     set selenium speed   0.3
@@ -35,14 +35,14 @@ Este_2  [arguments]  ${testipaikka}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
     click element                               ${zoombar_plus}
-#    Odota sivun latautuminen
+    #Odota sivun latautuminen
     Log  klikataan Esterakennelman kohdalta
     click element                               ${zoombar_plus}
     click element                               ${zoombar_plus}
     wait until Screen Contain                   esterakennelma_e2.png     5
     set selenium speed          0.3
     click element at coordinates                ${kartta}   0  20
-  #  testklick
+    #testklick
     Set Selenium Speed          ${DELAY}
     Log  Varmistetaan, että formin link ID on oikein
     wait until element is visible               ${FA_otsikko}
@@ -52,15 +52,15 @@ Este_3  [arguments]  ${testipaikka}
     wait until element is visible       ${valitse tietolaji}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
+    Zoomaa kartta                               4  20 m
     Log  Siirrytään muokkaustilaan, valitaan esterakennelma ja muokataan sitä.
     #Odota sivun latautuminen
     Siirry muokkaustilaan
+    wait until Screen Contain                   esterakennelma_e3.png     5
     click element at coordinates                ${kartta}   0   20
     wait until element is visible               ${FA_otsikko}
     DDM_tietolajit
     Siirrä este                                 40   5
-    wait until Screen Contain                   esterakennelma_e3.png     5
     click element                               ${FA_footer_Peruuta}
 
 Este_4  [arguments]  ${testipaikka}
@@ -68,7 +68,7 @@ Este_4  [arguments]  ${testipaikka}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               2  20 m
-#    Odota sivun latautuminen
+    #Odota sivun latautuminen
     Log  Luodaan este
     Luo este                                    tyyppi
     click element                               ${FA_footer_Peruuta}

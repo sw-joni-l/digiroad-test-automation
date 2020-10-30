@@ -3,3 +3,8 @@
 **/sikuli_captured
 *.pyc
 __pycache__
+testi.robot
+.gitignore
+/logs*
+*.log
+*pabot*

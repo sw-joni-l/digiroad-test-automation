@@ -96,7 +96,8 @@ JLP_3  [arguments]  ${testipaikka}  ${ELY}
     Siirry muokkaustilaan
     click element at coordinates                ${kartta}  20  -5
     wait until element is visible               ${FA_otsikko}
-    wanha Siirrä Pysäkkiä                             -200  -100
+    Odota sivun latautuminen
+    wanha Siirrä Pysäkkiä                             -300  -100
     wait until element is visible               ${MuokkausVaroitus}
     run keyword if  '${ELY}' == 'kyllä'         element text should be   ${MuokkausVaroitus}    ${ELY_Pysakin_siirto_yli50m_popup}
     ...  ELSE                                   element text should be   ${MuokkausVaroitus}    ${Pysakin_siirto_yli50m_popup}
@@ -123,7 +124,7 @@ Siirrä Pysäkkiä  [Arguments]  ${xKoord}  ${yKoord}
 
 
 Wanha_Siirrä Pysäkkiä  [Arguments]  ${xKoord}  ${yKoord}
-# Siirtää valittua bussipysäkkiä annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
+    #Siirtää valittua bussipysäkkiä annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
     Seleniumlibrary.mouse down                      css=[class='crosshair crosshair-center']
     Seleniumlibrary.drag and drop by offset         css=[class='crosshair crosshair-center']  ${xKoord}  ${yKoord}
     Seleniumlibrary.mouse up                        css=[class='crosshair crosshair-center']

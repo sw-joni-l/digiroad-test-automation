@@ -7,6 +7,9 @@
 Documentation       Regression testcases for Digiroad
 Resource            variables.robot
 
+Suite Setup         LoginToLivi
+Suite Teardown      Close Browser
+
 Test Setup          Testin Aloitus
 
 
