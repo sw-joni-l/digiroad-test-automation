@@ -21,7 +21,7 @@ Opastustaulu_1  [arguments]  ${testipaikka}
     vaihda tietolaji                    ${TL_Opastustaulu_RB}
     Paikanna osoite                             ${testipaikka}
     Log  Vaihdetaan mittakaava 1:20000
-#    Odota sivun latautuminen
+    #Odota sivun latautuminen
     wait until Screen Contain                       Opastustaulu_o1.png     5
     Log  zoomataan kauemmas ja varmistetaan, ettei Opastustaulu ole enää näkyvissä
     set selenium speed   0.3
@@ -29,15 +29,15 @@ Opastustaulu_1  [arguments]  ${testipaikka}
     Set Min Similarity   0.9
     Odota sivun latautuminen
     Screen Should Not Contain                   Opastustaulu_o1.png
-    Set Selenium Speed              ${DELAY}
+    Set Selenium Speed                          ${DELAY}
     click element                               ${zoombar_minus}
     Odota sivun latautuminen
     Screen Should Not Contain                   Opastustaulu_o1.png
     Set Min Similarity   0.9
 
 Opastustaulu_2  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Opastustaulu_RB}
+    wait until element is visible               ${valitse tietolaji}
+    vaihda tietolaji                            ${TL_Opastustaulu_RB}
     Paikanna osoite                             ${testipaikka}
     click element                               ${zoombar_plus}
 #    Odota sivun latautuminen
@@ -48,24 +48,27 @@ Opastustaulu_2  [arguments]  ${testipaikka}
     wait until Screen Contain                   Opastustaulu_o2.png     5
     set selenium speed          0.3
     click element at coordinates                ${kartta}   0   20
-    Set Selenium Speed          ${DELAY}
+    Set Selenium Speed                          ${DELAY}
     Log  Varmistetaan, että formin link ID on oikein
     wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           10844995
+    element should contain                      ${FA_otsikko}           ID: 10847869
 
 Opastustaulu_3  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Opastustaulu_RB}
+    wait until element is visible               ${valitse tietolaji}
+    vaihda tietolaji                            ${TL_Opastustaulu_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               2  20 m
     Log  Siirrytään muokkaustilaan, valitaan Opastustaulu ja muokataan sitä.
-    #Odota sivun latautuminen
+    Odota sivun latautuminen
     Siirry muokkaustilaan
+    wait until Screen Contain                   Opastustaulu_o3.png     5
     click element at coordinates                ${kartta}   0   20
     wait until element is visible               ${FA_otsikko}
     click element                               css=#change-validity-direction
-    Siirrä Opastustaulu                          40   5
-    wait until Screen Contain                   Opastustaulu_o3.png     5
+    Siirrä Opastustaulu                         40   5
+    Click element at coordinates                ${Kartta}  100  100
+    Click Button                                Sulje                       
+    wait until Screen Contain                   Opastustaulu_o4.png     5   
     click element                               ${FA_footer_Peruuta}
 
 Opastustaulu_4  [arguments]  ${testipaikka}

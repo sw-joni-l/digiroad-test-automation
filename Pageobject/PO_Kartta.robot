@@ -37,10 +37,9 @@ Kartta_2
     wait until element is visible               ${map_coordinates_I}
     ${temp}=    SeleniumLibrary.Get Text       ${map_coordinates_I}
     odota sivun latautuminen
-    #  Seleniumlibrary.mouse down        css=[class='crosshair crosshair-center']
-    #  Seleniumlibrary.Drag And Drop By Offset           ${kartta}      150   -200
-    #  Seleniumlibrary.mouse up          css=[class='crosshair crosshair-center']
-    SikuliLibrary.Drag And Drop By Offset       kartta_2_kartan_aloitus.png  220    330
+    Seleniumlibrary.mouse down        css=[class='crosshair crosshair-center']
+    Seleniumlibrary.Drag And Drop By Offset           ${kartta}      150   -200
+    Seleniumlibrary.mouse up          css=[class='crosshair crosshair-center']
     wait until element is visible               ${map_coordinates_I}
     VerifyTextNOT                               ${map_coordinates_I}    ${temp}
 
