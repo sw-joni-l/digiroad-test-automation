@@ -49,10 +49,11 @@ LoginToLivi
     Input Password                  ${LiviPasswordField}    ${LiviPWD}
     Click Button                    ${LiviLoginButton}
     Set Log Level                   ${temp}
-    wait until element is visible   ${kartta}
+    wait until element is visible   ${kartta}  30
     #run keyword if  '${LOGIN URL}'=='https://testiextranet.vayla.fi/digiroad/'  Sulje QA popup
     Odota sivun latautuminen
     Set Min Similarity   0.9              # Oli 0.6 tarkista toimiiko vielä
+    sleep  5
 
 Sulje QA popup
     wait until element is visible   css=.modal-overlay.confirm-modal .btn.btn-secondary.close
@@ -86,12 +87,12 @@ VerifyAttribute     [Arguments]     ${locator}    ${context}
     Should Be Equal                 ${LocatorValue}             ${context}
 
 Odota sivun latautuminen
-    FOR  ${i}  IN RANGE  10
-      ${status}  execute javascript   return jQuery.active
-      Run Keyword If              '${status}' == '${0}'  Exit For Loop
-      sleep  1 sec
-    END
-    #Wait Until Keyword Succeeds  10 min  30 sec  Element Should Not Be Visible  class=loadingBar
+    #FOR  ${i}  IN RANGE  10
+    #  ${status}  execute javascript   return jQuery.active
+    #  Run Keyword If              '${status}' == '${0}'  Exit For Loop
+    #  sleep  1 sec
+    #END
+    Wait Until Keyword Succeeds  10 min  30 sec  Element Should Not Be Visible  class=loadingBar
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille

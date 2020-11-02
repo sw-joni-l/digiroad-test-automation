@@ -275,7 +275,7 @@ Paikanna osoite     [Arguments]  ${Osoite}
     wait until element is visible       ${Kartta}
     wait until element is visible       ${Haku_tulokset}   10
     click element                       ${Tyhjenna_tulokset_btn}
-    Odota sivun latautuminen
+    #Odota sivun latautuminen
 
 Elements should be visible  [Arguments]  ${elem1}  ${elem2}
     element should be visible           ${elem1}
