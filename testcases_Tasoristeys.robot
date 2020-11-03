@@ -25,13 +25,13 @@ Tasoristeys 2
     [Tags]              Tasoristeys  Mandatory
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...  - Tarkistetaan olemassa olevaa Rautatien tasoristeystä - Formin id
-    PO_Tasoristeys.Tasoristeys_2  6712202,240426
+    PO_Tasoristeys.Tasoristeys_2  6712203,240427
 
 Tasoristeys 3
     [Tags]              Tasoristeys  Mandatory
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...   - Rautatien tasoristeys muokkaus.
-    PO_Tasoristeys.Tasoristeys_3  6714850, 229272
+    PO_Tasoristeys.Tasoristeys_3  6714850,229269
 
 Tasoristeys 4
     [Tags]              Tasoristeys  Mandatory
