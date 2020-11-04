@@ -33,7 +33,7 @@ Tielinkit 2
     #Set Min Similarity   0.6
 
 Tielinkit 3
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien toiminnalliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     Log  Testille annetaan parametrina toiminnallinen luokka ja paikka jossa se testataan (osoite tai koordinaatti)
@@ -48,7 +48,7 @@ Tielinkit 3
     PO_Tielinkit.Tielinkit_3  8  6711878, 240628
 
 Tielinkit 4
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien tyyppi täsmää kartan aineiston visualisointiin ja formilla näytettävään tielinkin tyyppiin.
     ...  Samalla tarkistetaan, että Kevyen liikenteen väylät ja lautta/lossiväylät ja ajopolut on visualisoitu ohuemmalla viivalla (määritelty css selectorissa, jolla aineisto tarkistetaan.)
@@ -67,7 +67,7 @@ Tielinkit 4
     PO_Tielinkit.Tielinkit_4    Lautta/lossi                   6709978, 238631
 
 Tielinkit 5
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  Optional  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien hallinnolliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     PO_Tielinkit.Tielinkit_5   Kunnan omistama                 6676125, 373042
@@ -76,7 +76,7 @@ Tielinkit 5
     PO_Tielinkit.Tielinkit_5   Tuntematon                      6676135, 372839
 
 Tielinkit 6
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  Optional  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien silta luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     PO_Tielinkit.Tielinkit_6   Silta, Taso 1   6675257, 385417
@@ -85,7 +85,7 @@ Tielinkit 6
     PO_Tielinkit.Tielinkit_6   Maan pinnalla   6675510, 385480
 
 Tielinkit 7
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  Optional  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Yksisuuntaiset tielinkit on visualisoitu suuntanuolella. Tarkistetaan myös liikennevirta molempiin suuntiin
     PO_Tielinkit.Tielinkit_7   6710973, 238687  ${Digitointisuuntaa vastaan}
@@ -120,7 +120,7 @@ Tielinkit 10
     #PO_Tielinkit.Tielinkit_11
 
 Tielinkit 12
-    [Tags]              Roadlinks  Optional  Functionality  Edit
+    [Tags]              Roadlinks  Optional  Functionality  Edit  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkin muokkaus ketjuna. Toiminnallista luokkaa, liikennevirran suuntaa ja tielinkin tyyppiä voi muokata.
     ...  Liikennevirran suuntaa ja muita ominaisuuksia muokatessa myös visualisointi muuttuu vastaavasti.

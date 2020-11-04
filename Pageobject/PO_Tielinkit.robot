@@ -222,7 +222,6 @@ Tielinkit_4  [Arguments]  ${Luokan_odotusarvo}  ${testipaikka}
     element text should be                  ${FA_tielinkki_tielinkintyyppi}  ${Luokan_odotusarvo}
     Log  Varmistetaan, että valitun tielinkin tyypin värinen vektori on näkyvissä
 
-    #Run Keyword If  '${Luokan_odotusarvo}'=='Huoltoaukko moottoritiellä'  Pause Execution  ${Luokan_odotusarvo}
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Moottoritie'                 Screen Should Contain  TL4_punainenlinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Moottoriliikennetie'         Screen Should Contain  TL3_punainenkatkoviiva.png
 

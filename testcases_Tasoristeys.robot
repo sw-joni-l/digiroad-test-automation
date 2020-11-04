@@ -16,19 +16,19 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Tasoristeys 1
-    [Tags]              Tasoristeys  Mandatory
+    [Tags]              Tasoristeys  Mandatory  Sikuli
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...  - Kartalla näkyvät Rautatien tasoristeys kun mittakaava on 1:20000 tai tarkempi.
     PO_Tasoristeys.Tasoristeys_1  6712170,240460
 
 Tasoristeys 2
-    [Tags]              Tasoristeys  Mandatory
+    [Tags]              Tasoristeys  Mandatory  Sikuli
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...  - Tarkistetaan olemassa olevaa Rautatien tasoristeystä - Formin id
     PO_Tasoristeys.Tasoristeys_2  6712203,240427
 
 Tasoristeys 3
-    [Tags]              Tasoristeys  Mandatory
+    [Tags]              Tasoristeys  Mandatory  Sikuli
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...   - Rautatien tasoristeys muokkaus.
     PO_Tasoristeys.Tasoristeys_3  6714850,229269

@@ -16,7 +16,7 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Pysäkit 1
-    [Tags]              JLP  Mandatory
+    [Tags]              JLP  Mandatory  Sikuli
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...  - Kartalla näkyvät pysäkit kun mittakaava on 1:20000 tai tarkempi.
     PO_JLP.JLP_1  6710683,255509

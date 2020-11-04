@@ -16,19 +16,19 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Esterakennelma 1
-    [Tags]              Este  Mandatory
+    [Tags]              Este  Mandatory  Sikuli
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Kartalla näkyvät Esterakennelma kun mittakaava on 1:20000 tai tarkempi.
     PO_Este.Este_1  6711750,240690
 
 Esterakennelma 2
-    [Tags]              Este  Mandatory
+    [Tags]              Este  Mandatory  Sikuli
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Tarkistetaan olemassa olevaa Esterakennelmaa - Formin id
     PO_Este.Este_2  6711833,239489
 
 Esterakennelma 3
-    [Tags]              Este  Mandatory
+    [Tags]              Este  Mandatory  Sikuli
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...   - Esterakennelman väri muuttuu tyypin mukaan.
     PO_Este.Este_3  6818415,341991
