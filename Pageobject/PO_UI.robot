@@ -191,6 +191,7 @@ UI_5_Button  [Arguments]  ${TL}  ${testipaikka}
     Zoomaa kartta                           5   20 m
     Odota sivun latautuminen
     click element at coordinates            ${kartta}   0   20
+    Odota sivun latautuminen
     Siirry muokkaustilaan
     SeleniumLibrary.Wait Until Element Contains  ${FA_otsikko}  Linkin LINK ID  timeout=30 s
 

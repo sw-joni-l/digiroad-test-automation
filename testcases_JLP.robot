@@ -22,7 +22,7 @@ Pysäkit 1
     PO_JLP.JLP_1  6710683,255509
 
 Pysäkit 2
-    [Tags]              JLP  Mandatory
+    [Tags]              JLP  Mandatory  Sikuli
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...  - Muokataan olemassa olevaa pysäkkiä - Tarkistetaan, että pysäkin vanhaksi merkitseminen aktivoi "käytöstä poistuneet" tason.
     ...  Pysäkkiä klikkaamalla näkyy sen infokupla.

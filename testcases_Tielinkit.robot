@@ -23,7 +23,7 @@ Tielinkit 1
 
 
 Tielinkit 2
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkit näkyvät ja ne saa valittua kun mittakaava on vähintään 1:20000.
     ...  Valinnan saa poistettua klikkaamalla muualle. Tielinkin valinta säilyy kun karttaa liikutellaan ja zoomaillaan.

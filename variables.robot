@@ -21,7 +21,7 @@ Resource                    Pageobject/PO_Opastustaulu.robot
 Resource                    Pageobject/PO_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  CHROME
+${BROWSER}                  Headless Chrome
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -39,8 +39,8 @@ LoginToLivi
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
-    Maximize Browser Window
-    #set window size    1920   1200
+    #Maximize Browser Window
+    set window size    1920   1200
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
     ${temp}=                        set variable            ${LOG LEVEL}
@@ -62,8 +62,8 @@ Sulje QA popup
 Testin Aloitus
     Set Selenium Speed  ${DELAY}
     Go to  ${LOGIN URL}
-    wait until element is visible  ${kartta}
-    Odota sivun latautuminen
+    wait until element is enabled  ${kartta}
+    wait until element is visible  ${Siirry muokkaustilaan}  120
     #run keyword if  '${LOGIN URL}'=='https://testiextra.vayla.fi/digiroad/'  Sulje QA popup
 
 

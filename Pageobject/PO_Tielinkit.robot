@@ -479,10 +479,11 @@ Tielinkit_12  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
 
 Tielinkit_13
     vaihda tietolaji                            ${TL_Tielinkki_RB}
-    wait until element is visible               ${FA_Link_incomplete-links}
+    Odota sivun latautuminen
+    wait until element is visible               ${FA_Link_incomplete-links}  10
     Log  avataan Korjattavien linkkien lista
     click element                               ${FA_Link_incomplete-links}
-    wait until element is visible               css=.content-box>header
+    wait until element is visible               css=.content-box>header  20
     Log  tarkistetaan, että listalta löytyvät otsikot
     page should contain                         Kunnan omistama
     page should contain                         Yksityisen omistama

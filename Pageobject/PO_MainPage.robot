@@ -284,7 +284,7 @@ Elements should be visible  [Arguments]  ${elem1}  ${elem2}
 Siirry Muokkaustilaan
     Wait until element is visible       ${Siirry muokkaustilaan}
     click element                       ${Siirry muokkaustilaan}
-    Wait Until Element Is Visible       ${Map_popup}
+    Wait Until Element Is Visible       ${Map_popup}  10
 
 Siirry Katselutilaan
     Wait Until Element Is Visible      ${Siirry katselutilaan}
