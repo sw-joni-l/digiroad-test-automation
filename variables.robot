@@ -92,7 +92,7 @@ Odota sivun latautuminen
     #  Run Keyword If              '${status}' == '${0}'  Exit For Loop
     #  sleep  1 sec
     #END
-    Wait Until Keyword Succeeds  10 min  30 sec  Element Should Not Be Visible  class=loadingBar
+    Wait Until Keyword Succeeds  10 min  10 sec  Element Should Not Be Visible  class=loadingBar
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille

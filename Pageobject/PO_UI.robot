@@ -146,16 +146,8 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     set test variable  ${koe}  -
     Paikanna osoite                         ${testipaikka}
     Zoomaa kartta                           5   20 m
-    Zoomaa edestakaisin
-    #    Odota sivun latautuminen
-    Run Keyword If                          '${TL}' in '${Tielinkin palluraaineistot} ${TL_Rautatien_tasoristeys_RB}'  click element                   ${zoombar_minus}
-    Run Keyword If                          '${TL}' in '${Tielinkin palluraaineistot} ${TL_Rautatien_tasoristeys_RB}'  wait until element is visible   ${kartta}
-    Run Keyword If                          '${TL}' in '${Tielinkin palluraaineistot} ${TL_Rautatien_tasoristeys_RB}'  click element                   ${zoombar_plus}
+    #Zoomaa edestakaisin
     Odota sivun latautuminen
-    #    Run Keyword If                          '${TL}' in '${Tielinkin palluraaineistot}'      wait until element is visible   ${KarttaPallurat}
-    #    Run Keyword If                          '${TL}' == '${TL_Rautatien tasoristeys_RB}'     wait until element is visible   ${KarttaPallurat}
-    #    Run Keyword If                          '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'  wait until element is visible   ${MapBussSymbol}
-    #    Run Keyword If                          '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'  wait until element is visible   ${Opastustaulu_symbol}
     click element at coordinates            ${kartta}   0   20
     Run Keyword If                          '${TL}' == '${TL_Suojatie_RB}'  Siirry muokkaustilaan
     #   Scrollataan formin loppuun, jotta checkbox tulee näkyviin.
@@ -170,8 +162,24 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Run Keyword If     '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'    wait until element is visible           ${LocatorForCheckboxpp}
     ...  ELSE     wait until element is visible           ${LocatorForCheckbox}
    # pause execution
-    Run Keyword If     '${TL}' == '${TL_Rautatien_tasoristeys_RB}'    Tarkista muokkaustila                ${LocatorForCheckbox}  ${TL}
-    ...  ELSE     Tarkista muokkaustila                   ${LocatorForCheckbox}  EMPTY
+    Run Keyword If     '${TL}' == '${TL_Rautatien_tasoristeys_RB}'    Tarkista Muokkaustila radio non-unit  ${LocatorForCheckbox}  ${TL}
+    ...  ELSE     Tarkista muokkaustila radio non-unit  ${LocatorForCheckbox}  EMPTY
+
+UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
+    wait until element is visible           ${valitse tietolaji}
+    Vaihda Tietolaji                        ${TL}
+    Paikanna osoite                         ${testipaikka}
+    Zoomaa kartta                           5   20 m
+    Odota sivun latautuminen
+    click element at coordinates            ${kartta}   0   20
+    Tarkista footer disabled
+    Click Button                            Siirry muokkaamaan liikennevaloa
+    Tarkista footer enabled
+    SeleniumLibrary.Input Text              trafficLight_info-1  testi
+    Click element                           ${FA_footer_Peruuta}
+
+ 
+
 
 UI_5_Button  [Arguments]  ${TL}  ${testipaikka}
     Log  UI_5 Tietolajit jotka muokattavissa napin kautta (kääntymisrajoitus)

@@ -68,13 +68,13 @@ Käyttöliittymä 5_3
     ...  Testi checkboxilla  muokattaville aineistoille
     ...  Tarkistaa tietolajien avautuvan, ei yritä muokata niitä
     Log  Testille annetaan parametrina tietolaji ja paikka jossa se testataan (osoite tai koordinaatti)
-    PO_UI.UI_5_chkbx  ${TL_Suojatie_RB}  6818935,325475
-    PO_UI.UI_5_chkbx  ${TL_Liikennevalo_RB}  6710880, 240330
-    PO_UI.UI_5_chkbx  ${TL_Joukkoliikenteen_pysäkki_RB}  6711175, 239958
-    PO_UI.UI_5_chkbx  ${TL_Palvelupiste_RB}  6711455,239920
-    PO_UI.UI_5_chkbx  ${TL_Rautatien_asoristeys_RB}  6712202,240426
-    PO_UI.UI_5_chkbx  ${TL_Esterakennelma_RB}  6711833,239490
-    PO_UI.UI_5_chkbx  ${TL_Opastustaulu_RB}  6738106,251254
+    PO_UI.UI_5_chkbx            ${TL_Suojatie_RB}  6818935,325475
+    PO_UI.UI_5_liikennevalo     ${TL_Liikennevalo_RB}  6710880, 240330
+    PO_UI.UI_5_chkbx            ${TL_Joukkoliikenteen_pysäkki_RB}  6711175, 239958
+    PO_UI.UI_5_chkbx            ${TL_Palvelupiste_RB}  6711455,239920
+    PO_UI.UI_5_chkbx            ${TL_Rautatien_tasoristeys_RB}  6712202,240426
+    PO_UI.UI_5_chkbx            ${TL_Esterakennelma_RB}  6711833,239490
+    PO_UI.UI_5_chkbx            ${TL_Opastustaulu_RB}  6738106,251254
 
 Käyttöliittymä 5_4
     [Tags]              UI   Mandatory

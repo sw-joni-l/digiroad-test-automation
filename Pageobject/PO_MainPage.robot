@@ -274,7 +274,7 @@ Paikanna osoite     [Arguments]  ${Osoite}
     click element                       ${Hae_btn}
     wait until element is visible       ${Kartta}
     wait until element is visible       ${Haku_tulokset}   10
-    click element                       ${Tyhjenna_tulokset_btn}
+    Wait Until Keyword Succeeds  30 sec  5 sec  click element  ${Tyhjenna_tulokset_btn}
     #Odota sivun latautuminen
 
 Elements should be visible  [Arguments]  ${elem1}  ${elem2}
