@@ -102,7 +102,7 @@ ${FA_tielinkki_korjattavien_eka_linkki}         xpath=(.//*[@id='work-list']//*[
 
 ${Tielinkin palluraaineistot}    ${TL_Palvelupiste_RB} ${TL_Opastustaulu_RB} ${TL_Esterakennelma_RB} ${TL_Rautatien tasoristeys_RB} ${TL_Liikennevalo_RB}
 @{Tielinkin_RB_tekstit}     Toiminnallinen luokka  Tielinkin tyyppi  Hallinnollinen luokka  Silta, alikulku tai tunneli
-@{tielinkin_formin_otsikot}  Ominaisuustiedot  Hallinnollinen luokka   Toiminnallinen luokka   Liikennevirran suunta   Tielinkin tyyppi   Silta, alikulku tai tunneli
+@{tielinkin_formin_otsikot}  Linkin ID:  Hallinnollinen luokka   Toiminnallinen luokka   Liikennevirran suunta   Tielinkin tyyppi   Silta, alikulku tai tunneli
 ...  Kuntanumero   Tien nimi (Suomi)   Tien nimi (Ruotsi)   Tien nimi (Saame)   Tien numero   Tieosanumero   Osoitenumerot oikealla   Osoitenumerot vasemmalla   MML ID
 #Linkin ID
 
@@ -221,6 +221,8 @@ Tielinkit_4  [Arguments]  ${Luokan_odotusarvo}  ${testipaikka}
     Log  Varmistetaan, että formin tielinkin tyyppi vastaa annettua odotusarvoa
     element text should be                  ${FA_tielinkki_tielinkintyyppi}  ${Luokan_odotusarvo}
     Log  Varmistetaan, että valitun tielinkin tyypin värinen vektori on näkyvissä
+
+    #Run Keyword If  '${Luokan_odotusarvo}'=='Huoltoaukko moottoritiellä'  Pause Execution  ${Luokan_odotusarvo}
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Moottoritie'                 Screen Should Contain  TL4_punainenlinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Moottoriliikennetie'         Screen Should Contain  TL3_punainenkatkoviiva.png
 
@@ -390,15 +392,18 @@ Tielinkit_12  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
     run keyword if    '${status}'=='FAIL'       Muuta tielinkin tilanne normaaliksi
     click element at coordinates                ${kartta}   0  20
     wait until element is visible               ${FA_tielinkki_toiminnallinen_luokka}
-    Element Text Should Be                      ${FA_tielinkki_MML_ID}        ${EMPTY}
+    Element Text Should Be                      ${FA_tielinkki_MML_ID}        [useita eri arvoja]
     ${tmp_muokkausdate}  Seleniumlibrary.get text     ${FA_Muokattu_viimeksi}
     element text should be                      ${FA_Linkkien_lkm}                      Linkkien lukumäärä: 2
     Log  Vaihdetaan linkin toiminnallinen luokka 1:een
     open context menu                           ${FA_tielinkki_toiminnallinen_luokka}
     select from list by value                   ${FA_tielinkki_toiminnallinen_luokka}   1
     Log  Vaihdetaan linkkien liikennevirran suunta yksisuuntaiseksi
+    ${status}=  Run Keyword And Return Status  List Selection Should Be  ${FA_tielinkki_Liikennevirta_lista}  ${FA_liikennevirta_MolempiinSuuntiin}
     open context menu                           ${FA_tielinkki_Liikennevirta_lista}
     select from list by value                   ${FA_tielinkki_Liikennevirta_lista}     ${FA_liikennevirta_Digit_vastaan}
+    Run Keyword If  '${status}'=='True'  Click Button  ${Muokkausvaroitus_Kyllä_btn}
+
     Log  vaihdetaan tielinkin tyyppi moottoritieksi
     open context menu                           ${FA_tielinkki_tielinkintyyppi_lista}
     select from list by value                   ${FA_tielinkki_tielinkintyyppi_lista}         1
@@ -432,6 +437,7 @@ Tielinkit_12  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
     click element                               ${zoombar_minus}
     click element                               ${zoombar_plus}
     Odota sivun latautuminen
+
     #   tuplaklikkaus toimi jostain syystä kahdella erillisellä klikkauksella parhaiten,
     set selenium speed     0.1
     click element at coordinates                ${kartta}   304  -157           #-177
@@ -449,6 +455,7 @@ Tielinkit_12  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
     List Selection Should Be                    ${FA_tielinkki_Liikennevirta_lista}     ${FA_liikennevirta_Digit_vastaan}
     List Selection Should Be                    ${FA_tielinkki_tielinkintyyppi_lista}   1
     Log  Muutetaan tielinkkien tiedot takaisin lähtötilanteeseen
+
     #lasketaan seleniumin nopeutta hetkeksi, koska tässä kohtaa aiheutui usein turhia faileja
     set selenium speed                          0.5
     click element at coordinates                ${kartta}  -10  -50
@@ -463,12 +470,13 @@ Tielinkit_12  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
     open context menu                           ${FA_tielinkki_Liikennevirta_lista}
     select from list by value                   ${FA_tielinkki_Liikennevirta_lista}     ${FA_liikennevirta_MolempiinSuuntiin}
     open context menu                           ${FA_tielinkki_tielinkintyyppi_lista}
-    select from list by value                   ${FA_tielinkki_tielinkintyyppi_lista}   3
+    select from list by value                   ${FA_tielinkki_tielinkintyyppi_lista}   2
     Log  tallennetaan muutokset
     click element                               ${FA_footer_Tallenna}
     wait until element is visible               ${map_overlay}
+    sleep  2
     odota sivun latautuminen
-    Element Should Not Be Visible               ${map_overlay}
+    #Element Should Not Be Visible               ${map_overlay}
 
 Tielinkit_13
     vaihda tietolaji                            ${TL_Tielinkki_RB}
