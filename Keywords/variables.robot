@@ -1,9 +1,7 @@
 #Niko Lahtinen  Sitowise  2020
 
 *** Settings ***
-Documentation       MainPage Pageobject
-#Library             Seleniumlibrary
-#Library             Dialogs
+Documentation       Common Variables
 
 *** Variables ***
 

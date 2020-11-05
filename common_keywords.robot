@@ -15,7 +15,7 @@ Resource                    Keywords/KW_Tielinkit.robot
 Resource                    Keywords/KW_Kartta.robot
 Resource                    Keywords/KW_UI.robot
 Resource                    Keywords/KW_JLP.robot
-Resource                    Keywords/KW_Este.robot
+Resource                    Keywords/KW_Esterakennelma.robot
 Resource                    Keywords/KW_Tasoristeys.robot
 Resource                    Keywords/KW_Opastustaulu.robot
 Resource                    Keywords/KW_Suojatie.robot
@@ -32,7 +32,7 @@ ${LiviLoginButton}          css=.submit
 ${IMAGE_DIR}                ${CURDIR}\\img
 
 *** Keywords ***
-LoginToLivi
+Login To DigiRoad
 
     log to console                  ${CURDIR}
     Add Image Path                  ${IMAGE_DIR}

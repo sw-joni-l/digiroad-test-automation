@@ -12,9 +12,9 @@
 
 *** Settings ***
 Documentation       Regression testcases for Digiroad
-Resource            variables.robot
+Resource            common_keywords.robot
 
-Suite Setup         LoginToLivi
+Suite Setup         Login To DigiRoad
 Suite Teardown      Close Browser
 
 Test Setup          Testin Aloitus
@@ -25,22 +25,22 @@ KartanKäyttö 1
     [Tags]              Map   Mandatory
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Kartan käyttö zoom-napeilla, tuplaklikkaamalla ja SHIFT+piirto
-    PO_Kartta.Kartta_1
+    KW_Kartta.Kartta_1
 
 KartanKäyttö 2
     [Tags]              Map   Mandatory
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Kartan liikuttaminen raahaamalla ja haulla
-    PO_Kartta.Kartta_2
+    KW_Kartta.Kartta_2
 
 KartanKäyttö 3
     [Tags]              Map   Mandatory
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Taustakartaksi voi valita ortokuvat, taustakarttasarjan tai maastokartan.
-    PO_Kartta.Kartta_3
+    KW_Kartta.Kartta_3
 
 KartanKäyttö 4
     [Tags]              Map   Mandatory
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Sovellus näyttää viestin "Zoomaa lähemmäksi, jos haluat nähdä kohteita", kun mittakaavataso on liian pieni.
-    PO_Kartta.Kartta_4
+    KW_Kartta.Kartta_4
