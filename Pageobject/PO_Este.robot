@@ -61,6 +61,10 @@ Este_3  [arguments]  ${testipaikka}
     wait until element is visible               ${FA_otsikko}
     DDM_tietolajit
     Siirrä este                                 40   5
+    Click element at coordinates                ${Kartta}  100  100
+    Click Button                                Sulje
+    Pause Execution  esterakennelma_e3.png
+    wait until Screen Contain                   esterakennelma_e4.png  5 
     click element                               ${FA_footer_Peruuta}
 
 Este_4  [arguments]  ${testipaikka}

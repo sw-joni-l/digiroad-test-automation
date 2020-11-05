@@ -498,7 +498,11 @@ Tielinkit_13
     click element                               ${tmp_ListLocator}
     click element at coordinates                ${kartta}  -100  -100
     Odota sivun latautuminen
+    Set Selenium Speed                          0
+    Click Element At coordinates                ${kartta}  0  20
     double click element at coordinates         ${kartta}  0  20
+    Set Selenium Speed                          ${DELAY}
+    Odota sivun latautuminen
     wait until element is visible               ${FA_otsikko}
     Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
     element should contain                      ${FA_otsikko}  ${tmp_linkID}

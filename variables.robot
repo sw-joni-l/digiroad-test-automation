@@ -1,5 +1,5 @@
 # Niko Lahtinen  Sitowise  2020
-# pybot -d output ..\DR_RobotTestcases
+# pybot -d .\logs .\testcases*
 *** Settings ***
 #Library                     SeleniumLibrary     timeout=10.0   run_on_failure=None
 Library                     SeleniumLibrary     timeout=10.0   run_on_failure=Capture Page Screenshot
@@ -21,7 +21,7 @@ Resource                    Pageobject/PO_Opastustaulu.robot
 Resource                    Pageobject/PO_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Headless Chrome
+${BROWSER}                  Chrome  #Headless 
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
