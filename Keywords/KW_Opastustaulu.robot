@@ -21,7 +21,8 @@ Opastustaulu_1  [arguments]  ${testipaikka}
     vaihda tietolaji                    ${TL_Opastustaulu_RB}
     Paikanna osoite                             ${testipaikka}
     Log  Vaihdetaan mittakaava 1:20000
-    #Odota sivun latautuminen
+    Odota sivun latautuminen
+    #Pause Execution  Opastustaulu_o1.png
     wait until Screen Contain                       Opastustaulu_o1.png     5
     Log  zoomataan kauemmas ja varmistetaan, ettei Opastustaulu ole enää näkyvissä
     set selenium speed   0.3

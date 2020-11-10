@@ -35,7 +35,7 @@ UI_2
     Element should be visible               ${Käyttöohje}
 
 UI_3
-    Log    XSSllä ei saa käyttöliittymää rikki.
+    Log    Syöttää XSSllä hakukenttään. Haku ei saa mennä siitä rikki.
     wait until element is visible           ${Hae_syotekentta}
     Siirry muokkaustilaan
     wait until element is visible           ${Map_popup}
@@ -71,7 +71,7 @@ UI_4
 
 
 UI_5_ddm
-    Log  UI_5 Tietolajit jotka muokattavissa drop down menun kautta
+    Log  Muokkaa monta elementtiä samanaikaisesti aluevalintatyökalun avulla
     wait until element is visible           ${Taustakartta}
     Paikanna osoite                     Brahenkatu 10, Turku
     Zoomaa kartta   5   20 m
@@ -97,22 +97,20 @@ UI_5_ddm
     END
 
 
-UI_5_radio_non-unit
-    Log  UI_5 Tietolajit jotka muokattavissa radiobuttonin kautta
+UI_5_radio_non-unit  [Arguments]  @{Tietolaji_lista}
+    Log  UI_5 Tietolajit jotka muokattavissa radiobuttonin kautta.
     wait until element is visible           ${Taustakartta}
     Paikanna osoite                         Brahenkatu 10, Turku
     Zoomaa kartta   5   20 m
     Siirry muokkaustilaan
     set test variable  ${koe}  -
-    FOR    ${TL}  IN  @{Tietolajit_radio_non-unit}
+    FOR    ${TL}  IN  @{Tietolaji_lista}
       wait until element is visible        ${valitse tietolaji}
       Vaihda Tietolaji                     ${TL}
       Run Keyword IF  '${TL}'=='${TL_Käpy_tietolaji_RB}'  Siirry muokkaustilaan
       Zoomaa edestakaisin
       Odota sivun latautuminen
       click element at coordinates         ${kartta}   0   20
-      #click element at coordinates         ${kartta}   1   1
-    #   \  pause execution
       wait until element is visible        ${LocatorForRadiobuttons}
       Tarkista muokkaustila radio non-unit  ${LocatorForRadiobuttons}  ${TL}
     END
@@ -131,8 +129,6 @@ UI_5_radio_unit
       Zoomaa edestakaisin
       Odota sivun latautuminen
       click element at coordinates         ${kartta}   0   20
-      #click element at coordinates         ${kartta}   1   1
-    #   \  pause execution
       wait until element is visible        ${LocatorForRadiobuttons}
       Tarkista muokkaustila radio unit              ${LocatorForRadiobuttons}  ${TL}
     END
@@ -161,7 +157,7 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Run Keyword If     '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'    set focus to element    css=#removebox
     Run Keyword If     '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'    wait until element is visible           ${LocatorForCheckboxpp}
     ...  ELSE     wait until element is visible           ${LocatorForCheckbox}
-   # pause execution
+    # pause execution
     Run Keyword If     '${TL}' == '${TL_Rautatien_tasoristeys_RB}'    Tarkista Muokkaustila radio non-unit  ${LocatorForCheckbox}  ${TL}
     ...  ELSE     Tarkista muokkaustila radio non-unit  ${LocatorForCheckbox}  EMPTY
 

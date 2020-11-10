@@ -51,15 +51,15 @@ Käyttöliittymä 5_2_1
     [Tags]              UI   Mandatory
     [Documentation]     Käyttöliittymä, selain: ${BROWSER}
     ...  - "Sinulla on tallentamattomia..." -dialogi ilmestyy kaikissa tietolajeissa, kun klikkaa muokkauksen jälkeen jotain muuta kuin Tallenna tai Peruuta.
-    ...  - Testi radiobuttonilla muokattaville aineistoille, FA_locator = form-group
-    KW_UI.UI_5_radio_non-unit
+    ...  - Testi radiobuttonilla muokattaville aineistoille, joissa FA_locator = form-group
+    KW_UI.UI_5_radio_non-unit  @{Tietolajit_radio_non-unit}
 
 Käyttöliittymä 5_2_2
     [Tags]              UI   Mandatory
     [Documentation]     Käyttöliittymä, selain: ${BROWSER}
     ...  - "Sinulla on tallentamattomia..." -dialogi ilmestyy kaikissa tietolajeissa, kun klikkaa muokkauksen jälkeen jotain muuta kuin Tallenna tai Peruuta.
-    ...  - Testi radiobuttonilla muokattaville aineistoille, FA_locator = form-group-unit
-    KW_UI.UI_5_radio_unit
+    ...  - Testi radiobuttonilla muokattaville aineistoille, joisa FA_locator = form-group-unit
+    KW_UI.UI_5_radio_non-unit  @{Tietolajit_radio_unit}
 
 Käyttöliittymä 5_3
     [Tags]              UI   Mandatory

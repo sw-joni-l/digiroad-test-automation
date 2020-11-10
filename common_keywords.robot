@@ -21,7 +21,7 @@ Resource                    Keywords/KW_Opastustaulu.robot
 Resource                    Keywords/KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Chrome  #Headless 
+${BROWSER}                  Headless Chrome  #Headless 
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -102,7 +102,7 @@ Vaihda Tietolaji  [Arguments]  ${tietolaji_locator}
     click element                   ${valitse tietolaji}
     wait until element is visible   ${Valitse_tietolaji_ikkuna}
     select radio button             ${Tietolaji_RB_group}  ${tietolaji_locator}
-#    wait until element is visible   ${Siirry muokkaustilaan}
+    #    wait until element is visible   ${Siirry muokkaustilaan}
 
 Zoomaa kartta  [Arguments]   ${loopvalue}  ${maxskaala}
     log  Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000
@@ -131,12 +131,19 @@ Elements should be visible  [Arguments]  ${elem1}  ${elem2}
 Siirry Muokkaustilaan
     Wait until element is visible       ${Siirry muokkaustilaan}
     click element                       ${Siirry muokkaustilaan}
-    Wait Until Element Is Visible       ${Map_popup}  10
+    #Wait Until Element Is Visible       ${Map_popup}  10
 
 Siirry Katselutilaan
     Wait Until Element Is Visible      ${Siirry katselutilaan}
     Click button                        ${Siirry katselutilaan}
     Wait Until Element Is Not Visible      ${Map_popup}
+
+Tupla Klikkaa Kartan Keskelle
+    Set Selenium Speed  0
+    Click Element At Coordinates  ${Kartta}  0  20
+    Click Element At Coordinates  ${Kartta}  0  20
+    doubleclick element at coordinates  ${Kartta}  0  20
+    Set Selenium Speed  ${DELAY}
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille

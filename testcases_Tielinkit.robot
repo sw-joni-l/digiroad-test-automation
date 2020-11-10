@@ -79,7 +79,7 @@ Tielinkit 6
     ...  - Tielinkkien silta luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     KW_Tielinkit.Tielinkit_6   Silta, Taso 1   6675257, 385417
     KW_Tielinkit.Tielinkit_6   Tunneli         6675627, 385374
-    KW_Tielinkit.Tielinkit_6   Alikulku        6675539, 385549
+    KW_Tielinkit.Tielinkit_6   Alikulku, taso 1        6675579, 385676
     KW_Tielinkit.Tielinkit_6   Maan pinnalla   6675510, 385480
 
 Tielinkit 7
@@ -104,7 +104,7 @@ Tielinkit 9
     ...  ruotsiksi ja saameksi sekä osoitenumerot oikealla ja vasemmalla (osoitenumerot vain, kun on yksi linkki valittuna) ja tiennumero
     KW_Tielinkit.Tielinkit_9
 
-Tielinkit 10
+#Tielinkit 10
     [Tags]              Roadlinks  Optional  Layout
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Jos toiminnallinen luokka tai linkkityyppi ei ole tiedossa, linkki on visualisoitu mustalla.

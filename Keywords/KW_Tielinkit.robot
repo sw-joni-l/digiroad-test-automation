@@ -256,8 +256,9 @@ Tielinkit_5  [Arguments]  ${Luokan_odotusarvo}  ${testipaikka}
     Log  Varmistetaan, että formin hallinnollinen luokka vastaa annettua odotusarvoa
     element text should be                  ${FA_tielinkki_hallinnollinen luokka}  ${Luokan_odotusarvo}
     Log  Varmistetaan, että valitun tielinkin tyypin värinen vektori on näkyvissä
+    
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Kunnan omistama'      Screen Should Contain   TL5_vihrealinkki.png
-    Run Keyword If                          '${Luokan_odotusarvo}' == 'Valtion omistama'     Screen Should Contain   TL4_punainenlinkki.png
+    Run Keyword If                          '${Luokan_odotusarvo}' == 'Valtion omistama'     Screen Should Contain   TL5_punainenlinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Yksityisen omistama'  Screen Should Contain   TL5_sininenlinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Tuntematon'           Screen Should Contain   TL5_harmaalinkki.png
     Nollaa karttavalinta
@@ -271,6 +272,7 @@ Tielinkit_6  [Arguments]  ${Luokan_odotusarvo}  ${testipaikka}
     Vaihda Tielinkin visualisointi          ${TL_Silta, alikulku tai tunneli_RB}
     Odota sivun latautuminen
     #    click element                           ${zoombar_minus}
+    #Run Keyword If                          '${Luokan_odotusarvo}' == 'Maan pinnalla'       Pause Execution   TL6_harmaalinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Silta, Taso 1'       Screen Should Contain   TL6_vihrealinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Alikulku'            Screen Should Contain   TL6_punainenlinkki.png
     Run Keyword If                          '${Luokan_odotusarvo}' == 'Tunneli'             Screen Should Contain   TL6_sininenlinkki.png
@@ -278,11 +280,12 @@ Tielinkit_6  [Arguments]  ${Luokan_odotusarvo}  ${testipaikka}
     Log  Valitaan tielinkki kartalta
     Odota sivun latautuminen
     click element at coordinates            ${kartta}   -100   -100
-    double click element at coordinates     ${kartta}   0   20
-        wait until element is visible           ${FA_otsikko}
-        Log  Varmistetaan, että formin hallinnollinen luokka vastaa annettua odotusarvoa
+    Tupla Klikkaa Kartan Keskelle
+    wait until element is visible           ${FA_otsikko}
+    Log  Varmistetaan, että formin hallinnollinen luokka vastaa annettua odotusarvoa
     element text should be                  ${FA_tielinkki_silta,alikulku tai tunneli}      ${Luokan_odotusarvo}
     Nollaa karttavalinta
+    
 
 Tielinkit_7   [Arguments]  ${testipaikka}  ${liikennesuunta}
     Log  Tarkistetaan tielinkin liikennevirran suunta yksisuuntaisilla teillä, valitaan tielinkki ja tarkistetaan, että nuolisymboli on näkyvissä
@@ -297,7 +300,7 @@ Tielinkit_7   [Arguments]  ${testipaikka}  ${liikennesuunta}
     double click element at coordinates     ${kartta}   0   20
     wait until element is visible           ${FA_otsikko}
     element text should be                  ${FA_tielinkki_Liikennevirta}   ${liikennesuunta}
-    click element at coordinates            ${kartta}   0   100
+    click element at coordinates            ${kartta}   0   -100
     Odota sivun latautuminen
     Run Keyword If                          '${liikennesuunta}' == '${Molempiin suuntiin}'  Screen Should Contain  TL7_molempiinsuuntiin
     ...  ELSE IF   '${liikennesuunta}' == '${Digitointisuuntaa vastaan}'    Screen Should Contain   TL7_suuntanuolivastaan.png
@@ -327,7 +330,7 @@ Tielinkit_9
     END
 
 Tielinkit_10
-    # Haetaan kohde muokattavien linkkien listalta, tietokanta muutos voi muuttaa testin tulosta
+    # TL 13 testaa ominaisuuden
     Log  Jos toiminnallinen luokka ei ole tiedossa, linkki on visualisoitu mustalla.
     Vaihda Tietolaji  ${TL_Tielinkki_RB}
     Click Button  incomplete-links-link
@@ -499,6 +502,7 @@ Tielinkit_13
     click element at coordinates                ${kartta}  -100  -100
     Odota sivun latautuminen
     Set Selenium Speed                          0
+    Click Element At coordinates                ${kartta}  0  20
     Click Element At coordinates                ${kartta}  0  20
     double click element at coordinates         ${kartta}  0  20
     Set Selenium Speed                          ${DELAY}
