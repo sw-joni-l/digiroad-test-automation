@@ -14,13 +14,11 @@ ${FA_Esterakennelma_tyyppi}                     css=#feature-attributes-form > d
 
 Este_1  [arguments]  ${testipaikka}
     Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Esterakennelma_RB}
-    Paikanna osoite                     ${testipaikka}
-    Zoomaa kartta                       5  20 m
-    Odota sivun latautuminen
-    Click Element At Coordinates        ${Kartta}  0  20
-    Wait Until Element contains         ${FA_Lisätty_Järjestelmään}  Lisätty järjestelmään:
+    Siirry Testipaikkaan                ${TL_Esterakennelma_RB}  ${testipaikka}
+
+    #Click Element At Coordinates        ${Kartta}  0  20
+    #Wait Until Element contains         ${FA_Lisätty_Järjestelmään}  Lisätty järjestelmään:
+    Valitse Esterakennelma
     Click Element At Coordinates        ${Kartta}  0  -100
     # Alla oleva ratkaisu tarkistaa onko elementti valittuna kartalta
     ${status}=  Run Keyword And Return Status  Wait Until Element contains  ${FA_Muokattu_viimeksi}  Lisätty järjestelmään:  2 s
@@ -38,19 +36,12 @@ Este_1  [arguments]  ${testipaikka}
 
 
 Este_2  [arguments]  ${testipaikka}  ${Este_tyyppi}
-    wait until element is visible               ${valitse tietolaji}
-    vaihda tietolaji                            ${TL_Esterakennelma_RB}
-    Paikanna osoite                             ${testipaikka}
-    #Odota sivun latautuminen
     Log  klikataan Esterakennelman kohdalta
-    Zoomaa kartta                               5  20 m
-    Odota sivun latautuminen
-    #set selenium speed          0.3
-    click element at coordinates                ${kartta}   0  20
+    Siirry Testipaikkaan                ${TL_Esterakennelma_RB}  ${testipaikka}
+    Valitse Esterakennelma
 
     Log  Käydään läpi eri esterakennelmien tyypit
 
-    wait until element is visible               ${FA_otsikko}
     Run Keyword if  '${Este_tyyppi}'=='Geometrian ulkopuolella'  
     ...  Element Should Contain  ${FA_Geometria_Notifikaatio}  tarkista ja korjaa
 
@@ -62,20 +53,12 @@ Este_2  [arguments]  ${testipaikka}  ${Este_tyyppi}
 
     click element at coordinates                ${kartta}   0  -100
 
-    #Set Selenium Speed          ${DELAY}
-    # Log  Varmistetaan, että formin link ID on oikein
-    #wait until element is visible               ${FA_otsikko}
-    #element should contain                      ${FA_otsikko}           10790838
 
 Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Esterakennelma_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               4  20 m
     Log  Siirrytään muokkaustilaan, valitaan esterakennelma ja muokataan sitä.
+    wait until element is visible               ${valitse tietolaji}
+    Siirry Testipaikkaan                        ${TL_Esterakennelma_RB}  ${testipaikka}
     Valitse Esterakennelma
-    #click element at coordinates                ${kartta}   0   20
-    #wait until element is visible               ${FA_otsikko}
     Element Should Contain                      ${FA_Esterakennelma_tyyppi}  ${Este_tyyppi}
 
     Log  Siirretään setettä ja tarkistetaan, että siirron jälkeen tulee muokkausvaroitus.
@@ -98,10 +81,7 @@ Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
 
 Este_4  [arguments]  ${testipaikka}
     ${date}=  Get Current Date                  result_format=%d.%m.%Y
-    wait until element is visible               ${valitse tietolaji}
-    vaihda tietolaji                            ${TL_Esterakennelma_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5  20 m
+    Siirry Testipaikkaan                        ${TL_Esterakennelma_RB}  ${testipaikka}
     Odota sivun latautuminen
 
     Alusta Testipaikka

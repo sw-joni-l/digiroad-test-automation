@@ -5,7 +5,7 @@
 Library                     SeleniumLibrary     timeout=10.0   run_on_failure=Capture Page Screenshot
 Library                     Dialogs
 Library                     String
-Library                     SikuliLibrary
+#Library                     SikuliLibrary
 Library                     selenium_extensions.py
 Library                     DateTime
 
@@ -36,7 +36,7 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 Login To DigiRoad
 
     log to console                  ${CURDIR}
-    Add Image Path                  ${IMAGE_DIR}
+    #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
@@ -53,7 +53,7 @@ Login To DigiRoad
     wait until element is visible   ${kartta}  30
     #run keyword if  '${LOGIN URL}'=='https://testiextranet.vayla.fi/digiroad/'  Sulje QA popup
     Odota sivun latautuminen
-    Set Min Similarity   0.9              # Oli 0.6 tarkista toimiiko vielä
+    #Set Min Similarity   0.9              # Oli 0.6 tarkista toimiiko vielä
     sleep  5
 
 Sulje QA popup
@@ -145,6 +145,14 @@ Tupla Klikkaa Kartan Keskelle
     Click Element At Coordinates  ${Kartta}  0  20
     doubleclick element at coordinates  ${Kartta}  0  20
     Set Selenium Speed  ${DELAY}
+
+Siirry Testipaikkaan
+    [Arguments]  ${Tietolaji}  ${Testipaikka}
+    wait until element is visible       ${valitse tietolaji}
+    vaihda tietolaji                    ${Tietolaji}
+    Paikanna osoite                     ${testipaikka}
+    Zoomaa kartta                       5  20 m
+    Odota sivun latautuminen
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille
