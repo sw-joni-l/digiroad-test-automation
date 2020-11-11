@@ -6,76 +6,114 @@ Documentation       Keywords for obstacles (Esterakennelma)
 ${LocatorForDDM}                                css=#feature-attributes .form-group.editable select:first-of-type
 ${LocatorForDDM_Selection}                      css=select > option:nth-child(2)
 ${Esteen_poisto}                                Haluatko varmasti poistaa esteen?
-${FA_Este_Poista_chkbx}                         id=removebox
+${FA_Este_Poista_chkbx}                         id=delete-checkbox
+${FA_Esterakennelma_tyyppi}                     css=#feature-attributes-form > div > div > div.form-group.editable.form-obstacle > p
 
 
 *** Keywords ***
 
 Este_1  [arguments]  ${testipaikka}
+    Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
     wait until element is visible       ${valitse tietolaji}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
-    Paikanna osoite                             ${testipaikka}
-    Log  Vaihdetaan mittakaava 1:20000
-    #Odota sivun latautuminen
-    wait until Screen Contain                       esterakennelma_e1.png     5
-    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
-    set selenium speed   0.3
-    click element                               ${zoombar_minus}
-    Set Min Similarity   0.9
+    Paikanna osoite                     ${testipaikka}
+    Zoomaa kartta                       5  20 m
     Odota sivun latautuminen
-    Screen Should Not Contain                   esterakennelma_e1.png
-    Set Selenium Speed              ${DELAY}
-    click element                               ${zoombar_minus}
-    Odota sivun latautuminen
-    Screen Should Not Contain                   esterakennelma_e1.png
-    Set Min Similarity   0.9
+    Click Element At Coordinates        ${Kartta}  0  20
+    Wait Until Element contains         ${FA_Lisätty_Järjestelmään}  Lisätty järjestelmään:
+    Click Element At Coordinates        ${Kartta}  0  -100
+    # Alla oleva ratkaisu tarkistaa onko elementti valittuna kartalta
+    ${status}=  Run Keyword And Return Status  Wait Until Element contains  ${FA_Muokattu_viimeksi}  Lisätty järjestelmään:  2 s
+    Should Be Equal                     '${status}'  'False'
+    #Element should be visible             ${FA_Muokattu_viimeksi}
 
-Este_2  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Esterakennelma_RB}
+
+    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    set selenium speed                  0.3
+    Repeat Keyword                      4 times  click element  ${zoombar_minus}
+    Set Selenium Speed                  ${DELAY}
+    Click Element At Coordinates        ${Kartta}  0  20
+    ${status}=  Run Keyword And Return Status  Wait Until Element contains  ${FA_Muokattu_viimeksi}  Lisätty järjestelmään:  2 s
+    Should Be Equal                     '${status}'  'False'
+
+
+Este_2  [arguments]  ${testipaikka}  ${Este_tyyppi}
+    wait until element is visible               ${valitse tietolaji}
+    vaihda tietolaji                            ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
-    click element                               ${zoombar_plus}
     #Odota sivun latautuminen
     Log  klikataan Esterakennelman kohdalta
-    click element                               ${zoombar_plus}
-    click element                               ${zoombar_plus}
-    wait until Screen Contain                   esterakennelma_e2.png     5
-    set selenium speed          0.3
+    Zoomaa kartta                               5  20 m
+    Odota sivun latautuminen
+    #set selenium speed          0.3
     click element at coordinates                ${kartta}   0  20
-    #testklick
-    Set Selenium Speed          ${DELAY}
-    Log  Varmistetaan, että formin link ID on oikein
-    wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           10790838
 
-Este_3  [arguments]  ${testipaikka}
+    Log  Käydään läpi eri esterakennelmien tyypit
+
+    wait until element is visible               ${FA_otsikko}
+    Run Keyword if  '${Este_tyyppi}'=='Geometrian ulkopuolella'  
+    ...  Element Should Contain  ${FA_Geometria_Notifikaatio}  tarkista ja korjaa
+
+    Run Keyword if  '${Este_tyyppi}'=='Suljettu yhteys'  
+    ...  Element Should Contain  ${FA_Esterakennelma_tyyppi}  Suljettu yhteys
+
+    Run Keyword if  '${Este_tyyppi}'=='Avattava puomi'  
+    ...  Element Should Contain  ${FA_Esterakennelma_tyyppi}  Avattava puomi
+
+    click element at coordinates                ${kartta}   0  -100
+
+    #Set Selenium Speed          ${DELAY}
+    # Log  Varmistetaan, että formin link ID on oikein
+    #wait until element is visible               ${FA_otsikko}
+    #element should contain                      ${FA_otsikko}           10790838
+
+Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
     wait until element is visible       ${valitse tietolaji}
     vaihda tietolaji                    ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               4  20 m
     Log  Siirrytään muokkaustilaan, valitaan esterakennelma ja muokataan sitä.
-    #Odota sivun latautuminen
+    Valitse Esterakennelma
+    #click element at coordinates                ${kartta}   0   20
+    #wait until element is visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Esterakennelma_tyyppi}  ${Este_tyyppi}
+
+    Log  Siirretään setettä ja tarkistetaan, että siirron jälkeen tulee muokkausvaroitus.
     Siirry muokkaustilaan
-    wait until Screen Contain                   esterakennelma_e3.png     5
-    click element at coordinates                ${kartta}   0   20
-    wait until element is visible               ${FA_otsikko}
-    DDM_tietolajit
-    Siirrä este                                 40   5
+    Siirrä este                                 -100  25
     Click element at coordinates                ${Kartta}  100  100
-    Click Button                                Sulje
-    #Pause Execution  esterakennelma_e3.png
-    wait until Screen Contain                   esterakennelma_e4.png  5 
+    Wait Until Element Is Visible               ${Muokkausvaroitus}
+    Click Button                                ${Muokkausvaroitus_Sulje_btn}
+    click element                               ${FA_footer_Peruuta}
+    Sleep  5 s
+
+    Log  Tarkistetaan, että ominaisuustietojen muokkauksesta tulee muokkausvaroitus.
+    #click element at coordinates                ${kartta}   0   20
+    #wait until element is visible               ${FA_otsikko}
+    DDM_tietolajit
+    Click element at coordinates                ${Kartta}  100  100
+    Wait Until Element Is Visible               ${Muokkausvaroitus}
+    Click Button                                ${Muokkausvaroitus_Sulje_btn}
     click element                               ${FA_footer_Peruuta}
 
 Este_4  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Esterakennelma_RB}
+    ${date}=  Get Current Date                  result_format=%d.%m.%Y
+    wait until element is visible               ${valitse tietolaji}
+    vaihda tietolaji                            ${TL_Esterakennelma_RB}
     Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
-    #Odota sivun latautuminen
-    Log  Luodaan este
+    Zoomaa kartta                               5  20 m
+    Odota sivun latautuminen
+
+    Alusta Testipaikka
+    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+
+
     Luo este                                    tyyppi
-    click element                               ${FA_footer_Peruuta}
+    Siirry Katselutilaan
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    Poista Este
 
 
 #######################
@@ -94,14 +132,6 @@ Tarkista esteen olemassaolo
     ${passed}=  Run Keyword And Return Status   wait until element is visible    ${FA_otsikko}  timeout=3
     run keyword if  ${passed}  Poista este
 
-Poista este
-    click element                               ${FA_Este_Poista_chkbx}
-    click element                               ${FA_footer_Tallenna}
-    wait until element is visible               ${MuokkausVaroitus}
-    element text should be                      ${MuokkausVaroitus}     ${esteen_poisto}
-    click element                               ${muokkausvaroitus_kyllä_btn}
-
-
 Luo este  [arguments]  ${tyyppi}
     Log  Vaihtaa muokkaustilaan ja luo uuden esterakennelman kartan osoittamaan kohtaan.
     Siirry muokkaustilaan
@@ -110,9 +140,32 @@ Luo este  [arguments]  ${tyyppi}
     click element                               ${Muokkaustila_AddTool}
     click element at coordinates                ${kartta}  0   20
     wait until element is visible               ${FA_otsikko}
-    Täytetään esteen kentät
+    #Täytetään esteen kentät
+    Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           css=.spinner-overlay.modal-overlay
+
 
 Täytetään esteen kentät
     # Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät
     select from list by value                xpath=.//label[contains(text(), 'Esterakennelma')]/../select   1
 
+Valitse Esterakennelma
+    FOR  ${n}  IN RANGE  10
+        click element at coordinates                ${kartta}   0   20
+        ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
+        Exit For Loop If  '${status}'=='True'
+    END
+
+Alusta Testipaikka
+    Log  Jos testipaikalla on valmiiksi Este, vanha poistetaan.
+    Click Element At Coordinates                    ${Kartta}  0  20
+    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  10
+    Run Keyword If  '${status}'=='True'  Poista Este
+
+Poista Este
+    Siirry Muokkaustilaan
+    Click Element                               ${FA_Este_Poista_chkbx}
+    Click Element                               ${FA_footer_Tallenna}
+    #Odota sivun latautuminen
+    Wait Until Element Is Not Visible           css=.spinner-overlay.modal-overlay
+    Siirry Katselutilaan

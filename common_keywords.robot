@@ -7,6 +7,7 @@ Library                     Dialogs
 Library                     String
 Library                     SikuliLibrary
 Library                     selenium_extensions.py
+Library                     DateTime
 
 Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
@@ -21,7 +22,7 @@ Resource                    Keywords/KW_Opastustaulu.robot
 Resource                    Keywords/KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Headless Chrome  #Headless 
+${BROWSER}                  Chrome  #Headless 
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/

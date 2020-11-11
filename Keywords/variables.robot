@@ -104,9 +104,13 @@ ${FA_header_Tallenna}                           class=btn.btn-primary.save
 ${FA_header_Peruuta}                            class=btn.btn-secondary.close
 ${FA_footer_Tallenna}                           css=footer .save.btn.btn-primary
 ${FA_footer_Peruuta}                            css=footer .cancel.btn.btn-secondary
-${FA_Muokattu_viimeksi}                         css=#feature-attributes .form-group:first-of-type .form-control-static.asset-log-info
+${FA_Lisätty_Järjestelmään}                     css=#feature-attributes .form-group:first-of-type .form-control-static.asset-log-info
+${FA_Muokattu_viimeksi}                         css=#feature-attributes .form-group:nth-of-type(2) .form-control-static.asset-log-info
 ${FA_Linkkien_lkm}                              css=#feature-attributes .form-group:first-of-type+div .form-control-static.asset-log-info
 ${FA_Geometrian_lahde}                          css=#feature-attributes .form-group:first-of-type+div+div .form-control-static.asset-log-info
+${FA_Anna_Palautetta}                           css=.feedback-data-link.btn.btn-quaternary
+${FA_Geometria_Notifikaatio}                    css=.form-group.form-notification
+
 
 #${FA_locator_textinput}                         css=#feature-attributes .form-control[type="text"]:first-of-type
 ${FA_locator_textinput}                         css=.input-group .form-control

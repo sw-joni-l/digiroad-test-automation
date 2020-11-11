@@ -16,25 +16,27 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Esterakennelma 1
-    [Tags]              Este  Mandatory  Sikuli
+    [Tags]              Este  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Kartalla näkyvät Esterakennelma kun mittakaava on 1:20000 tai tarkempi.
-    KW_Esterakennelma.Este_1  6711750,240690
+    KW_Esterakennelma.Este_1  6711851,240709
 
 Esterakennelma 2
-    [Tags]              Este  Mandatory  Sikuli
+    [Tags]              Este  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
-    ...  - Tarkistetaan olemassa olevaa Esterakennelmaa - Formin id
-    KW_Esterakennelma.Este_2  6711833,239489
+    ...  - Tarkistetaan esterakenelmien tyyppi
+    KW_Esterakennelma.Este_2  6711851,240709  Suljettu yhteys
+    KW_Esterakennelma.Este_2  6820366,336639  Avattava puomi
+    KW_Esterakennelma.Este_2  6711833,239489  Geometrian ulkopuolella
 
 Esterakennelma 3
     [Tags]              Este  Mandatory  Sikuli
     [Documentation]     Esterakennelma, selain: ${BROWSER}
-    ...   - Esterakennelman väri muuttuu tyypin mukaan.
-    KW_Esterakennelma.Este_3  6818415,341991
+    ...   - Esterakennelmaa voi siirtää, sekä tyyppiä muokata.
+    KW_Esterakennelma.Este_3  6761072,212356  Suljettu yhteys
 
 Esterakennelma 4
     [Tags]              Este  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
-    ...   - Luodaan uusi kunnan ylläpitämä esterakennelma ja tarkistetaan formin validoinnit, sekä tietojen tallentuminen.
-    KW_Esterakennelma.Este_4  6707097, 251494
+    ...   - Luodaan uusi kunnan esteraknnelma, tarkistetaan luontipäivä ja poistetaan este.
+    KW_Esterakennelma.Este_4  7537607, 583699
