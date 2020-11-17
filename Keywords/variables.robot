@@ -124,7 +124,7 @@ ${FA_Liikennemäärä_Rajoitus}                    css=.form-control.traffic-vol
 
 #Suurin sallittu massa
 ${FA_SuurinSallittuMassa_Rajoitus}              css=.form-control.total-weight-limit
-
+${FA_Poista_chkbx}                              id=delete-checkbox
 
 
 ########################

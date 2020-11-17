@@ -17,70 +17,77 @@ ${FA_Opastustaulu_Poista_chkbx}                          id=removebox
 *** Keywords ***
 
 Opastustaulu_1  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Opastustaulu_RB}
-    Paikanna osoite                             ${testipaikka}
-    Log  Vaihdetaan mittakaava 1:20000
-    Odota sivun latautuminen
-    #Pause Execution  Opastustaulu_o1.png
-    wait until Screen Contain                       Opastustaulu_o1.png     5
-    Log  zoomataan kauemmas ja varmistetaan, ettei Opastustaulu ole enää näkyvissä
-    set selenium speed   0.3
-    click element                               ${zoombar_minus}
-    Set Min Similarity   0.9
-    Odota sivun latautuminen
-    Screen Should Not Contain                   Opastustaulu_o1.png
+    Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
+    Siirry Testipaikkaan                        ${TL_Opastustaulu_RB}  ${testipaikka}
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Click Element At Coordinates                ${Kartta}  0  -100
+    Wait Until Element Is Not Visible           ${FA_otsikko}
+
+    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    set selenium speed                          0.3
+    Repeat Keyword  4 times                     click element  ${zoombar_minus}
     Set Selenium Speed                          ${DELAY}
-    click element                               ${zoombar_minus}
     Odota sivun latautuminen
-    Screen Should Not Contain                   Opastustaulu_o1.png
-    Set Min Similarity   0.9
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Not Visible           ${FA_otsikko}
 
 Opastustaulu_2  [arguments]  ${testipaikka}
-    wait until element is visible               ${valitse tietolaji}
-    vaihda tietolaji                            ${TL_Opastustaulu_RB}
-    Paikanna osoite                             ${testipaikka}
-    click element                               ${zoombar_plus}
-#    Odota sivun latautuminen
-    Log  klikataan Opastustaulun kohdalta
-    click element                               ${zoombar_plus}
-    click element                               ${zoombar_plus}
-    click element                               ${zoombar_plus}
-    wait until Screen Contain                   Opastustaulu_o2.png     5
-    set selenium speed          0.3
-    click element at coordinates                ${kartta}   0   20
-    Set Selenium Speed                          ${DELAY}
-    Log  Varmistetaan, että formin link ID on oikein
+    Log  Arvotaan Geometrian ulkopuolelle jääneet opastustaulut Listalta kohde ja tarkistetaan, että ID Täsmää.
+    Vaihda Tietolaji                            ${TL_Opastustaulu_RB}
+    Click Button                                Geometrian ulkopuolelle jääneet opastustaulut
+    wait until element is visible               css=.content-box>header  20
+    page should contain                         Kunnan omistama
+    page should contain                         Yksityisen omistama
+    page should contain                         Valtion omistama
+    Arvo linkki korjattavien listalta
+    wait until element is visible               ${tmp_ListLocator}
+    ${tmp_linkID}=  Seleniumlibrary.get text                    ${tmp_ListLocator}
+    ${tmp_linkID}=  remove string               ${tmp_linkID}   \#directionalTrafficSigns/
+    click element                               ${tmp_ListLocator}
+    Odota sivun latautuminen
+    Click Element At Coordinates                ${Kartta}  0  20
     wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           ID: 10847869
+    Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
+    element should contain                      ${FA_otsikko}  ${tmp_linkID}
 
 Opastustaulu_3  [arguments]  ${testipaikka}
-    wait until element is visible               ${valitse tietolaji}
-    vaihda tietolaji                            ${TL_Opastustaulu_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
-    Log  Siirrytään muokkaustilaan, valitaan Opastustaulu ja muokataan sitä.
+    Log  Valitaan opastustaulu ja muutetaan sen vaikutussuuntaa. Tietoja ei talleteta.
+    Siirry Testipaikkaan                        ${TL_Opastustaulu_RB}  ${testipaikka}
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
     Odota sivun latautuminen
     Siirry muokkaustilaan
-    wait until Screen Contain                   Opastustaulu_o3.png     5
-    click element at coordinates                ${kartta}   0   20
+    #click element at coordinates                ${kartta}   0   20
     wait until element is visible               ${FA_otsikko}
     click element                               css=#change-validity-direction
+    Element should be enabled                   ${FA_footer_Tallenna}
+    Click Button                                ${FA_footer_Peruuta}
+    Odota sivun latautuminen
+
+    Log  Siirretään Opastustaulua
+    #Click Element At Coordinates                ${Kartta}  100  100
     Siirrä Opastustaulu                         40   5
     Click element at coordinates                ${Kartta}  100  100
-    Click Button                                Sulje                       
-    wait until Screen Contain                   Opastustaulu_o4.png     5   
+    Wait Until Element Is Visible               ${MuokkausVaroitus}
+    Click Button                                Sulje
     click element                               ${FA_footer_Peruuta}
 
 Opastustaulu_4  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Opastustaulu_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
-#    Odota sivun latautuminen
-    Log  Luodaan Opastustaulu
-    Luo Opastustaulu                             tyyppi
-    click element                               ${FA_footer_Peruuta}
+    ${date}=  Get Current Date                  result_format=%d.%m.%Y
+    Siirry Testipaikkaan                        ${TL_Opastustaulu_RB}  ${testipaikka}
+    Odota sivun latautuminen
+
+    Alusta Testipaikka
+    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+
+
+    Luo Opastustaulu                            tyyppi
+    Siirry Katselutilaan
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    Poista Kohde
 
 
 #######################
@@ -116,6 +123,7 @@ Luo Opastustaulu  [arguments]  ${tyyppi}
     click element at coordinates                ${kartta}  0  20
     wait until element is visible               ${FA_otsikko}
     Täytetään Opastustaulun kentät
+    Click Element                                  ${FA_footer_Tallenna}
 
 Täytetään Opastustaulun kentät
     # Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät

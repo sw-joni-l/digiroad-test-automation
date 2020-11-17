@@ -154,6 +154,20 @@ Siirry Testipaikkaan
     Zoomaa kartta                       5  20 m
     Odota sivun latautuminen
 
+Alusta Testipaikka
+    Log  Jos testipaikalla on valmiiksi kohde, vanha poistetaan.
+    Click Element At Coordinates                    ${Kartta}  0  20
+    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  10
+    Run Keyword If  '${status}'=='True'  Poista Kohde
+
+Poista Kohde
+    Siirry Muokkaustilaan
+    Click Element                               ${FA_Poista_chkbx}
+    Click Element                               ${FA_footer_Tallenna}
+    #Odota sivun latautuminen
+    Wait Until Element Is Not Visible           css=.spinner-overlay.modal-overlay
+    Siirry Katselutilaan
+
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille
     tklick    0   0

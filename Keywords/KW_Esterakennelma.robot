@@ -6,7 +6,6 @@ Documentation       Keywords for obstacles (Esterakennelma)
 ${LocatorForDDM}                                css=#feature-attributes .form-group.editable select:first-of-type
 ${LocatorForDDM_Selection}                      css=select > option:nth-child(2)
 ${Esteen_poisto}                                Haluatko varmasti poistaa esteen?
-${FA_Este_Poista_chkbx}                         id=delete-checkbox
 ${FA_Esterakennelma_tyyppi}                     css=#feature-attributes-form > div > div > div.form-group.editable.form-obstacle > p
 
 
@@ -16,23 +15,17 @@ Este_1  [arguments]  ${testipaikka}
     Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
     Siirry Testipaikkaan                ${TL_Esterakennelma_RB}  ${testipaikka}
 
-    #Click Element At Coordinates        ${Kartta}  0  20
-    #Wait Until Element contains         ${FA_Lisätty_Järjestelmään}  Lisätty järjestelmään:
     Valitse Esterakennelma
     Click Element At Coordinates        ${Kartta}  0  -100
-    # Alla oleva ratkaisu tarkistaa onko elementti valittuna kartalta
-    ${status}=  Run Keyword And Return Status  Wait Until Element contains  ${FA_Muokattu_viimeksi}  Lisätty järjestelmään:  2 s
-    Should Be Equal                     '${status}'  'False'
-    #Element should be visible             ${FA_Muokattu_viimeksi}
-
+    Wait Until Element Is Not Visible   ${FA_otsikko}
 
     Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
     set selenium speed                  0.3
     Repeat Keyword                      4 times  click element  ${zoombar_minus}
     Set Selenium Speed                  ${DELAY}
+    Odota sivun latautuminen
     Click Element At Coordinates        ${Kartta}  0  20
-    ${status}=  Run Keyword And Return Status  Wait Until Element contains  ${FA_Muokattu_viimeksi}  Lisätty järjestelmään:  2 s
-    Should Be Equal                     '${status}'  'False'
+    Wait Until Element Is Not Visible   ${FA_otsikko}
 
 
 Este_2  [arguments]  ${testipaikka}  ${Este_tyyppi}
@@ -93,7 +86,7 @@ Este_4  [arguments]  ${testipaikka}
     Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
     Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
-    Poista Este
+    Poista Kohde
 
 
 #######################
@@ -101,7 +94,7 @@ Este_4  [arguments]  ${testipaikka}
 #######################
 
 Siirrä este  [Arguments]  ${xKoord}  ${yKoord}
-# Siirtää valittua estettä annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
+    # Siirtää valittua estettä annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
     Seleniumlibrary.mouse down                      css=[class='crosshair crosshair-center']
     Seleniumlibrary.drag and drop by offset         css=[class='crosshair crosshair-center']  ${xKoord}  ${yKoord}
     Seleniumlibrary.mouse up                        css=[class='crosshair crosshair-center']
@@ -136,16 +129,4 @@ Valitse Esterakennelma
         Exit For Loop If  '${status}'=='True'
     END
 
-Alusta Testipaikka
-    Log  Jos testipaikalla on valmiiksi Este, vanha poistetaan.
-    Click Element At Coordinates                    ${Kartta}  0  20
-    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  10
-    Run Keyword If  '${status}'=='True'  Poista Este
 
-Poista Este
-    Siirry Muokkaustilaan
-    Click Element                               ${FA_Este_Poista_chkbx}
-    Click Element                               ${FA_footer_Tallenna}
-    #Odota sivun latautuminen
-    Wait Until Element Is Not Visible           css=.spinner-overlay.modal-overlay
-    Siirry Katselutilaan

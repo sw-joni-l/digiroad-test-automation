@@ -16,15 +16,15 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Opastustaulu 1
-    [Tags]              Opastustaulu  Mandatory  Sikuli
+    [Tags]              Opastustaulu  Mandatory
     [Documentation]      Opastustaulu, selain: ${BROWSER}
     ...  - Kartalla näkyvät  Opastustaulu kun mittakaava on 1:20000 tai tarkempi.
-    KW_Opastustaulu.Opastustaulu_1  6738086,251274
+    KW_Opastustaulu.Opastustaulu_1  6738107,251253
 
 Opastustaulu 2
-    [Tags]              Opastustaulu  Mandatory  Sikuli
+    [Tags]              Opastustaulu  Mandatory
     [Documentation]      Opastustaulu, selain: ${BROWSER}
-    ...  - Tarkistetaan olemassa olevaa  Opastustaulut - Formin id
+    ...  - Geometrian Ulkopuolelle jääneet opastaulut.
     KW_Opastustaulu.Opastustaulu_2  6738106,251254
 
 Opastustaulu 3
@@ -37,4 +37,4 @@ Opastustaulu 4
     [Tags]              Opastustaulu  Mandatory
     [Documentation]      Opastustaulu, selain: ${BROWSER}
     ...   - Luodaan uusi kunnan ylläpitämä  Opastustaulu ja tarkistetaan formin validoinnit, sekä tietojen tallentuminen.
-    KW_Opastustaulu.Opastustaulu_4  6737734, 251162
+    KW_Opastustaulu.Opastustaulu_4  7537607, 583699
