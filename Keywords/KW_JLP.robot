@@ -14,7 +14,7 @@ ${Pysäkin_poisto}                               Haluatko varmasti poistaa pysä
 
 
 ##### Joukkoliikenteen pysäkit ####
-${FA_JLP_Poista_chkbx}                          id=removebox
+${FA_JLP_Poista_chkbx}                          css=input#removebox
 ${FA_JLP_Nimi_fi}
 ${FA_JLP_Nimi_se}
 ${FA_JLP_Osoite_fi}
@@ -28,6 +28,7 @@ ${FA_JLP_MaastokoordinaattiY}
 ${FA_JLP_MaastokoordinaattiZ}
 ${FA_JLP_Liikennöintisuunta}
 ${FA_JLP_Vaikutussuunta}
+${FA_JLP_Liitetytpysäkit}                       css=.choice-terminal-group
 
 ${FA_viimeinen_voimassaolopvm}                  id=viimeinen_voimassaolopaiva
 ${FA_kalenterin_EI_tietoa_nappi}                xpath=.//*[@class="pika-single is-bound"] //*[@class="deselect-button"]
@@ -47,57 +48,38 @@ ${kalenterin_nappi_eitietoa}                    kalenteri_eitietoa.png
 *** Keywords ***
 
 JLP_1  [arguments]  ${testipaikka}
-    Paikanna osoite                             ${testipaikka}
-    Log  Vaihdetaan mittakaava 1:20000
+    Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
+    Siirry Testipaikkaan                        ${TL_Joukkoliikenteen_pysäkki_RB}  ${testipaikka}
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+
+    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    set selenium speed                          0.3
+    Repeat Keyword  4 times                     click element  ${zoombar_minus}
+    Set Selenium Speed                          ${DELAY}
     Odota sivun latautuminen
-    Screen Should Contain                       kaukoliikennepysakki_jlp1.png
-    Log  zoomataan kauemmas ja varmistetaan, ettei pysäkkiaineisto ole enää näkyvissä
-    set selenium speed   0.3
-    click element                               ${zoombar_minus}
-    Set Min Similarity   0.9
-    Odota sivun latautuminen
-    Screen Should Not Contain                   kaukoliikennepysakki_jlp1.png
-    Set Selenium Speed              ${DELAY}
-    click element                               ${zoombar_minus}
-    Odota sivun latautuminen
-    Screen Should Not Contain                   kaukoliikennepysakki_jlp1.png
-    Set Min Similarity   0.9     # oli 0.6
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Not Visible           ${FA_otsikko}
 
 JLP_2  [arguments]  ${testipaikka}
-    Paikanna osoite                             ${testipaikka}
-    click element                               ${zoombar_plus}
-    Odota sivun latautuminen
-    Log  klikataan pysäkin infopallura näkyvvin
+    Log  Avataan Terminaali Pysäkki, Tarkistetaan liitetyt pysäkit
+    Siirry Testipaikkaan                        ${TL_Joukkoliikenteen_pysäkki_RB}  ${testipaikka}
     click element at coordinates                ${kartta}  0   20
-    #  OL3 WA vaihda kuvaan koko infoboksi
-    Screen Should Contain                              ${kaukoliikennepysakki_valittu}
-    Log  Varmistetaan, että bussipallurassa näkyvä link ID on sama kuin formilla
-    #   OL3 WA
-    #    ${tmp_padder_id}=  get text                 ${Pysäkin_pallura_LinkID}
-    wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           78643
-    Log  Siirrytään muokkaustilaan ja asetetaan pysäkki vanhentuneeksi (kesken)
-    click element                               ${Siirry muokkaustilaan}
-    wait until element is visible               css=.form-group:nth-of-type(3) .form-control:nth-of-type(1)
-    execute javascript  var element = document.getElementById("viimeinen_voimassaolopaiva");
-    ...  element.scrollIntoView({block: "end"});
-    wait until element is visible               ${FA_viimeinen_voimassaolopvm}
-    click element                               ${FA_viimeinen_voimassaolopvm}
-    SikuliLibrary.Wait Until Screen Contain     ${kalenterin_nappi_eitietoa}   5
-    SikuliLibrary.Click                         ${kalenterin_nappi_eitietoa}
-    click element                               ${FA_footer_Peruuta}
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element should contain                      ${FA_otsikko}           Valtakunnallinen ID: 312907
+    Element should contain                      ${FA_JLP_Liitetytpysäkit}  232577 Kamppi (M)
+
 
 
 JLP_3  [arguments]  ${testipaikka}  ${ELY}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
+    Siirry Testipaikkaan                        ${TL_Joukkoliikenteen_pysäkki_RB}  ${testipaikka}
     Log  Siirrytään muokkaustilaan, valitaan pysäkki ja siirretään sitä.
     Odota sivun latautuminen
     Siirry muokkaustilaan
     click element at coordinates                ${kartta}  20  -5
     wait until element is visible               ${FA_otsikko}
     Odota sivun latautuminen
-    wanha Siirrä Pysäkkiä                             -300  -100
+    wanha Siirrä Pysäkkiä                       -300  -100
     wait until element is visible               ${MuokkausVaroitus}
     run keyword if  '${ELY}' == 'kyllä'         element text should be   ${MuokkausVaroitus}    ${ELY_Pysakin_siirto_yli50m_popup}
     ...  ELSE                                   element text should be   ${MuokkausVaroitus}    ${Pysakin_siirto_yli50m_popup}
@@ -105,13 +87,32 @@ JLP_3  [arguments]  ${testipaikka}  ${ELY}
     click element                               ${FA_footer_Peruuta}
 
 
-JLP_4  [arguments]  ${testipaikka}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               2  20 m
+JLP_4  [arguments]  ${testipaikka}  ${ylläpitäjä}
+    ${date}=  Get Current Date                  result_format=%d.%m.%Y
+    Siirry Testipaikkaan                        ${TL_Joukkoliikenteen_pysäkki_RB}  ${testipaikka}
     Odota sivun latautuminen
-    Log  Luodaan pysäkki
-    Luo pysäkki                                 Kunta
-    click element                               ${FA_footer_Peruuta}
+
+    Tarkista pysäkin olemassaolo
+    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+    Vaihda Tietolaji                            ${TL_Esterakennelma_RB}
+    Vaihda Tietolaji                            ${TL_Joukkoliikenteen_pysäkki_RB}
+    Odota sivun latautuminen
+
+    Luo pysäkki                                 ${ylläpitäjä}
+    Odota sivun latautuminen
+    Siirry Katselutilaan
+    Vaihda Tietolaji                            ${TL_Esterakennelma_RB}
+    Vaihda Tietolaji                            ${TL_Joukkoliikenteen_pysäkki_RB}
+    Odota sivun latautuminen
+    FOR  ${var}  IN RANGE  10
+        #For loopilla varmistetaan elementin avaaminen, 
+        Click Element At Coordinates                ${Kartta}  0  20
+        ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  3 s
+        Exit For Loop If  ${status}
+        Run Keyword If  ${var} == 9  Fail  Ei Voitu Avata Kohteen Tietoja
+    END
+    Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    Poista Pysäkki
 
 
 #######################
@@ -131,32 +132,41 @@ Wanha_Siirrä Pysäkkiä  [Arguments]  ${xKoord}  ${yKoord}
 
 Tarkista pysäkin olemassaolo
 # Käytetään uutta pysäkkiä luotaessa - Tarkistaa jos pysäkki on jo olemassa ja poistaa sen.
-    click element at coordinates                ${kartta}  20  -30
+    click element at coordinates                ${kartta}  0  20
     ${passed}=  Run Keyword And Return Status   wait until element is visible    ${FA_otsikko}  timeout=3
     run keyword if  ${passed}  Poista Pysäkki
 
 Poista Pysäkki
+    #Pause Execution  Muokkaustila
+    Siirry Muokkaustilaan
+    Wait Until Element Is Visible               ${FA_JLP_Poista_chkbx}
     click element                               ${FA_JLP_Poista_chkbx}
     click element                               ${FA_footer_Tallenna}
     wait until element is visible               ${MuokkausVaroitus}
     element text should be                      ${MuokkausVaroitus}     ${Pysäkin_poisto}
+    Wait until element is not visible           ${Map_popup}
     click element                               ${muokkausvaroitus_kyllä_btn}
+    Siirry Katselutilaan
 
 
 Luo pysäkki  [arguments]  ${ylläpitäjä}
     Log  Vaihtaa muokkaustilaan ja luo uuden bussipysäkin kartan osoittamaan kohtaan.
     Siirry muokkaustilaan
     Odota sivun latautuminen
-    Tarkista pysäkin olemassaolo
+    #Tarkista pysäkin olemassaolo
     click element                               ${Muokkaustila_AddTool}
     click element at coordinates                ${kartta}  0   20
     wait until element is visible               ${FA_otsikko}
-    Täytetään pysäkin kentät
+    Täytetään pysäkin kentät                    ${ylläpitäjä}
+    Click Element                               ${FA_footer_Tallenna}
+    #Wait Until Element Is Visible               ${MuokkausVaroitus}
+    #Click Button                                Kyllä
 
 
 
-Täytetään pysäkin kentät
+Täytetään pysäkin kentät  [arguments]  ${ylläpitäjä}
     # Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät: virtuaalipysäkki, pikavuoro yksinään
-    Seleniumlibrary.Input text              css=#nimi_suomeksi    Testi
+    Seleniumlibrary.Input text               css=#nimi_suomeksi    Testi
     click element                            xpath=.//label[contains(text(), 'Virtuaalipysäkki')]
-    select from list by value                xpath=.//label[contains(text(), 'Tietojen ylläpitäjä')]/../select   1
+    Run Keyword If  '${ylläpitäjä}'=='ELY'  select from list by value  xpath=.//label[contains(text(), 'Tietojen ylläpitäjä')]/../select  2
+    Run Keyword If  '${ylläpitäjä}'=='Kunta'  select from list by value  xpath=.//label[contains(text(), 'Tietojen ylläpitäjä')]/../select  1
