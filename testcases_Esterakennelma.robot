@@ -30,7 +30,7 @@ Esterakennelma 2
     KW_Esterakennelma.Este_2  6711833,239489  Geometrian ulkopuolella
 
 Esterakennelma 3
-    [Tags]              Este  Mandatory  Sikuli
+    [Tags]              Este  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...   - Esterakennelmaa voi siirtää, sekä tyyppiä muokata.
     KW_Esterakennelma.Este_3  6761072,212356  Suljettu yhteys

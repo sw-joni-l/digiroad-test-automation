@@ -63,7 +63,7 @@ Suojatie_3  [arguments]  ${testipaikka}
     Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
     Siirry muokkaustilaan
-    Siirrä Opastustaulu                         40   5
+    Siirrä Kohde                         40   5
     Click element at coordinates                ${Kartta}  100  100
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Click Button                                Sulje

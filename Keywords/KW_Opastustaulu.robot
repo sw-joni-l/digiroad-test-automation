@@ -45,9 +45,9 @@ Opastustaulu_2  [arguments]  ${testipaikka}
     ${tmp_linkID}=  Seleniumlibrary.get text                    ${tmp_ListLocator}
     ${tmp_linkID}=  remove string               ${tmp_linkID}   \#directionalTrafficSigns/
     click element                               ${tmp_ListLocator}
+    Sleep  1 s
     Odota sivun latautuminen
-    Click Element At Coordinates                ${Kartta}  0  20
-    wait until element is visible               ${FA_otsikko}
+    Valitse Kohde
     Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
     element should contain                      ${FA_otsikko}  ${tmp_linkID}
 
