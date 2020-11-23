@@ -53,7 +53,7 @@ JLP_1  [arguments]  ${testipaikka}
     Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
 
-    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    Log  zoomataan kauemmas ja varmistetaan, ettei Pysäkkiä ole enää näkyvissä
     set selenium speed                          0.3
     Repeat Keyword  4 times                     click element  ${zoombar_minus}
     Set Selenium Speed                          ${DELAY}
@@ -93,7 +93,7 @@ JLP_4  [arguments]  ${testipaikka}  ${ylläpitäjä}
     Odota sivun latautuminen
 
     Tarkista pysäkin olemassaolo
-    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+    Log  Luodaan uusi JLP, tarkistetaan Datetimen avulla luontipäivä.
     Vaihda Tietolaji                            ${TL_Esterakennelma_RB}
     Vaihda Tietolaji                            ${TL_Joukkoliikenteen_pysäkki_RB}
     Odota sivun latautuminen

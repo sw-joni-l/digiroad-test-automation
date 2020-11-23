@@ -168,6 +168,19 @@ Poista Kohde
     Wait Until Element Is Not Visible           css=.spinner-overlay.modal-overlay
     Siirry Katselutilaan
 
+Siirrä Kohde  [Arguments]  ${xKoord}  ${yKoord}
+    # Siirtää valittua Opastustaulu annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
+    Seleniumlibrary.mouse down                      css=[class='crosshair crosshair-center']
+    Seleniumlibrary.drag and drop by offset         css=[class='crosshair crosshair-center']  ${xKoord}  ${yKoord}
+    Seleniumlibrary.mouse up                        css=[class='crosshair crosshair-center']
+
+Valitse Kohde
+    FOR  ${n}  IN RANGE  10
+        click element at coordinates                ${kartta}   0   20
+        ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
+        Exit For Loop If  '${status}'=='True'
+    END
+
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille
     tklick    0   0

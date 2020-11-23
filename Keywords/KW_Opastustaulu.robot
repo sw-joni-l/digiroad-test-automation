@@ -24,7 +24,7 @@ Opastustaulu_1  [arguments]  ${testipaikka}
     Click Element At Coordinates                ${Kartta}  0  -100
     Wait Until Element Is Not Visible           ${FA_otsikko}
 
-    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    Log  zoomataan kauemmas ja varmistetaan, ettei Opastustaulua ole enää näkyvissä
     set selenium speed                          0.3
     Repeat Keyword  4 times                     click element  ${zoombar_minus}
     Set Selenium Speed                          ${DELAY}
@@ -67,7 +67,7 @@ Opastustaulu_3  [arguments]  ${testipaikka}
 
     Log  Siirretään Opastustaulua
     #Click Element At Coordinates                ${Kartta}  100  100
-    Siirrä Opastustaulu                         40   5
+    Siirrä Kohde                                40   5
     Click element at coordinates                ${Kartta}  100  100
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Click Button                                Sulje
@@ -79,7 +79,7 @@ Opastustaulu_4  [arguments]  ${testipaikka}
     Odota sivun latautuminen
 
     Alusta Testipaikka
-    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+    Log  Luodaan uusi Opastustaulu, tarkistetaan Datetimen avulla luontipäivä.
 
 
     Luo Opastustaulu                            tyyppi
@@ -93,12 +93,6 @@ Opastustaulu_4  [arguments]  ${testipaikka}
 #######################
 ## Sisäiset keywordit #
 #######################
-
-Siirrä Opastustaulu  [Arguments]  ${xKoord}  ${yKoord}
-# Siirtää valittua Opastustaulu annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
-    Seleniumlibrary.mouse down                      css=[class='crosshair crosshair-center']
-    Seleniumlibrary.drag and drop by offset         css=[class='crosshair crosshair-center']  ${xKoord}  ${yKoord}
-    Seleniumlibrary.mouse up                        css=[class='crosshair crosshair-center']
 
 Tarkista Opastustaulun olemassaolo
 # Käytetään uutta Opastustaulutä luotaessa - Tarkistaa jos Opastustaulu on jo olemassa ja poistaa sen.

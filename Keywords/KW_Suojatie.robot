@@ -17,68 +17,73 @@ ${FA_Suojatie_Poista_chkbx}                          id=removebox
 *** Keywords ***
 
 Suojatie_1  [arguments]  ${testipaikka}
-    #HUOM: Odota sivun latautuminen kestää pitkään, SikuliKuva on ilman sivun latausta
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Suojatie_RB}
-    Paikanna osoite                             ${testipaikka}
-    Log  Vaihdetaan mittakaava 1:20000
-    #Odota sivun latautuminen
-    wait until Screen Contain                   suojatie_s1.png     10
-    Log  zoomataan kauemmas ja varmistetaan, ettei Suojatie ole enää näkyvissä
-    set selenium speed   0.3
-    click element                               ${zoombar_minus}
-    Set Min Similarity   0.9
-    #Odota sivun latautuminen
-    Screen Should Not Contain                   suojatie_s1.png
-    Set Selenium Speed              ${DELAY}
-    click element                               ${zoombar_minus}
-    #Odota sivun latautuminen
-    Screen Should Not Contain                   suojatie_s1.png
-    Set Min Similarity   0.9
+    Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
+    Siirry Testipaikkaan                ${TL_Suojatie_RB}  ${testipaikka}
+    Click Element At Coordinates        ${Kartta}  0  20
+    Wait Until Element Is Visible       ${FA_otsikko}
+    Click Element At Coordinates        ${Kartta}  0  -100
+    Wait Until Element Is Not Visible   ${FA_otsikko}
 
-Suojatie_2  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Suojatie_RB}
-    Paikanna osoite                             ${testipaikka}
-    Repeat Keyword  4 times                     click element  ${zoombar_plus}
+    Log  zoomataan kauemmas ja varmistetaan, ettei suojatie ole enää näkyvissä
+    set selenium speed                  0.3
+    Repeat Keyword                      4 times  click element  ${zoombar_minus}
+    Set Selenium Speed                  ${DELAY}
     Odota sivun latautuminen
-    Log  klikataan Suojatien kohdalta
-    wait until Screen Contain                   suojatie_s2.png     5
-    sleep  1
+    Click Element At Coordinates        ${Kartta}  0  20
+    Wait Until Element Is Not Visible   ${FA_otsikko}
+
+Suojatie_2  [arguments]  ${Lista}
+    Log  Arvotaan Geometrian ulkopuolelle jääneet opastustaulut tai Laatuvirhe Listalta kohde ja tarkistetaan, että ID Täsmää.
+    Vaihda Tietolaji                            ${TL_Suojatie_RB}
+
+    Run Keyword If  '${Lista}'=='Geometrian'    Click Button  Geometrian ulkopuolelle jääneet suojatiet
+    Run Keyword If  '${Lista}'=='Laatuvirhe'    Click Button  Laatuvirhelista
+
+    wait until element is visible               css=.content-box>header  20
+    page should contain                         Kunnan omistama
+    page should contain                         Yksityisen omistama
+    page should contain                         Valtion omistama
+    Arvo linkki korjattavien listalta
+    wait until element is visible               ${tmp_ListLocator}
+    ${tmp_linkID}=  Seleniumlibrary.get text    ${tmp_ListLocator}
+
+    ${tmp_linkID}=  Run Keyword If  '${Lista}'=='Geometrian'  remove string  ${tmp_linkID}  \#pedestrianCrossings/
+    #...             ELSE IF         '${Lista}'=='Laatuvirhe'  remove string  ${tmp_linkID}  \#pedestrianCrossingsErrors/
+
+    click element                               ${tmp_ListLocator}
     Odota sivun latautuminen
-    click element at coordinates                ${kartta}   0   20
-    Log  Varmistetaan, että formin link ID on oikein
-    wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           10634079
+    Valitse Kohde
+    Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
+    element should contain                      ${FA_otsikko}  ${tmp_linkID}
 
 Suojatie_3  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Suojatie_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5  20 m
-    Log  Siirrytään muokkaustilaan, valitaan Suojatie ja muokataan sitä.
+    Log  Valitaan Suojatie ja siirretään sitä, siirtoa ei talleteta.
+    Siirry Testipaikkaan                        ${TL_Suojatie_RB}  ${testipaikka}
     Odota sivun latautuminen
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
     Siirry muokkaustilaan
-    click element at coordinates                ${kartta}   0   20
-    wait until element is visible               ${FA_otsikko}
-    Siirrä Suojatie                             40   5
+    Siirrä Opastustaulu                         40   5
     Click element at coordinates                ${Kartta}  100  100
+    Wait Until Element Is Visible               ${MuokkausVaroitus}
     Click Button                                Sulje
-    wait until Screen Contain                   suojatie_s3.png     5
     click element                               ${FA_footer_Peruuta}
 
 Suojatie_4  [arguments]  ${testipaikka}
-    wait until element is visible               ${valitse tietolaji}
-    vaihda tietolaji                            ${TL_Suojatie_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5  20 m
+    ${date}=  Get Current Date                  result_format=%d.%m.%Y
+    Siirry Testipaikkaan                        ${TL_Suojatie_RB}  ${testipaikka}
     Odota sivun latautuminen
-    Log  Luodaan Suojatie
-    Luo Suojatie                                tyyppi
-    #Pause Execution  uusi suojatie
-    wait until Screen Contain                   suojatie_s4.png     5
-    click element                               ${FA_footer_Peruuta}
 
+    Alusta Testipaikka
+    Log  Luodaan uusi suojatie, tarkistetaan Datetimen avulla luontipäivä.
+
+
+    Luo Suojatie                                tyyppi
+    Siirry Katselutilaan
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    Poista Kohde
 
 #######################
 ## Sisäiset keywordit #
@@ -112,4 +117,5 @@ Luo Suojatie  [arguments]  ${tyyppi}
     click element                               ${Muokkaustila_AddTool}
     click element at coordinates                ${kartta}  0    20
     wait until element is visible               ${FA_otsikko}
+    Click Element                               ${FA_footer_Tallenna}
 

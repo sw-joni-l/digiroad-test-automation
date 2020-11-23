@@ -56,7 +56,7 @@ Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
 
     Log  Siirretään setettä ja tarkistetaan, että siirron jälkeen tulee muokkausvaroitus.
     Siirry muokkaustilaan
-    Siirrä este                                 -100  25
+    Siirrä Kohde                                 -100  25
     Click element at coordinates                ${Kartta}  100  100
     Wait Until Element Is Visible               ${Muokkausvaroitus}
     Click Button                                ${Muokkausvaroitus_Sulje_btn}
@@ -78,7 +78,7 @@ Este_4  [arguments]  ${testipaikka}
     Odota sivun latautuminen
 
     Alusta Testipaikka
-    Log  Luodaan este uusi este, tarkistetaan Datetimen avulla luontipäivä.
+    Log  Luodaan uusi este, tarkistetaan Datetimen avulla luontipäivä.
 
 
     Luo este                                    tyyppi
@@ -93,14 +93,8 @@ Este_4  [arguments]  ${testipaikka}
 ## Sisäiset keywordit #
 #######################
 
-Siirrä este  [Arguments]  ${xKoord}  ${yKoord}
-    # Siirtää valittua estettä annetun offsetin verran, arvot positiivisia keskipisteestä oikealle ja alas
-    Seleniumlibrary.mouse down                      css=[class='crosshair crosshair-center']
-    Seleniumlibrary.drag and drop by offset         css=[class='crosshair crosshair-center']  ${xKoord}  ${yKoord}
-    Seleniumlibrary.mouse up                        css=[class='crosshair crosshair-center']
-
 Tarkista esteen olemassaolo
-# Käytetään uutta estettä luotaessa - Tarkistaa jos este on jo olemassa ja poistaa sen.
+    # Käytetään uutta estettä luotaessa - Tarkistaa jos este on jo olemassa ja poistaa sen.
     click element at coordinates                ${kartta}  20  -30
     ${passed}=  Run Keyword And Return Status   wait until element is visible    ${FA_otsikko}  timeout=3
     run keyword if  ${passed}  Poista este
@@ -128,5 +122,4 @@ Valitse Esterakennelma
         ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
         Exit For Loop If  '${status}'=='True'
     END
-
 
