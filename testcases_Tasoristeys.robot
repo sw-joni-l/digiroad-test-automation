@@ -28,7 +28,7 @@ Tasoristeys 2
     KW_Tasoristeys.Tasoristeys_2
 
 Tasoristeys 3
-    [Tags]              Tasoristeys  Mandatory  Sikuli
+    [Tags]              Tasoristeys  Mandatory
     [Documentation]     Rautatien tasoristeys, selain: ${BROWSER}
     ...   - Rautatien tasoristeys muokkaus.
     KW_Tasoristeys.Tasoristeys_3  6714850,229269  Puolipuomi
