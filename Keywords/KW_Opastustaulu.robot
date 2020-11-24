@@ -30,7 +30,7 @@ Opastustaulu_1  [arguments]  ${testipaikka}
     Set Selenium Speed                          ${DELAY}
     Odota sivun latautuminen
     Click Element At Coordinates                ${Kartta}  0  20
-    Wait Until Element Is Not Visible           ${FA_otsikko}
+    Repeat Keyword  10 s                        Element Should Not Be Visible   ${FA_otsikko}
 
 Opastustaulu_2  [arguments]  ${testipaikka}
     Log  Arvotaan Geometrian ulkopuolelle jääneet opastustaulut Listalta kohde ja tarkistetaan, että ID Täsmää.

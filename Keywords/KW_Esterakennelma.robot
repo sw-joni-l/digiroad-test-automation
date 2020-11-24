@@ -25,7 +25,7 @@ Este_1  [arguments]  ${testipaikka}
     Set Selenium Speed                  ${DELAY}
     Odota sivun latautuminen
     Click Element At Coordinates        ${Kartta}  0  20
-    Wait Until Element Is Not Visible   ${FA_otsikko}
+    Repeat Keyword  10 s                Element Should Not Be Visible   ${FA_otsikko}
 
 
 Este_2  [arguments]  ${testipaikka}  ${Este_tyyppi}

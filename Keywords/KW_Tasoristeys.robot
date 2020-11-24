@@ -10,6 +10,7 @@ ${Tasoristeyksen_poisto}                        Haluatko varmasti poistaa tasori
 
 ##### Rautatien tasoristeykset ####
 ${FA_Tasoristeys_Poista_chkbx}                          id=removebox
+${FA_Tasoristeys_turvavarustus}                         css=.form > div:nth-child(5) > p
 
 
 
@@ -17,66 +18,83 @@ ${FA_Tasoristeys_Poista_chkbx}                          id=removebox
 *** Keywords ***
 
 Tasoristeys_1  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Rautatien_tasoristeys_RB}
-    Paikanna osoite                             ${testipaikka}
-    Log  Vaihdetaan mittakaava 1:20000
-    #Odota sivun latautuminen
-    wait until Screen Contain                       tasoristeys_t1.png     5
-    Log  zoomataan kauemmas ja varmistetaan, ettei tasoristeys ole enää näkyvissä
-    set selenium speed   0.3
-    click element                               ${zoombar_minus}
-    Set Min Similarity   0.9
-    #Odota sivun latautuminen
-    Screen Should Not Contain                   tasoristeys_t1.png
-    Set Selenium Speed              ${DELAY}
-    click element                               ${zoombar_minus}
-    #Odota sivun latautuminen
-    Screen Should Not Contain                   tasoristeys_t1.png
-    Set Min Similarity   0.9
+    Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
+    Siirry Testipaikkaan                ${TL_Rautatien_tasoristeys_RB}  ${testipaikka}
 
-Tasoristeys_2  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Rautatien_tasoristeys_RB}
-    Paikanna osoite                             ${testipaikka}
-    Repeat Keyword  4 times                     click element  ${zoombar_plus}
+    Valitse Esterakennelma
+    Element Should Contain              ${FA_otsikko}  ID: 10802452
+    Click Element At Coordinates        ${Kartta}  0  -100
+    Wait Until Element Is Not Visible   ${FA_otsikko}
+
+
+    Log  zoomataan kauemmas ja varmistetaan, ettei taoriesteys ole enää näkyvissä
+    set selenium speed                  0.3
+    Repeat Keyword                      4 times  click element  ${zoombar_minus}
+    Set Selenium Speed                  ${DELAY}
     Odota sivun latautuminen
-    Log  klikataan tasoristeyksen kohdalta
-    wait until Screen Contain                   tasoristeys_t2.png     5
-    set selenium speed          0.3
-    click element at coordinates                ${kartta}   -10  30
-    Set Selenium Speed          ${DELAY}
-    Log  Varmistetaan, että formin link ID on oikein
-    wait until element is visible               ${FA_otsikko}
-    element should contain                      ${FA_otsikko}           10802452
+    Click Element At Coordinates        ${Kartta}  0  20
+    Repeat Keyword  10 s                Element Should Not Be Visible   ${FA_otsikko}
 
-Tasoristeys_3  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Rautatien_tasoristeys_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5  10 m
-    Log  Siirrytään muokkaustilaan, valitaan tasoristeys ja muokataan sitä.
-    #Odota sivun latautuminen
+Tasoristeys_2  #[arguments]  ${testipaikka}
+    Log  Arvotaan Geometrian ulkopuolelle jääneet tasoristeykset listalta kohde ja tarkistetaan, että kohteen ID Täsmää.
+    Vaihda Tietolaji                            ${TL_Rautatien_tasoristeys_RB}
+    Click Button                                Geometrian ulkopuolelle jääneet tasoristeykset
+    
+    wait until element is visible               css=.content-box>header  20
+    page should contain                         Kunnan omistama
+    page should contain                         Yksityisen omistama
+    page should contain                         Valtion omistama
+
+    Arvo linkki korjattavien listalta
+    wait until element is visible               ${tmp_ListLocator}
+    ${tmp_linkID}=  Seleniumlibrary.get text    ${tmp_ListLocator}
+    ${tmp_linkID}=  remove string  ${tmp_linkID}  \#railwayCrossings/
+
+    click element                               ${tmp_ListLocator}
+    Odota sivun latautuminen
+    Valitse Kohde
+    element should contain                      ${FA_otsikko}  ${tmp_linkID}
+
+Tasoristeys_3  [arguments]  ${testipaikka}  ${Turvavarustus}
+    Log  Siirrytään muokkaustilaan, valitaan esterakennelma ja muokataan sitä.
+    wait until element is visible               ${valitse tietolaji}
+    Siirry Testipaikkaan                        ${TL_Rautatien_tasoristeys_RB}  ${testipaikka}
+    Valitse Esterakennelma
+    Element Should Contain                      ${FA_Tasoristeys_turvavarustus}  ${Turvavarustus}
+
+    Log  Siirretään setettä ja tarkistetaan, että siirron jälkeen tulee muokkausvaroitus.
     Siirry muokkaustilaan
-    click element at coordinates                ${kartta}   0   20
-    wait until element is visible               ${FA_otsikko}
+    Siirrä Kohde                                -10  -100
+    Click element at coordinates                ${Kartta}  100  100
+    Wait Until Element Is Visible               ${Muokkausvaroitus}
+    Click Button                                ${Muokkausvaroitus_Sulje_btn}
+    click element                               ${FA_footer_Peruuta}
+    Sleep  5 s
+
+    Log  Tarkistetaan, että ominaisuustietojen muokkauksesta tulee muokkausvaroitus.
+    #click element at coordinates                ${kartta}   0   20
+    #wait until element is visible               ${FA_otsikko}
     DDM_tietolajit
-    Siirrä tasoristeys                          -5   -105
-    Click Element At Coordinates                ${Kartta}  100  100
-    Click Button                                Sulje
-    #Pause Execution  tasoristeys_t3.png
-    wait until Screen Contain                   tasoristeys_t3.png     5
+    Click element at coordinates                ${Kartta}  100  100
+    Wait Until Element Is Visible               ${Muokkausvaroitus}
+    Click Button                                ${Muokkausvaroitus_Sulje_btn}
     click element                               ${FA_footer_Peruuta}
 
 Tasoristeys_4  [arguments]  ${testipaikka}
-    wait until element is visible       ${valitse tietolaji}
-    vaihda tietolaji                    ${TL_Rautatien_tasoristeys_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5  20 m
-    #Odota sivun latautuminen
-    Log  Luodaan tasoristeys
+    ${date}=  Get Current Date                  result_format=%d.%m.%Y
+    Siirry Testipaikkaan                        ${TL_Rautatien_tasoristeys_RB}  ${testipaikka}
+    Odota sivun latautuminen
+
+    Alusta Testipaikka
+    Log  Luodaan uusi este, tarkistetaan Datetimen avulla luontipäivä.
+
+
     Luo tasoristeys                             tyyppi
-    click element                               ${FA_footer_Peruuta}
+    Siirry Katselutilaan
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    Poista Kohde
 
 
 #######################
@@ -112,8 +130,9 @@ Luo tasoristeys  [arguments]  ${tyyppi}
     click element at coordinates                ${kartta}  0  20
     wait until element is visible               ${FA_otsikko}
     Täytetään tasoristeyksen kentät
+    Click Element                               ${FA_footer_Tallenna}
 
 Täytetään tasoristeyksen kentät
     #Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät
-    select from list by value                xpath=.//label[contains(text(), 'Turvavarustus')]/../select   1
+    select from list by value                xpath=.//label[contains(text(), 'Turvavarustus')]/../select   2
     Seleniumlibrary.input text              xpath=.//label[contains(text(), 'Nimi')]/../input    Testi
