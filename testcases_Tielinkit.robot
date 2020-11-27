@@ -23,7 +23,7 @@ Tielinkit 1
 
 
 Tielinkit 2
-    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
+    [Tags]              Roadlinks  Mandatory  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkit näkyvät ja ne saa valittua kun mittakaava on vähintään 1:20000.
     ...  Valinnan saa poistettua klikkaamalla muualle. Tielinkin valinta säilyy kun karttaa liikutellaan ja zoomaillaan.
@@ -105,10 +105,10 @@ Tielinkit 9
     KW_Tielinkit.Tielinkit_9
 
 #Tielinkit 10
-    [Tags]              Roadlinks  Optional  Layout
-    [Documentation]     Tielinkit, selain: ${BROWSER}
-    ...  - Jos toiminnallinen luokka tai linkkityyppi ei ole tiedossa, linkki on visualisoitu mustalla.
-    KW_Tielinkit.Tielinkit_10
+    #[Tags]              Roadlinks  Optional  Layout
+    #[Documentation]     Tielinkit, selain: ${BROWSER}
+    #...  - Jos toiminnallinen luokka tai linkkityyppi ei ole tiedossa, linkki on visualisoitu mustalla.
+    #KW_Tielinkit.Tielinkit_10
 
 #Tielinkit 11
     #[Tags]              Roadlinks  Optional  Functionality  Edit

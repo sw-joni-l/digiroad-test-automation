@@ -115,7 +115,7 @@ UI_5_radio_non-unit  [Arguments]  @{Tietolaji_lista}
       Tarkista muokkaustila radio non-unit  ${LocatorForRadiobuttons}  ${TL}
     END
 
-UI_5_radio_unit
+UI_5_radio_unit  [Arguments]  @{Tietolaji_lista}
     #sama testi kuin yllä, eri FA_locator tiedon syötölle
     Log  UI_5 Tietolajit jotka muokattavissa radiobuttonin kautta
     wait until element is visible           ${Taustakartta}
@@ -168,6 +168,7 @@ UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
     Zoomaa kartta                           5   20 m
     Odota sivun latautuminen
     click element at coordinates            ${kartta}   0   20
+    Wait until element is visible           ${FA_otsikko}
     Tarkista footer disabled
     Click Button                            Siirry muokkaamaan liikennevaloa
     Tarkista footer enabled

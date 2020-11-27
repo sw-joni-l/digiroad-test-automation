@@ -135,16 +135,12 @@ Tielinkit_2
     wait until element is visible               ${Map_popup}
     element text should be                      ${Map_popup}             ${Zoom_popup_context}
     Wait Until Element Is Not Visible           ${Map_popup}
-    Log  Varmistetaan, että tietolajin aineisto ole näkyvillä
-    Screen Should Contain                       ${tielinkkinakyma_turku}
-    Log  zoomataan lähemmäs ja testaan aineiston valinta
-    #Odota sivun latautuminen
     set selenium speed                          0.3
     Repeat Keyword  2 times  Click Element   ${zoombar_plus}
     set selenium speed                          ${DELAY}
     Odota sivun latautuminen
     Log  klikataan tielinkkiä kartalta
-        click element at coordinates                ${kartta}   0  20
+    click element at coordinates                ${kartta}   0  20
     double click element at coordinates         ${kartta}   0  20
 
     Log  Varmistetaan, että ominaisuustiedot tulevat näkyviin

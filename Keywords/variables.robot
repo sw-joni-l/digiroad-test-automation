@@ -197,18 +197,18 @@ ${map_overlay}                                  css=.spinner-overlay.modal-overl
 ## Listat
 
 @{Tietolaji_radiobtns}  
-...  ${TL_Tielinkki_RB}     ${TL_Kaistan_mallinnustyökalu_RB}       ${TL_Nopeusrajoitus_RB}     ${TL_Kääntymisrajoitus_RB}
-...  ${TL_Ajoneuvokohtaiset rajoitukset_RB}     ${TL_Pysäköintikielto_RB}       ${TL_VAK-rajoitus_RB}       
-...  ${TL_suurin_sallittu_massa_RB}     ${TL_Yhdistelmän suurin_sallittu_massa_RB}      ${TL_suurin_sallittu_akselimassa_RB}        ${TL_suurin_sallittu_telimassa_RB}
+...  ${TL_Tielinkki_RB}    ${TL_Nopeusrajoitus_RB}    ${TL_Kääntymisrajoitus_RB}
+...  ${TL_Ajoneuvokohtaiset rajoitukset_RB}     ${TL_Pysäköintikielto_RB}  ${TL_VAK-rajoitus_RB}
+...  ${TL_suurin_sallittu_massa_RB}     ${TL_Yhdistelmän suurin_sallittu_massa_RB}  ${TL_suurin_sallittu_akselimassa_RB}  ${TL_suurin_sallittu_telimassa_RB}
 ...  ${TL_suurin_sallittu_korkeus_RB}       ${TL_suurin_sallittu_pituus_RB}     ${TL_suurin_sallittu_leveys_RB}
 ...  ${TL_Päällyste_RB}     ${TL_Leveys_RB}     ${TL_Valaistus_RB}      ${TL_Kantavuus_RB}
 ...  ${TL_Kelirikko_RB}     ${TL_Tietyöt_RB}    ${TL_Eurooppatienumero_RB}      ${TL_Liittymänumero_RB}
-...  ${TL_Hoitoluokat_RB}       ${TL_Kaistojen_lukumäärä_RB}        ${TL_Joukkoliikennekaista_RB}       ${TL_Talvinopeusrajoitus_RB}  # Seuraavaksi Pistemäiset kohteet
+...  ${TL_Hoitoluokat_RB}  ${TL_Kaistojen_lukumäärä_RB}  ${TL_Joukkoliikennekaista_RB}  ${TL_Talvinopeusrajoitus_RB}  # Seuraavaksi Pistemäiset kohteet
 ...  ${TL_Joukkoliikenteen_pysäkki_RB}      ${TL_Esterakennelma_RB}     ${TL_Rautatien_tasoristeys_RB}      ${TL_Opastustaulu_RB}
 ...  ${TL_Suojatie_RB}      ${TL_Liikennevalo_RB}       ${TL_Liikennemerkit_RB}     ${TL_Palvelupiste_RB}
-...  ${TL_Rautateiden_huoltotie_RB}
-# tietolajeja yhteensä 41 Seuraavat nappulat poistettu listalta, koska ne poistavat käyttäjän muokkaustilasta ${TL_Liikennemäärä_RB}  ${TL_Käpy_tietolaji_RB}
-# ${TL_TR_suurin_sallittu_korkeus_RB} ${TL_TR_suurin_sallittu_leveys_RB}      ${TL_TR_Painorajpotilset_RB}
+...  ${TL_Rautateiden_huoltotie_RB}  
+# tietolajeja yhteensä 41 Seuraavat nappulat poistettu listalta, koska ne poistavat käyttäjän muokkaustilasta ${TL_Liikennemäärä_RB}  ${TL_Käpy_tietolaji_RB}  
+#   ${TL_Kaistan_mallinnustyökalu_RB}  ${TL_TR_suurin_sallittu_korkeus_RB}  ${TL_TR_suurin_sallittu_leveys_RB}  ${TL_TR_Painorajpotilset_RB}
 
 #Listaus tietolajeista joissa muokkausvaihtoehdoissa alasvetolista
 @{Tietolajit_ddm}  ${TL_Nopeusrajoitus_RB}  ${TL_Ajoneuvokohtaiset rajoitukset_RB}  ${TL_VAK-rajoitus_RB}
