@@ -22,7 +22,7 @@ Resource                    Keywords/KW_Opastustaulu.robot
 Resource                    Keywords/KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Headless Chrome 
+${BROWSER}                  Headless Chrome
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/

@@ -31,7 +31,7 @@ Tielinkit 2
     KW_Tielinkit.Tielinkit_2
 
 Tielinkit 3
-    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
+    [Tags]              Roadlinks  Mandatory  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien toiminnalliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     Log  Testille annetaan parametrina toiminnallinen luokka ja paikka jossa se testataan (osoite tai koordinaatti)
@@ -46,7 +46,7 @@ Tielinkit 3
     KW_Tielinkit.Tielinkit_3  8  6711878, 240628
 
 Tielinkit 4
-    [Tags]              Roadlinks  Mandatory  Functionality  Sikuli
+    [Tags]              Roadlinks  Mandatory  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien tyyppi täsmää kartan aineiston visualisointiin ja formilla näytettävään tielinkin tyyppiin.
     ...  Samalla tarkistetaan, että Kevyen liikenteen väylät ja lautta/lossiväylät ja ajopolut on visualisoitu ohuemmalla viivalla (määritelty css selectorissa, jolla aineisto tarkistetaan.)
@@ -65,7 +65,7 @@ Tielinkit 4
     KW_Tielinkit.Tielinkit_4    Lautta/lossi                   6709978, 238631
 
 Tielinkit 5
-    [Tags]              Roadlinks  Optional  Functionality  Sikuli
+    [Tags]              Roadlinks  Optional  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien hallinnolliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     KW_Tielinkit.Tielinkit_5   Kunnan omistama                 6676125, 373042
@@ -74,7 +74,7 @@ Tielinkit 5
     KW_Tielinkit.Tielinkit_5   Tuntematon                      6676135, 372839
 
 Tielinkit 6
-    [Tags]              Roadlinks  Optional  Functionality  Sikuli
+    [Tags]              Roadlinks  Optional  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien silta luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     KW_Tielinkit.Tielinkit_6   Silta, Taso 1   6675257, 385417
@@ -83,7 +83,7 @@ Tielinkit 6
     KW_Tielinkit.Tielinkit_6   Maan pinnalla   6675510, 385480
 
 Tielinkit 7
-    [Tags]              Roadlinks  Optional  Functionality  Sikuli
+    [Tags]              Roadlinks  Optional  Functionality
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Yksisuuntaiset tielinkit on visualisoitu suuntanuolella. Tarkistetaan myös liikennevirta molempiin suuntiin
     KW_Tielinkit.Tielinkit_7   6710973, 238687  ${Digitointisuuntaa vastaan}
@@ -104,20 +104,7 @@ Tielinkit 9
     ...  ruotsiksi ja saameksi sekä osoitenumerot oikealla ja vasemmalla (osoitenumerot vain, kun on yksi linkki valittuna) ja tiennumero
     KW_Tielinkit.Tielinkit_9
 
-#Tielinkit 10
-    #[Tags]              Roadlinks  Optional  Layout
-    #[Documentation]     Tielinkit, selain: ${BROWSER}
-    #...  - Jos toiminnallinen luokka tai linkkityyppi ei ole tiedossa, linkki on visualisoitu mustalla.
-    #KW_Tielinkit.Tielinkit_10
-
-#Tielinkit 11
-    #[Tags]              Roadlinks  Optional  Functionality  Edit
-    #[Documentation]     Tielinkit, selain: ${BROWSER}
-    #...  - Useita tielinkkejä voi muokata kerralla piirtämällä laatikon ctrl-nappi pohjassa (toiminnallinen luokka ja linkkityyppi)
-    #...  Jos testi epäonnistuu pitää testi ajaa uudelleen onnistuneesti läpi tai käydä kyseiset tilinkit muuttamassa käsin.
-    #KW_Tielinkit.Tielinkit_11
-
-Tielinkit 12
+Tielinkit 10
     [Tags]              Roadlinks  Optional  Functionality  Edit  Sikuli
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkin muokkaus ketjuna. Toiminnallista luokkaa, liikennevirran suuntaa ja tielinkin tyyppiä voi muokata.
@@ -125,13 +112,20 @@ Tielinkit 12
     ...  Muokattu viimeksi- tieto päivittyy tallennettaessa.
     ...  Jos testi epäonnistuu pitää käydä kyseiset tilinkit muuttamassa käsin.
     # Annetaan link id:t argumentteina jolloin niitä ei tarvitse muokata testistä jos haluaa vaihtaa testauspaikan.
-    KW_Tielinkit.Tielinkit_12   6711434, 240090  Linkin ID: 5790802   Linkin ID: 5790806
-    # wanha 6711445, 240108
+    KW_Tielinkit.Tielinkit_10   6711434, 240090  Linkin ID: 5790802   Linkin ID: 5790806
 
-# Ainakin toistaiseksi jätetty pois, koska osa linkeistä ei toimi testin edellyttämällä tavalla. Bugi luotu, mutta minor ja ollut tiedossa pitkään.
-Tielinkit 13
+Tielinkit 11
     [Tags]              Roadlinks  Optional  Functionality  Edit
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Korjattavien linkkien lista, tarkistettaan että kyseisestä linkistä aukeaa lista ja sivun ryhmittely on ok.
     ...  Tarkistetaan, että listan linkeistä aukeaa kyseinen paikka
-    KW_Tielinkit.Tielinkit_13
+    KW_Tielinkit.Tielinkit_11
+
+
+#Tielinkit 13
+    #Vanhentunut ominaisuus
+    #[Tags]              Roadlinks  Optional  Functionality  Edit
+    #[Documentation]     Tielinkit, selain: ${BROWSER}
+    #...  - Useita tielinkkejä voi muokata kerralla piirtämällä laatikon ctrl-nappi pohjassa (toiminnallinen luokka ja linkkityyppi)
+    #...  Jos testi epäonnistuu pitää testi ajaa uudelleen onnistuneesti läpi tai käydä kyseiset tilinkit muuttamassa käsin.
+    #KW_Tielinkit.Tielinkit_11
