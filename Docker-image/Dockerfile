@@ -10,7 +10,7 @@ ENV ROBOT_REPORTS_DIR /opt/robotframework/reports
 ENV ROBOT_TESTS_DIR /opt/robotframework/tests
 
 # Set the keyword directory enviroment variable
-ENV ROBOT_KW_DIR /opt/robotframework/tests/Keywords
+ENV ROBOT_KW_DIR /opt/robotframework/tests/keywords
 
 # Set the working directory environment variable
 ENV ROBOT_WORK_DIR /opt/robotframework/temp
@@ -42,7 +42,7 @@ ENV PABOT_VERSION 1.10.0
 ENV ROBOT_FRAMEWORK_VERSION 3.2.2
 ENV SELENIUM_LIBRARY_VERSION 4.5.0
 #ENV SSH_LIBRARY_VERSION 3.5.1
-ENV  PYAUTOGUI_VERSION  0.9.52
+#ENV  PYAUTOGUI_VERSION  0.9.52
 ENV XVFB_VERSION 1.20
 
 # Prepare binaries to be executed
@@ -78,7 +78,6 @@ RUN apk update \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
-    pyautogui==$PYAUTOGUI_VERSION \
     PyYAML \
 
     #robotframework-databaselibrary==$DATABASE_LIBRARY_VERSION \

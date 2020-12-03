@@ -1,6 +1,6 @@
 # Matti Telenius       Sitowise Oy     2019
 
-import pyautogui as ag
+#import pyautogui as ag
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.touch_actions import TouchActions
@@ -10,24 +10,24 @@ from selenium.webdriver.common.keys import Keys
 
 #from selenium.webdriver.common.utils import keys_to_typing
 
-def wheel(locator, offset):
-    s2l = BuiltIn().get_library_instance('SeleniumLibrary')
-    driver = s2l.driver
-   # driver.find_element_by_css_selector(locator).click()
-    elem = driver.find_element_by_class_name(locator)
-    ActionChains(driver).move_to_element(elem)
-    ag.moveTo(900, 500)
-    ag.scroll(int(offset))
+#def wheel(locator, offset):
+#    s2l = BuiltIn().get_library_instance('SeleniumLibrary')
+#    driver = s2l.driver
+#   # driver.find_element_by_css_selector(locator).click()
+#    elem = driver.find_element_by_class_name(locator)
+#    ActionChains(driver).move_to_element(elem)
+#    ag.moveTo(900, 500)
+#    ag.scroll(int(offset))
 # driver.find_element_by_css_selector(locator).wheel()
 
-def wheelm(locator, offset):
-    s2l = BuiltIn().get_library_instance('SeleniumLibrary')
-    driver = s2l.driver
-   # driver.find_element_by_css_selector(locator).click()
-    elem = driver.find_element_by_class_name(locator)
-    ActionChains(driver).move_to_element(elem)
-    ag.moveTo(0, 0)
-    ag.scroll(int(offset))
+#def wheelm(locator, offset):
+#    s2l = BuiltIn().get_library_instance('SeleniumLibrary')
+#    driver = s2l.driver
+#   # driver.find_element_by_css_selector(locator).click()
+#    elem = driver.find_element_by_class_name(locator)
+#    ActionChains(driver).move_to_element(elem)
+#    ag.moveTo(0, 0)
+#    ag.scroll(int(offset))
 
 def doubleclick_element_at_coordinates(locator, xoffset, yoffset):
     if not locator:
@@ -72,9 +72,9 @@ def send_enter_key():
     driver = s2l.driver
     ActionChains(driver).send_keys(Keys.ENTER).perform()
 
-def drag_to(button, *coordinates):
-    coordinates = [int(coord) for coord in coordinates]
-    ag.dragTo(*coordinates, duration=1, button=button)
+#def drag_to(button, *coordinates):
+#    coordinates = [int(coord) for coord in coordinates]
+#    ag.dragTo(*coordinates, duration=1, button=button)
 
 #def convert_to_EPSG3067(x,y):
 #    OutProj = Proj(init='epsg:3067')
