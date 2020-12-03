@@ -1,10 +1,6 @@
 Command to run tests
 
-docker run \
- -v 'Path To Reports':/opt/robotframework/reports:Z \
- -v 'Path To Tests':/opt/robotframework/tests:Z \
- -v 'Path To Keywords':/opt/robotframework/tests/keywords:Z \
- --shm-size=2g digiroadvayla:noscript
+docker run -v 'Path To Reports':/opt/robotframework/reports:Z  -v 'Path To Tests':/opt/robotframework/tests:Z -v 'Path To Keywords':/opt/robotframework/tests/keywords:Z  --shm-size=2g digiroadvayla:noscript
 
 
 Information about --shm-size=2g option
