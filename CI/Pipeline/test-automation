@@ -17,8 +17,9 @@ pipeline {
                 args '--shm-size=2g' }
             }
             environment {
+                ROBOT_USER = credentials("ROBOT_USER")
                 BROWSER = 'chrome'
-                ROBOT_CREDS = credentials('ROBOT_USER')
+                ROBOT_OPTIONS = '-v LiviUSR:$ROBOT_USER_USR -v LiviPWD:$ROBOT_USER_PWD'
                 ROBOT_TESTS_DIR = "$WORKSPACE"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/Reports"
                 ROBOT_KEYWORDS_DIR = "$WORKSPACE/Keywords"
