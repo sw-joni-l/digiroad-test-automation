@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+        stage("Prepare") {
+            steps {
+                script {
+                    docker.build(
+                        "digiroad2-robot",
+                        "${build_args} -f CI/Docker-image/Dockerfile"
+                    )
+                }
+            }
+        }
+        stage("Run RobotFramework Tests") {
+            agent { docker {
+                image 'digiroad2-robot'
+                args '--shm-size=2g' }
+            }
+            environment {
+                BROWSER = 'chrome'
+                ROBOT_CREDS = credentials('ROBOT_USER')
+                ROBOT_TESTS_DIR = "$WORKSPACE"
+                ROBOT_REPORTS_DIR = "$WORKSPACE/Reports"
+                ROBOT_KEYWORDS_DIR = "$WORKSPACE/Keywords"
+            }
+            steps {
+                sh '''
+                    /opt/robotframework/bin/run-tests-in-virtual-screen.sh
+                '''
+            }
+        }
+    }
+}
