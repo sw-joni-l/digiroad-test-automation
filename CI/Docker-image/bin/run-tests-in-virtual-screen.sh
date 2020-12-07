@@ -21,4 +21,5 @@ else
         --outputDir $ROBOT_REPORTS_DIR \
         ${ROBOT_OPTIONS} \
         $ROBOT_TESTS_DIR
+        #change for lf line end
 fi
