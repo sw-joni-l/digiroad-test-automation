@@ -1,16 +1,14 @@
 pipeline {
     agent { 
         dockerfile {
+            filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
             label 'digiroad2-robot'
+            args '--shm-size=2g'
         }
     }
     stages {
         stage('Robot Tests') {
-            agent { docker {
-                image 'digiroad2-robot'
-                args '--shm-size=2g' }
-            }
             environment {
                 ROBOT_USER = credentials("ROBOT_USER")
                 BROWSER = 'chrome'
