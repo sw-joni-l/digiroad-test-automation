@@ -1,13 +1,15 @@
 pipeline {
-    agent any 
-    stages{
-        stage ('Ping') {
+    agent any
+    stages {
+        stage('Functional regression tests') {
             steps {
-                sh 'ping -c 10 dl-cdn.alpinelinux.org'
+                sh "docker run --shm-size=1g -e BROWSER=firefox -v $WORKSPACE:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z ppodgorsek/robot-framework:latest"
             }
         }
     }
-/*    agent { 
+}
+/*pipeline {
+    agent { 
         dockerfile {
             filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
@@ -30,5 +32,5 @@ pipeline {
                 '''
             }
         }
-    }*/
-}
+    }
+}*/
