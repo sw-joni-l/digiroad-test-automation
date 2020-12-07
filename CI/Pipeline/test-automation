@@ -7,7 +7,7 @@ pipeline {
             }
         }
     }
-    agent { 
+/*    agent { 
         dockerfile {
             filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
@@ -30,5 +30,5 @@ pipeline {
                 '''
             }
         }
-    }
+    }*/
 }
