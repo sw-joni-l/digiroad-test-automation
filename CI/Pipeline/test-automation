@@ -3,7 +3,6 @@ pipeline {
         dockerfile {
             filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
-            label 'digiroad2-robot'
             args '--shm-size=2g'
         }
     }
