@@ -1,10 +1,9 @@
-**/logs
 **/pabot_results
 **/sikuli_captured
 *.pyc
 __pycache__
 testi.robot
 .gitignore
-/logs*
+/logs/*
 *.log
 *pabot*

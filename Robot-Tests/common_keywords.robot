@@ -11,15 +11,15 @@ Library                     DateTime
 
 #Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
-Resource                    Keywords/variables.robot
-Resource                    Keywords/KW_Tielinkit.robot
-Resource                    Keywords/KW_Kartta.robot
-Resource                    Keywords/KW_UI.robot
-Resource                    Keywords/KW_JLP.robot
-Resource                    Keywords/KW_Esterakennelma.robot
-Resource                    Keywords/KW_Tasoristeys.robot
-Resource                    Keywords/KW_Opastustaulu.robot
-Resource                    Keywords/KW_Suojatie.robot
+Resource                    variables.robot
+Resource                    KW_Tielinkit.robot
+Resource                    KW_Kartta.robot
+Resource                    KW_UI.robot
+Resource                    KW_JLP.robot
+Resource                    KW_Esterakennelma.robot
+Resource                    KW_Tasoristeys.robot
+Resource                    KW_Opastustaulu.robot
+Resource                    KW_Suojatie.robot
 
 *** Variables ***
 ${BROWSER}                  Chrome  #Headless 

@@ -97,7 +97,7 @@ Tarkista esteen olemassaolo
     # Käytetään uutta estettä luotaessa - Tarkistaa jos este on jo olemassa ja poistaa sen.
     click element at coordinates                ${kartta}  20  -30
     ${passed}=  Run Keyword And Return Status   wait until element is visible    ${FA_otsikko}  timeout=3
-    run keyword if  ${passed}  Poista este
+    run keyword if  ${passed}  Poista Kohde
 
 Luo este  [arguments]  ${tyyppi}
     Log  Vaihtaa muokkaustilaan ja luo uuden esterakennelman kartan osoittamaan kohtaan.
