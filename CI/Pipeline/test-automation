@@ -1,4 +1,12 @@
 pipeline {
+    agent any 
+    stages{
+        stage ('Ping') {
+            steps {
+                sh 'ping -c 10 dl-cdn.alpinelinux.org'
+            }
+        }
+    }
     agent { 
         dockerfile {
             filename 'Dockerfile.robot'
