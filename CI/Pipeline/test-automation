@@ -1,17 +1,12 @@
 pipeline {
-    agent any
-    stages {
-        stage("Prepare") {
-            steps {
-                script {
-                    docker.build(
-                        "digiroad2-robot",
-                        "${build_args} -f CI/Docker-image/Dockerfile"
-                    )
-                }
-            }
+    agent { 
+        dockerfile {
+            dir 'CI/Docker-image/'
+            label 'digiroad2-robot'
         }
-        stage("Run RobotFramework Tests") {
+    }
+    stages {
+        stage('Robot Tests') {
             agent { docker {
                 image 'digiroad2-robot'
                 args '--shm-size=2g' }
