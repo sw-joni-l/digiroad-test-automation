@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    environment { 
+    */environment { 
         HTTP_PROXY = 'http://172.17.208.16:8085'
-    }
+    }*/
     stages {
         stage('Functional regression tests') {
             steps {
-                sh "docker run --shm-size=1g -e BROWSER=firefox -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z ppodgorsek/robot-framework:latest"
+                sh "docker run --shm-size=1g -e BROWSER=firefox -e HTTP_PROXY="$http_proxy" -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z ppodgorsek/robot-framework:latest"
             }
         }
     }
@@ -22,6 +22,7 @@ pipeline {
     stages {
         stage('Robot Tests') {
             environment {
+                HTTP_PROXY = "$http_proxy"
                 ROBOT_USER = credentials("ROBOT_USER")
                 BROWSER = 'chrome'
                 ROBOT_OPTIONS = '-v LiviUSR:$ROBOT_USER_USR -v LiviPWD:$ROBOT_USER_PWD'
