@@ -17,7 +17,7 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh 'echo $ROBOT_USER_USR'
+                sh 'ping -c 5 www.google.com'
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
