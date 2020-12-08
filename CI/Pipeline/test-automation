@@ -12,7 +12,7 @@ pipeline {
             environment {
                 ROBOT_USER = credentials("ROBOT_USER")
                 BROWSER = 'firefox'
-                ROBOT_OPTIONS = '-v LiviUSER:$ROBOT_USER_USR -v LiviPWD:$ROBOT_USER_PWD'
+                ROBOT_OPTIONS = '-v LiviUSER:ROBOT_USER_USR -v LiviPWD:ROBOT_USER_PWD'
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
