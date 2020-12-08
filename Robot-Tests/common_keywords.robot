@@ -45,12 +45,12 @@ Login To DigiRoad
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
     ${temp}=                        set variable            ${LOG LEVEL}
-    #Set Log Level                   NONE
+    Set Log Level                   NONE
     Input Text                      ${LiviUserNameField}    ${LiviUSER}
-    Input Password                  ${LiviPasswordField}    ${LiviPWD}
-    Title Should Be                 abc
+    Input Text                      ${LiviPasswordField}    ${LiviPWD}
     Click Button                    ${LiviLoginButton}
     Set Log Level                   ${temp}
+    Title Should Be                 Digiroad
     wait until element is visible   ${kartta}  30
     #run keyword if  '${LOGIN URL}'=='https://testiextranet.vayla.fi/digiroad/'  Sulje QA popup
     Odota sivun latautuminen
