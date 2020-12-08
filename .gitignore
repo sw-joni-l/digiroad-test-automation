@@ -4,6 +4,5 @@
 __pycache__
 testi.robot
 .gitignore
-/logs/*
 *.log
 *pabot*
