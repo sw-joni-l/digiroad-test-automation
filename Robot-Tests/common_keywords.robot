@@ -45,9 +45,10 @@ Login To DigiRoad
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
     ${temp}=                        set variable            ${LOG LEVEL}
-    Set Log Level                   NONE
-    input password                  ${LiviUserNameField}    ${LiviUSER}
+    #Set Log Level                   NONE
+    Input Text                      ${LiviUserNameField}    ${LiviUSER}
     Input Password                  ${LiviPasswordField}    ${LiviPWD}
+    Title Should Be                 abc
     Click Button                    ${LiviLoginButton}
     Set Log Level                   ${temp}
     wait until element is visible   ${kartta}  30
