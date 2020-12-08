@@ -16,7 +16,7 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Esterakennelma 1
-    [Tags]              Este  Mandatory
+    [Tags]              Este  Mandatory  tagi
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Kartalla näkyvät Esterakennelma kun mittakaava on 1:20000 tai tarkempi.
     KW_Esterakennelma.Este_1  6711851,240709
