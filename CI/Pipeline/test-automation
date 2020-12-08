@@ -1,4 +1,4 @@
-*/pipeline {
+/*pipeline {
     agent any
     environment { 
         ROBOT_USER = credentials("ROBOT_USER")
