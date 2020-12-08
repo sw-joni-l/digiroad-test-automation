@@ -1,9 +1,13 @@
 pipeline {
+    environment {
+        HTTPS_PROXY=$https_proxy
+    }
     agent {
         dockerfile {
             filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
-            args '--shm-size=1g --build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy'
+            additionalBuildArgs  '--build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy'
+            args '--shm-size=1g'
         }
     }
     stages {
