@@ -44,6 +44,7 @@ Login To DigiRoad
     set window size    1920   1200
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
+    Title Should Be                 Digiroad
     ${temp}=                        set variable            ${LOG LEVEL}
     Set Log Level                   NONE
     input password                  ${LiviUserNameField}    ${LiviUSER}
