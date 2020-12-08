@@ -12,7 +12,7 @@ then
         ${ROBOT_OPTIONS} \
         -v LiviUSER:$ROBOT_CRED_USR \
         -v LiviPWD:$ROBOT_CRED_PWD \
-        -i tagi
+        -i tagi \
         $ROBOT_TESTS_DIR
 else
     xvfb-run \
