@@ -9,7 +9,7 @@ Library                     String
 Library                     selenium_extensions.py
 Library                     DateTime
 
-Resource                    c:/tools/omat/DRownvariables.robot
+#Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
@@ -22,7 +22,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Chrome  #Headless 
+${BROWSER}                  Firefox  #Headless 
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -38,7 +38,7 @@ Login To DigiRoad
     #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
-    Log To console                  ${LiviUSER}
+    Log To console                  ${LiviPWD}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
     #Maximize Browser Window
     set window size    1920   1200
