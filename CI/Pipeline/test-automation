@@ -1,7 +1,4 @@
 pipeline {
-    environment {
-        HTTPS_PROXY=$https_proxy
-    }
     agent {
         dockerfile {
             filename 'Dockerfile.robot'
