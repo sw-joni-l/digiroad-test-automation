@@ -4,19 +4,17 @@ pipeline {
             filename 'Dockerfile.robot'
             dir 'CI/Docker-image/'
             additionalBuildArgs  '--build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy'
-            args '--shm-size=1g'
+            args '--shm-size=1g --env HTTPS_PROXY=$https_proxy'
         }
     }
     stages {
         stage('Robot Tests') {
             environment {
-                HTTPS_PROXY = "$https_proxy"
                 ROBOT_USER = credentials("ROBOT_USER")
                 BROWSER = 'chrome'
                 ROBOT_OPTIONS = '-v LiviUSR:$ROBOT_USER_USR -v LiviPWD:$ROBOT_USER_PWD'
-                ROBOT_TESTS_DIR = "$WORKSPACE"
-                ROBOT_REPORTS_DIR = "$WORKSPACE/Reports"
-                ROBOT_KEYWORDS_DIR = "$WORKSPACE/Keywords"
+                ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
+                ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
                 sh '''
