@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment { 
+        HTTP_PROXY = 'http://172.17.208.16:8085'
+    }
     stages {
         stage('Functional regression tests') {
             steps {
