@@ -11,7 +11,7 @@ pipeline {
         stage('Robot Tests') {
             environment {
                 ROBOT_USER = credentials("ROBOT_USER")
-                BROWSER = 'chrome'
+                BROWSER = 'firefox'
                 ROBOT_OPTIONS = '-v LiviUSR:$ROBOT_USER_USR -v LiviPWD:$ROBOT_USER_PWD'
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
