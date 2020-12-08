@@ -11,7 +11,7 @@ then
         --outputDir $ROBOT_REPORTS_DIR \
         ${ROBOT_OPTIONS} \
         -v LiviUSER:$ROBOT_CRED_USR \
-        -v LiviPWD:$ROBOT_CRED_PWD \
+        -v LiviPWD:$ROBOT_CRED \
         -i tagi \
         $ROBOT_TESTS_DIR
 else
