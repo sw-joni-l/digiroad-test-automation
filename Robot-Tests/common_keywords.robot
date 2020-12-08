@@ -9,7 +9,7 @@ Library                     String
 Library                     selenium_extensions.py
 Library                     DateTime
 
-#Resource                    c:/tools/omat/DRownvariables.robot
+Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
@@ -22,7 +22,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Firefox  #Headless 
+${BROWSER}                  Chrome  #Headless 
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/

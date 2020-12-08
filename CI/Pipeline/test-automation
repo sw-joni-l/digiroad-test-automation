@@ -17,7 +17,7 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh 'echo $ROBOT_CRED_USR'
+                sh 'echo $ROBOT_CRED_PWD'
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
