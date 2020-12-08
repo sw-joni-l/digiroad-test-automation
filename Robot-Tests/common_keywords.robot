@@ -34,11 +34,11 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 
 *** Keywords ***
 Login To DigiRoad
-
-    log to console                  ${CURDIR}
+    #log to console                  ${CURDIR}
     #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
+    Log To console                  ${LiviUSER}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
     #Maximize Browser Window
     set window size    1920   1200
