@@ -1,4 +1,7 @@
 pipeline {
+    options {
+        buildDiscarder(logRotator(numToKeepStr: "25"))
+    }
     agent {
         dockerfile {
             filename 'Dockerfile.robot'
@@ -22,6 +25,12 @@ pipeline {
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
             }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: '$WORKSPACE/logs/*.html'
+            deleteDir()
         }
     }
 }
