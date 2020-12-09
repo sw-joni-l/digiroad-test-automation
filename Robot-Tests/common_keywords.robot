@@ -36,7 +36,6 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 Login To DigiRoad
     #log to console                  ${CURDIR}
     #Add Image Path                  ${IMAGE_DIR}
-    Log                             ${LiviPWD}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
@@ -50,7 +49,6 @@ Login To DigiRoad
     Input Password                  ${LiviPasswordField}    ${LiviPWD}
     Click Button                    ${LiviLoginButton}
     Set Log Level                   ${temp}
-    Title Should Be                 Digiroad
     wait until element is visible   ${kartta}  30
     #run keyword if  '${LOGIN URL}'=='https://testiextranet.vayla.fi/digiroad/'  Sulje QA popup
     Odota sivun latautuminen
