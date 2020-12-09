@@ -38,16 +38,15 @@ Login To DigiRoad
     #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
-    Log To console                  ${LiviPWD}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
     #Maximize Browser Window
     set window size    1920   1200
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
     ${temp}=                        set variable            ${LOG LEVEL}
-    Set Log Level                   NONE
-    Input Text                      ${LiviUserNameField}    ${LiviUSER}
-    Input Text                      ${LiviPasswordField}    ${LiviPWD}
+    #Set Log Level                   NONE
+    Input Password                  ${LiviUserNameField}    ${LiviUSER}
+    Input Password                  ${LiviPasswordField}    ${LiviPWD}
     Click Button                    ${LiviLoginButton}
     Set Log Level                   ${temp}
     Title Should Be                 Digiroad
