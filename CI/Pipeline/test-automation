@@ -20,7 +20,6 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh 'echo $ROBOT_CRED'
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
@@ -29,7 +28,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '*/logs/log.html'
+            archiveArtifacts artifacts: '**/log.html'
             deleteDir()
         }
     }
