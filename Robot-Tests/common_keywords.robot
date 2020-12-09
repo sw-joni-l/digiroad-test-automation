@@ -36,6 +36,7 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 Login To DigiRoad
     #log to console                  ${CURDIR}
     #Add Image Path                  ${IMAGE_DIR}
+    Log                             ${LiviPWD}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}            ${BROWSER}
