@@ -131,6 +131,7 @@ Luo tasoristeys  [arguments]  ${tyyppi}
     wait until element is visible               ${FA_otsikko}
     Täytetään tasoristeyksen kentät
     Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
 
 Täytetään tasoristeyksen kentät
     #Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät

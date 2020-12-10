@@ -117,7 +117,8 @@ Luo Opastustaulu  [arguments]  ${tyyppi}
     click element at coordinates                ${kartta}  0  20
     wait until element is visible               ${FA_otsikko}
     Täytetään Opastustaulun kentät
-    Click Element                                  ${FA_footer_Tallenna}
+    Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
 
 Täytetään Opastustaulun kentät
     # Tarkistetaan validoinnit ja ilmoitustekstit, pakolliset kentät

@@ -118,4 +118,5 @@ Luo Suojatie  [arguments]  ${tyyppi}
     click element at coordinates                ${kartta}  0    20
     wait until element is visible               ${FA_otsikko}
     Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
 

@@ -166,6 +166,7 @@ ${Muokkaustila_Popup_context}                   Kuntak\xe4ytt\xe4jien tulee kohd
 #Kuntakäyttäjien tulee kohdistaa muutokset katuverkolle, ELY-käyttäjien maantieverkolle.
 ${Zoom_popup_context}                           Zoomaa lähemmäksi, jos haluat nähdä kohteita
 ${Hakuvirheilmoitus}                            Syötteestä ei voitu päätellä koordinaatteja, katuosoitetta tai tieosoitetta
+${Spinner_overlay}                              class=spinner-overlay.modal-overlay
 
 
 ##
