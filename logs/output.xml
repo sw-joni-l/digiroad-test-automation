@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201210 16:23:34.658" rpa="false">
-<suite id="s1" name="testcases Tasoristeys" source="C:\Users\niko.lahtinen\Documents\git-repo\Digiroad-Vayla\Robot-Tests\testcases_Tasoristeys.robot">
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201211 15:50:47.874" rpa="false">
+<suite id="s1" name="testcases UI" source="C:\Users\niko.lahtinen\Documents\git-repo\Digiroad-Vayla\Robot-Tests\testcases_UI.robot">
 <kw name="Login To DigiRoad" library="common_keywords" type="setup">
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:34.970" level="INFO">Chrome</msg>
-<status status="PASS" starttime="20201210 16:23:34.970" endtime="20201210 16:23:34.970"></status>
+<msg timestamp="20201211 15:50:48.174" level="INFO">Chrome</msg>
+<status status="PASS" starttime="20201211 15:50:48.174" endtime="20201211 15:50:48.174"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>${LOGIN URL}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:34.971" level="INFO">https://testiextranet.vayla.fi/digiroad/</msg>
-<status status="PASS" starttime="20201210 16:23:34.970" endtime="20201210 16:23:34.971"></status>
+<msg timestamp="20201211 15:50:48.175" level="INFO">https://testiextranet.vayla.fi/digiroad/</msg>
+<status status="PASS" starttime="20201211 15:50:48.175" endtime="20201211 15:50:48.175"></status>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
@@ -24,8 +24,8 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:34.971" level="INFO">Opening browser 'Chrome' to base url 'https://testiextranet.vayla.fi/digiroad/'.</msg>
-<status status="PASS" starttime="20201210 16:23:34.971" endtime="20201210 16:23:40.025"></status>
+<msg timestamp="20201211 15:50:48.175" level="INFO">Opening browser 'Chrome' to base url 'https://testiextranet.vayla.fi/digiroad/'.</msg>
+<status status="PASS" starttime="20201211 15:50:48.175" endtime="20201211 15:50:53.036"></status>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
@@ -33,21 +33,21 @@
 <arg>1920</arg>
 <arg>1200</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:40.026" endtime="20201210 16:23:42.154"></status>
+<status status="PASS" starttime="20201211 15:50:53.036" endtime="20201211 15:50:55.175"></status>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:42.154" endtime="20201210 16:23:42.156"></status>
+<status status="PASS" starttime="20201211 15:50:55.175" endtime="20201211 15:50:55.175"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${LiviUserNameField}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:42.156" endtime="20201210 16:23:42.585"></status>
+<status status="PASS" starttime="20201211 15:50:55.176" endtime="20201211 15:50:55.603"></status>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <doc>Returns the given values which can then be assigned to a variables.</doc>
@@ -57,8 +57,8 @@
 <assign>
 <var>${temp}</var>
 </assign>
-<msg timestamp="20201210 16:23:42.586" level="INFO">${temp} = INFO</msg>
-<status status="PASS" starttime="20201210 16:23:42.585" endtime="20201210 16:23:42.586"></status>
+<msg timestamp="20201211 15:50:55.604" level="INFO">${temp} = INFO</msg>
+<status status="PASS" starttime="20201211 15:50:55.603" endtime="20201211 15:50:55.604"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
@@ -66,10 +66,10 @@
 <arg>${LiviUserNameField}</arg>
 <arg>${LiviUSER}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:42.586" level="INFO">Typing password into text field 'id=username'.</msg>
-<msg timestamp="20201210 16:23:43.024" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20201210 16:23:43.264" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20201210 16:23:42.586" endtime="20201210 16:23:43.264"></status>
+<msg timestamp="20201211 15:50:55.604" level="INFO">Typing password into text field 'id=username'.</msg>
+<msg timestamp="20201211 15:50:56.042" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201211 15:50:56.284" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201211 15:50:55.604" endtime="20201211 15:50:56.284"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into the text field identified by ``locator``.</doc>
@@ -77,26 +77,26 @@
 <arg>${LiviPasswordField}</arg>
 <arg>${LiviPWD}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:43.264" level="INFO">Typing password into text field 'id=password'.</msg>
-<msg timestamp="20201210 16:23:43.706" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20201210 16:23:43.948" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20201210 16:23:43.264" endtime="20201210 16:23:43.948"></status>
+<msg timestamp="20201211 15:50:56.285" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20201211 15:50:56.761" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20201211 15:50:57.007" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20201211 15:50:56.284" endtime="20201211 15:50:57.007"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
 <arg>${LiviLoginButton}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:43.949" level="INFO">Clicking button 'css=.submit'.</msg>
-<status status="PASS" starttime="20201210 16:23:43.949" endtime="20201210 16:23:51.126"></status>
+<msg timestamp="20201211 15:50:57.007" level="INFO">Clicking button 'css=.submit'.</msg>
+<status status="PASS" starttime="20201211 15:50:57.007" endtime="20201211 15:51:01.892"></status>
 </kw>
 <kw name="Set Log Level" library="BuiltIn">
 <doc>Sets the log threshold to the specified level and returns the old level.</doc>
 <arguments>
 <arg>${temp}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:51.126" level="INFO">Log level changed from INFO to INFO.</msg>
-<status status="PASS" starttime="20201210 16:23:51.126" endtime="20201210 16:23:51.126"></status>
+<msg timestamp="20201211 15:51:01.892" level="INFO">Log level changed from INFO to INFO.</msg>
+<status status="PASS" starttime="20201211 15:51:01.892" endtime="20201211 15:51:01.892"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -104,7 +104,7 @@
 <arg>${kartta}</arg>
 <arg>30</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:51.127" endtime="20201210 16:23:51.554"></status>
+<status status="PASS" starttime="20201211 15:51:01.892" endtime="20201211 15:51:02.394"></status>
 </kw>
 <kw name="Odota sivun latautuminen" library="common_keywords">
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
@@ -120,46 +120,46 @@
 <arguments>
 <arg>class=loadingBar</arg>
 </arguments>
-<msg timestamp="20201210 16:23:51.769" level="INFO">Element 'class=loadingBar' did not exist.</msg>
-<status status="PASS" starttime="20201210 16:23:51.555" endtime="20201210 16:23:51.769"></status>
+<msg timestamp="20201211 15:51:02.638" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:51:02.394" endtime="20201211 15:51:02.638"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:23:51.554" endtime="20201210 16:23:51.769"></status>
+<status status="PASS" starttime="20201211 15:51:02.394" endtime="20201211 15:51:02.638"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:23:51.554" endtime="20201210 16:23:51.769"></status>
+<status status="PASS" starttime="20201211 15:51:02.394" endtime="20201211 15:51:02.638"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>5</arg>
 </arguments>
-<msg timestamp="20201210 16:23:56.770" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20201210 16:23:51.769" endtime="20201210 16:23:56.770"></status>
+<msg timestamp="20201211 15:51:07.640" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20201211 15:51:02.638" endtime="20201211 15:51:07.640"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:23:34.970" endtime="20201210 16:23:56.770"></status>
+<status status="PASS" starttime="20201211 15:50:48.173" endtime="20201211 15:51:07.640"></status>
 </kw>
-<test id="s1-t1" name="Tasoristeys 4">
+<test id="s1-t1" name="Käyttöliittymä 3">
 <kw name="Testin Aloitus" library="common_keywords" type="setup">
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
 <doc>Sets the delay that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:56.816" endtime="20201210 16:23:56.817"></status>
+<status status="PASS" starttime="20201211 15:51:07.642" endtime="20201211 15:51:07.643"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the current browser window to the provided ``url``.</doc>
 <arguments>
 <arg>${LOGIN URL}</arg>
 </arguments>
-<msg timestamp="20201210 16:23:56.818" level="INFO">Opening url 'https://testiextranet.vayla.fi/digiroad/'</msg>
-<status status="PASS" starttime="20201210 16:23:56.818" endtime="20201210 16:23:58.354"></status>
+<msg timestamp="20201211 15:51:07.643" level="INFO">Opening url 'https://testiextranet.vayla.fi/digiroad/'</msg>
+<status status="PASS" starttime="20201211 15:51:07.643" endtime="20201211 15:51:12.210"></status>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is enabled.</doc>
 <arguments>
 <arg>${kartta}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:58.354" endtime="20201210 16:23:58.987"></status>
+<status status="PASS" starttime="20201211 15:51:12.211" endtime="20201211 15:51:12.848"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -167,62 +167,220 @@
 <arg>${Siirry muokkaustilaan}</arg>
 <arg>120</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:23:58.987" endtime="20201210 16:24:00.675"></status>
+<status status="PASS" starttime="20201211 15:51:12.848" endtime="20201211 15:51:13.272"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:23:56.815" endtime="20201210 16:24:00.675"></status>
+<status status="PASS" starttime="20201211 15:51:07.642" endtime="20201211 15:51:13.272"></status>
 </kw>
-<kw name="Tasoristeys_4" library="KW_Tasoristeys">
+<kw name="UI_3" library="KW_UI">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>7537607, 583699</arg>
+<arg>Syöttää XSSllä hakukenttään. Haku ei saa mennä siitä rikki.</arg>
 </arguments>
-<kw name="Get Current Date" library="DateTime">
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<arguments>
-<arg>result_format=%d.%m.%Y</arg>
-</arguments>
-<assign>
-<var>${date}</var>
-</assign>
-<msg timestamp="20201210 16:24:00.677" level="INFO">${date} = 10.12.2020</msg>
-<status status="PASS" starttime="20201210 16:24:00.676" endtime="20201210 16:24:00.677"></status>
+<msg timestamp="20201211 15:51:13.276" level="INFO">Syöttää XSSllä hakukenttään. Haku ei saa mennä siitä rikki.</msg>
+<status status="PASS" starttime="20201211 15:51:13.275" endtime="20201211 15:51:13.276"></status>
 </kw>
-<kw name="Siirry Testipaikkaan" library="common_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${TL_Rautatien_tasoristeys_RB}</arg>
-<arg>${testipaikka}</arg>
+<arg>${Hae_syotekentta}</arg>
 </arguments>
+<status status="PASS" starttime="20201211 15:51:13.277" endtime="20201211 15:51:13.704"></status>
+</kw>
+<kw name="Siirry Muokkaustilaan" library="common_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Siirry muokkaustilaan}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:13.704" endtime="20201211 15:51:14.120"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Siirry muokkaustilaan}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:14.120" level="INFO">Clicking element 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.edit-mode-btn.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:51:14.120" endtime="20201211 15:51:14.567"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:13.704" endtime="20201211 15:51:14.567"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:14.568" endtime="20201211 15:51:14.992"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:14.992" endtime="20201211 15:51:19.163"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Hae_syotekentta}</arg>
+<arg>${XSS_feed}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:19.163" level="INFO">Typing text '&lt;h2&gt;testi&lt;/h2&gt;&lt;' into text field 'css=.location.input-sm'.</msg>
+<status status="PASS" starttime="20201211 15:51:19.163" endtime="20201211 15:51:19.888"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Hae_btn}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:19.888" level="INFO">Clicking element 'css=.panel-header .btn.btn-sm.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:51:19.888" endtime="20201211 15:51:20.329"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:20.329" endtime="20201211 15:51:20.749"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+<arg>${Hakuvirheilmoitus}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:20.749" level="INFO">Verifying element 'css=.instructions-popup header' contains exact text 'Syötteestä ei voitu päätellä koordinaatteja, katuosoitetta tai tieosoitetta'.</msg>
+<status status="PASS" starttime="20201211 15:51:20.749" endtime="20201211 15:51:21.175"></status>
+</kw>
+<kw name="Siirry Katselutilaan" library="common_keywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Siirry katselutilaan}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:21.175" endtime="20201211 15:51:21.602"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${Siirry katselutilaan}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:21.603" level="INFO">Clicking button 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.read-only-btn.btn-secondary'.</msg>
+<status status="PASS" starttime="20201211 15:51:21.602" endtime="20201211 15:51:22.690"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:22.690" endtime="20201211 15:51:23.744"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:21.175" endtime="20201211 15:51:23.744"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:13.274" endtime="20201211 15:51:23.745"></status>
+</kw>
+<doc>Käyttöliittymä, selain: Chrome
+- XSSllä ei saa käyttöliittymää rikki.</doc>
+<tags>
+<tag>Mandatory</tag>
+<tag>UI</tag>
+</tags>
+<status status="PASS" starttime="20201211 15:51:07.640" endtime="20201211 15:51:23.747" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Käyttöliittymä 5_3">
+<kw name="Testin Aloitus" library="common_keywords" type="setup">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:23.762" endtime="20201211 15:51:23.762"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+</arguments>
+<msg timestamp="20201211 15:51:23.763" level="INFO">Opening url 'https://testiextranet.vayla.fi/digiroad/'</msg>
+<status status="PASS" starttime="20201211 15:51:23.762" endtime="20201211 15:51:24.965"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${kartta}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:24.965" endtime="20201211 15:51:25.634"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Siirry muokkaustilaan}</arg>
+<arg>120</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:25.634" endtime="20201211 15:51:26.103"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:23.761" endtime="20201211 15:51:26.104"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Testille annetaan parametrina tietolaji ja paikka jossa se testataan (osoite tai koordinaatti)</arg>
+</arguments>
+<msg timestamp="20201211 15:51:26.106" level="INFO">Testille annetaan parametrina tietolaji ja paikka jossa se testataan (osoite tai koordinaatti)</msg>
+<status status="PASS" starttime="20201211 15:51:26.104" endtime="20201211 15:51:26.106"></status>
+</kw>
+<kw name="UI_5_chkbx" library="KW_UI">
+<arguments>
+<arg>${TL_Suojatie_RB}</arg>
+<arg>6818935,325475</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>UI_5 Tietolajit jotka muokattavissa checkboxin kautta</arg>
+</arguments>
+<msg timestamp="20201211 15:51:26.106" level="INFO">UI_5 Tietolajit jotka muokattavissa checkboxin kautta</msg>
+<status status="PASS" starttime="20201211 15:51:26.106" endtime="20201211 15:51:26.106"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Taustakartta}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:51:26.106" endtime="20201211 15:51:26.654"></status>
+</kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${valitse tietolaji}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:00.677" endtime="20201210 16:24:01.101"></status>
+<status status="PASS" starttime="20201211 15:51:26.654" endtime="20201211 15:51:27.187"></status>
 </kw>
 <kw name="Vaihda Tietolaji" library="common_keywords">
 <arguments>
-<arg>${Tietolaji}</arg>
+<arg>${TL}</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${valitse tietolaji}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:01.101" endtime="20201210 16:24:01.518"></status>
+<status status="PASS" starttime="20201211 15:51:27.188" endtime="20201211 15:51:27.662"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${valitse tietolaji}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:01.519" level="INFO">Clicking element 'css=.panel-header .action-mode-btn.btn.btn-block.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:01.519" endtime="20201210 16:24:02.005"></status>
+<msg timestamp="20201211 15:51:27.662" level="INFO">Clicking element 'css=.panel-header .action-mode-btn.btn.btn-block.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:51:27.662" endtime="20201211 15:51:28.107"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${Valitse_tietolaji_ikkuna}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:02.005" endtime="20201210 16:24:02.461"></status>
+<status status="PASS" starttime="20201211 15:51:28.107" endtime="20201211 15:51:28.539"></status>
 </kw>
 <kw name="Select Radio Button" library="SeleniumLibrary">
 <doc>Sets the radio button group ``group_name`` to ``value``.</doc>
@@ -230,10 +388,19 @@
 <arg>${Tietolaji_RB_group}</arg>
 <arg>${tietolaji_locator}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:02.463" level="INFO">Selecting 'railwayCrossings' from radio button 'navigation-radio'.</msg>
-<status status="PASS" starttime="20201210 16:24:02.462" endtime="20201210 16:24:03.257"></status>
+<msg timestamp="20201211 15:51:28.539" level="INFO">Selecting 'pedestrianCrossings' from radio button 'navigation-radio'.</msg>
+<status status="PASS" starttime="20201211 15:51:28.539" endtime="20201211 15:51:29.232"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:01.101" endtime="20201210 16:24:03.258"></status>
+<status status="PASS" starttime="20201211 15:51:27.187" endtime="20201211 15:51:29.232"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${koe}</arg>
+<arg>-</arg>
+</arguments>
+<msg timestamp="20201211 15:51:29.234" level="INFO">${koe} = -</msg>
+<status status="PASS" starttime="20201211 15:51:29.232" endtime="20201211 15:51:29.234"></status>
 </kw>
 <kw name="Paikanna osoite" library="common_keywords">
 <arguments>
@@ -244,15 +411,15 @@
 <arguments>
 <arg>Käyttää hakua paikantamaan osoite</arg>
 </arguments>
-<msg timestamp="20201210 16:24:03.260" level="INFO">Käyttää hakua paikantamaan osoite</msg>
-<status status="PASS" starttime="20201210 16:24:03.260" endtime="20201210 16:24:03.261"></status>
+<msg timestamp="20201211 15:51:29.235" level="INFO">Käyttää hakua paikantamaan osoite</msg>
+<status status="PASS" starttime="20201211 15:51:29.235" endtime="20201211 15:51:29.235"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${kartta}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:03.261" endtime="20201210 16:24:03.741"></status>
+<status status="PASS" starttime="20201211 15:51:29.235" endtime="20201211 15:51:29.658"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -260,23 +427,23 @@
 <arg>${Hae_syotekentta}</arg>
 <arg>${Osoite}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:03.744" level="INFO">Typing text '7537607, 583699' into text field 'css=.location.input-sm'.</msg>
-<status status="PASS" starttime="20201210 16:24:03.742" endtime="20201210 16:24:04.594"></status>
+<msg timestamp="20201211 15:51:29.658" level="INFO">Typing text '6818935,325475' into text field 'css=.location.input-sm'.</msg>
+<status status="PASS" starttime="20201211 15:51:29.658" endtime="20201211 15:51:30.345"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${Hae_btn}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:04.598" level="INFO">Clicking element 'css=.panel-header .btn.btn-sm.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:04.595" endtime="20201210 16:24:05.115"></status>
+<msg timestamp="20201211 15:51:30.346" level="INFO">Clicking element 'css=.panel-header .btn.btn-sm.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:51:30.345" endtime="20201211 15:51:30.788"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${Kartta}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:05.115" endtime="20201210 16:24:05.551"></status>
+<status status="PASS" starttime="20201211 15:51:30.788" endtime="20201211 15:51:31.209"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
@@ -284,7 +451,7 @@
 <arg>${Haku_tulokset}</arg>
 <arg>10</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:05.551" endtime="20201210 16:24:05.988"></status>
+<status status="PASS" starttime="20201211 15:51:31.209" endtime="20201211 15:51:31.638"></status>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <doc>Runs the specified keyword and retries if it fails.</doc>
@@ -299,12 +466,12 @@
 <arguments>
 <arg>${Tyhjenna_tulokset_btn}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:05.989" level="INFO">Clicking element 'css=.panel-section button.btn.btn-secondary'.</msg>
-<status status="PASS" starttime="20201210 16:24:05.989" endtime="20201210 16:24:06.433"></status>
+<msg timestamp="20201211 15:51:31.639" level="INFO">Clicking element 'css=.panel-section button.btn.btn-secondary'.</msg>
+<status status="PASS" starttime="20201211 15:51:31.638" endtime="20201211 15:51:32.089"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:05.988" endtime="20201210 16:24:06.433"></status>
+<status status="PASS" starttime="20201211 15:51:31.638" endtime="20201211 15:51:32.089"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:03.258" endtime="20201210 16:24:06.433"></status>
+<status status="PASS" starttime="20201211 15:51:29.234" endtime="20201211 15:51:32.089"></status>
 </kw>
 <kw name="Zoomaa kartta" library="common_keywords">
 <arguments>
@@ -316,8 +483,8 @@
 <arguments>
 <arg>Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000</arg>
 </arguments>
-<msg timestamp="20201210 16:24:06.434" level="INFO">Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000</msg>
-<status status="PASS" starttime="20201210 16:24:06.434" endtime="20201210 16:24:06.434"></status>
+<msg timestamp="20201211 15:51:32.090" level="INFO">Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000</msg>
+<status status="PASS" starttime="20201211 15:51:32.089" endtime="20201211 15:51:32.090"></status>
 </kw>
 <kw name="${i} IN RANGE [ ${loopvalue} ]" type="for">
 <kw name="${i} = 0" type="foritem">
@@ -329,8 +496,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20201210 16:24:06.869" level="INFO">${var} = 200 m</msg>
-<status status="PASS" starttime="20201210 16:24:06.434" endtime="20201210 16:24:06.869"></status>
+<msg timestamp="20201211 15:51:32.531" level="INFO">${var} = 200 m</msg>
+<status status="PASS" starttime="20201211 15:51:32.090" endtime="20201211 15:51:32.531"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -338,25 +505,25 @@
 <arg>'${var}' == '${maxskaala}'</arg>
 <arg>Exit For Loop</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:06.869" endtime="20201210 16:24:06.869"></status>
+<status status="PASS" starttime="20201211 15:51:32.532" endtime="20201211 15:51:32.533"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${zoombar_plus}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:06.870" level="INFO">Clicking element 'css=.plus'.</msg>
-<status status="PASS" starttime="20201210 16:24:06.869" endtime="20201210 16:24:07.339"></status>
+<msg timestamp="20201211 15:51:32.533" level="INFO">Clicking element 'css=.plus'.</msg>
+<status status="PASS" starttime="20201211 15:51:32.533" endtime="20201211 15:51:32.998"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>0.5 sec</arg>
 </arguments>
-<msg timestamp="20201210 16:24:07.840" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20201210 16:24:07.339" endtime="20201210 16:24:07.840"></status>
+<msg timestamp="20201211 15:51:33.503" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20201211 15:51:32.999" endtime="20201211 15:51:33.503"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:06.434" endtime="20201210 16:24:07.840"></status>
+<status status="PASS" starttime="20201211 15:51:32.090" endtime="20201211 15:51:33.503"></status>
 </kw>
 <kw name="${i} = 1" type="foritem">
 <kw name="Get Text" library="SeleniumLibrary">
@@ -367,8 +534,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20201210 16:24:08.259" level="INFO">${var} = 100 m</msg>
-<status status="PASS" starttime="20201210 16:24:07.840" endtime="20201210 16:24:08.259"></status>
+<msg timestamp="20201211 15:51:33.924" level="INFO">${var} = 100 m</msg>
+<status status="PASS" starttime="20201211 15:51:33.503" endtime="20201211 15:51:33.924"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -376,25 +543,25 @@
 <arg>'${var}' == '${maxskaala}'</arg>
 <arg>Exit For Loop</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:08.259" endtime="20201210 16:24:08.260"></status>
+<status status="PASS" starttime="20201211 15:51:33.924" endtime="20201211 15:51:33.924"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${zoombar_plus}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:08.260" level="INFO">Clicking element 'css=.plus'.</msg>
-<status status="PASS" starttime="20201210 16:24:08.260" endtime="20201210 16:24:08.687"></status>
+<msg timestamp="20201211 15:51:33.925" level="INFO">Clicking element 'css=.plus'.</msg>
+<status status="PASS" starttime="20201211 15:51:33.924" endtime="20201211 15:51:34.359"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>0.5 sec</arg>
 </arguments>
-<msg timestamp="20201210 16:24:09.188" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20201210 16:24:08.687" endtime="20201210 16:24:09.188"></status>
+<msg timestamp="20201211 15:51:34.860" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20201211 15:51:34.359" endtime="20201211 15:51:34.860"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:07.840" endtime="20201210 16:24:09.188"></status>
+<status status="PASS" starttime="20201211 15:51:33.503" endtime="20201211 15:51:34.860"></status>
 </kw>
 <kw name="${i} = 2" type="foritem">
 <kw name="Get Text" library="SeleniumLibrary">
@@ -405,8 +572,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20201210 16:24:09.607" level="INFO">${var} = 50 m</msg>
-<status status="PASS" starttime="20201210 16:24:09.188" endtime="20201210 16:24:09.607"></status>
+<msg timestamp="20201211 15:51:35.276" level="INFO">${var} = 50 m</msg>
+<status status="PASS" starttime="20201211 15:51:34.861" endtime="20201211 15:51:35.276"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -414,25 +581,25 @@
 <arg>'${var}' == '${maxskaala}'</arg>
 <arg>Exit For Loop</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:09.607" endtime="20201210 16:24:09.607"></status>
+<status status="PASS" starttime="20201211 15:51:35.276" endtime="20201211 15:51:35.277"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${zoombar_plus}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:09.607" level="INFO">Clicking element 'css=.plus'.</msg>
-<status status="PASS" starttime="20201210 16:24:09.607" endtime="20201210 16:24:10.040"></status>
+<msg timestamp="20201211 15:51:35.277" level="INFO">Clicking element 'css=.plus'.</msg>
+<status status="PASS" starttime="20201211 15:51:35.277" endtime="20201211 15:51:35.707"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>0.5 sec</arg>
 </arguments>
-<msg timestamp="20201210 16:24:10.542" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20201210 16:24:10.040" endtime="20201210 16:24:10.542"></status>
+<msg timestamp="20201211 15:51:36.208" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20201211 15:51:35.707" endtime="20201211 15:51:36.208"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:09.188" endtime="20201210 16:24:10.542"></status>
+<status status="PASS" starttime="20201211 15:51:34.860" endtime="20201211 15:51:36.208"></status>
 </kw>
 <kw name="${i} = 3" type="foritem">
 <kw name="Get Text" library="SeleniumLibrary">
@@ -443,8 +610,8 @@
 <assign>
 <var>${var}</var>
 </assign>
-<msg timestamp="20201210 16:24:10.957" level="INFO">${var} = 20 m</msg>
-<status status="PASS" starttime="20201210 16:24:10.542" endtime="20201210 16:24:10.957"></status>
+<msg timestamp="20201211 15:51:36.628" level="INFO">${var} = 20 m</msg>
+<status status="PASS" starttime="20201211 15:51:36.208" endtime="20201211 15:51:36.628"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -454,45 +621,14 @@
 </arguments>
 <kw name="Exit For Loop" library="BuiltIn">
 <doc>Stops executing the enclosing for loop.</doc>
-<msg timestamp="20201210 16:24:10.958" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20201210 16:24:10.957" endtime="20201210 16:24:10.958"></status>
+<msg timestamp="20201211 15:51:36.632" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20201211 15:51:36.631" endtime="20201211 15:51:36.632"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:10.957" endtime="20201210 16:24:10.958"></status>
+<status status="PASS" starttime="20201211 15:51:36.629" endtime="20201211 15:51:36.632"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:10.542" endtime="20201210 16:24:10.958"></status>
+<status status="PASS" starttime="20201211 15:51:36.208" endtime="20201211 15:51:36.632"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:06.434" endtime="20201210 16:24:10.958"></status>
-</kw>
-<kw name="Odota sivun latautuminen" library="common_keywords">
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<arguments>
-<arg>10 min</arg>
-<arg>10 sec</arg>
-<arg>Element Should Not Be Visible</arg>
-<arg>class=loadingBar</arg>
-</arguments>
-<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<arguments>
-<arg>class=loadingBar</arg>
-</arguments>
-<msg timestamp="20201210 16:24:11.385" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
-<status status="FAIL" starttime="20201210 16:24:10.959" endtime="20201210 16:24:11.385"></status>
-</kw>
-<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
-<arguments>
-<arg>class=loadingBar</arg>
-</arguments>
-<msg timestamp="20201210 16:24:21.595" level="INFO">Element 'class=loadingBar' did not exist.</msg>
-<status status="PASS" starttime="20201210 16:24:21.385" endtime="20201210 16:24:21.595"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:10.959" endtime="20201210 16:24:21.595"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:10.958" endtime="20201210 16:24:21.595"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:06.433" endtime="20201210 16:24:21.595"></status>
+<status status="PASS" starttime="20201211 15:51:32.090" endtime="20201211 15:51:36.632"></status>
 </kw>
 <kw name="Odota sivun latautuminen" library="common_keywords">
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
@@ -508,14 +644,38 @@
 <arguments>
 <arg>class=loadingBar</arg>
 </arguments>
-<msg timestamp="20201210 16:24:21.803" level="INFO">Element 'class=loadingBar' did not exist.</msg>
-<status status="PASS" starttime="20201210 16:24:21.596" endtime="20201210 16:24:21.803"></status>
+<msg timestamp="20201211 15:51:37.067" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
+<status status="FAIL" starttime="20201211 15:51:36.634" endtime="20201211 15:51:37.067"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:21.596" endtime="20201210 16:24:21.803"></status>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:51:47.510" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
+<status status="FAIL" starttime="20201211 15:51:47.068" endtime="20201211 15:51:47.510"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:21.595" endtime="20201210 16:24:21.803"></status>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:51:57.933" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
+<status status="FAIL" starttime="20201211 15:51:57.511" endtime="20201211 15:51:57.934"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:00.677" endtime="20201210 16:24:21.803"></status>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:08.162" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:07.934" endtime="20201211 15:52:08.162"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:36.634" endtime="20201211 15:52:08.162"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:36.633" endtime="20201211 15:52:08.162"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:32.089" endtime="20201211 15:52:08.162"></status>
 </kw>
 <kw name="Odota sivun latautuminen" library="common_keywords">
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
@@ -531,102 +691,150 @@
 <arguments>
 <arg>class=loadingBar</arg>
 </arguments>
-<msg timestamp="20201210 16:24:22.012" level="INFO">Element 'class=loadingBar' did not exist.</msg>
-<status status="PASS" starttime="20201210 16:24:21.804" endtime="20201210 16:24:22.012"></status>
+<msg timestamp="20201211 15:52:08.371" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:08.163" endtime="20201211 15:52:08.371"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:21.804" endtime="20201210 16:24:22.012"></status>
+<status status="PASS" starttime="20201211 15:52:08.163" endtime="20201211 15:52:08.371"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:21.804" endtime="20201210 16:24:22.012"></status>
-</kw>
-<kw name="Alusta Testipaikka" library="common_keywords">
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Jos testipaikalla on valmiiksi kohde, vanha poistetaan.</arg>
-</arguments>
-<msg timestamp="20201210 16:24:22.013" level="INFO">Jos testipaikalla on valmiiksi kohde, vanha poistetaan.</msg>
-<status status="PASS" starttime="20201210 16:24:22.013" endtime="20201210 16:24:22.013"></status>
+<status status="PASS" starttime="20201211 15:52:08.162" endtime="20201211 15:52:08.371"></status>
 </kw>
 <kw name="Click Element At Coordinates" library="SeleniumLibrary">
 <doc>Click the element ``locator`` at ``xoffset/yoffset``.</doc>
 <arguments>
-<arg>${Kartta}</arg>
+<arg>${kartta}</arg>
 <arg>0</arg>
 <arg>20</arg>
 </arguments>
-<msg timestamp="20201210 16:24:22.014" level="INFO">Clicking element 'id=mapdiv' at coordinates x=0, y=20.</msg>
-<status status="PASS" starttime="20201210 16:24:22.014" endtime="20201210 16:24:22.960"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${FA_otsikko}</arg>
-<arg>10</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${FA_otsikko}</arg>
-<arg>10</arg>
-</arguments>
-<msg timestamp="20201210 16:24:33.207" level="FAIL">Element 'css=#feature-attributes-header &gt; span' not visible after 10 seconds.</msg>
-<status status="FAIL" starttime="20201210 16:24:22.960" endtime="20201210 16:24:33.207"></status>
-</kw>
-<msg timestamp="20201210 16:24:33.207" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20201210 16:24:22.960" endtime="20201210 16:24:33.207"></status>
+<msg timestamp="20201211 15:52:08.371" level="INFO">Clicking element 'id=mapdiv' at coordinates x=0, y=20.</msg>
+<status status="PASS" starttime="20201211 15:52:08.371" endtime="20201211 15:52:09.315"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>'${status}'=='True'</arg>
-<arg>Poista Kohde</arg>
+<arg>'${TL}' == '${TL_Suojatie_RB}'</arg>
+<arg>Siirry muokkaustilaan</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:33.208" endtime="20201210 16:24:33.208"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:22.013" endtime="20201210 16:24:33.208"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Luodaan uusi este, tarkistetaan Datetimen avulla luontipäivä.</arg>
-</arguments>
-<msg timestamp="20201210 16:24:33.208" level="INFO">Luodaan uusi este, tarkistetaan Datetimen avulla luontipäivä.</msg>
-<status status="PASS" starttime="20201210 16:24:33.208" endtime="20201210 16:24:33.208"></status>
-</kw>
-<kw name="Luo tasoristeys" library="KW_Tasoristeys">
-<arguments>
-<arg>tyyppi</arg>
-</arguments>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Vaihtaa muokkaustilaan ja luo uuden tasoristeyksen kartan osoittamaan kohtaan.</arg>
-</arguments>
-<msg timestamp="20201210 16:24:33.209" level="INFO">Vaihtaa muokkaustilaan ja luo uuden tasoristeyksen kartan osoittamaan kohtaan.</msg>
-<status status="PASS" starttime="20201210 16:24:33.209" endtime="20201210 16:24:33.209"></status>
-</kw>
 <kw name="Siirry Muokkaustilaan" library="common_keywords">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${Siirry muokkaustilaan}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:33.209" endtime="20201210 16:24:33.636"></status>
+<status status="PASS" starttime="20201211 15:52:09.316" endtime="20201211 15:52:09.757"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>${Siirry muokkaustilaan}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:33.636" level="INFO">Clicking element 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.edit-mode-btn.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:33.636" endtime="20201210 16:24:34.098"></status>
+<msg timestamp="20201211 15:52:09.758" level="INFO">Clicking element 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.edit-mode-btn.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:52:09.757" endtime="20201211 15:52:10.207"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:33.209" endtime="20201210 16:24:34.098"></status>
+<status status="PASS" starttime="20201211 15:52:09.315" endtime="20201211 15:52:10.207"></status>
 </kw>
+<status status="PASS" starttime="20201211 15:52:09.315" endtime="20201211 15:52:10.207"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>css=[class='form-group']</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:10.207" endtime="20201211 15:52:10.630"></status>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>css=[class='form-group']</arg>
+</arguments>
+<assign>
+<var>${c}</var>
+</assign>
+<msg timestamp="20201211 15:52:10.838" level="INFO">${c} = 2</msg>
+<status status="PASS" starttime="20201211 15:52:10.630" endtime="20201211 15:52:10.838"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${c} == 0</arg>
+<arg>click element at coordinates</arg>
+<arg>${kartta}</arg>
+<arg>1</arg>
+<arg>0</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:10.838" endtime="20201211 15:52:10.838"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'</arg>
+<arg>Execute Javascript</arg>
+<arg>var element = document.getElementById("feature-attributes-form");</arg>
+<arg>element.scrollIntoView({block: "end"});</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:10.838" endtime="20201211 15:52:10.838"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'</arg>
+<arg>set focus to element</arg>
+<arg>css=#removebox</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:10.839" endtime="20201211 15:52:10.839"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'</arg>
+<arg>wait until element is visible</arg>
+<arg>${LocatorForCheckboxpp}</arg>
+<arg>ELSE</arg>
+<arg>wait until element is visible</arg>
+<arg>${LocatorForCheckbox}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${LocatorForCheckbox}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:10.839" endtime="20201211 15:52:11.262"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:10.839" endtime="20201211 15:52:11.262"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TL}' == '${TL_Rautatien_tasoristeys_RB}'</arg>
+<arg>Tarkista Muokkaustila radio non-unit</arg>
+<arg>${LocatorForCheckbox}</arg>
+<arg>${TL}</arg>
+<arg>ELSE</arg>
+<arg>Tarkista muokkaustila radio non-unit</arg>
+<arg>${LocatorForCheckbox}</arg>
+<arg>EMPTY</arg>
+</arguments>
+<kw name="Tarkista muokkaustila radio non-unit" library="KW_UI">
+<arguments>
+<arg>${LocatorForCheckbox}</arg>
+<arg>EMPTY</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Muokkaustilan muutosten ilmoituslaatikon tarkistus kaikille tietolajeille.</arg>
+</arguments>
+<msg timestamp="20201211 15:52:11.265" level="INFO">Muokkaustilan muutosten ilmoituslaatikon tarkistus kaikille tietolajeille.</msg>
+<status status="PASS" starttime="20201211 15:52:11.264" endtime="20201211 15:52:11.265"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Tarkistetaan, että tallennusnapit ovat disabloidut ensin, tehdään muutos ja tarkistetaan, että kaikki napit ovat enabloitu ja verifioidaan varoitusikkuna</arg>
+</arguments>
+<msg timestamp="20201211 15:52:11.265" level="INFO">Tarkistetaan, että tallennusnapit ovat disabloidut ensin, tehdään muutos ja tarkistetaan, että kaikki napit ovat enabloitu ja verifioidaan varoitusikkuna</msg>
+<status status="PASS" starttime="20201211 15:52:11.265" endtime="20201211 15:52:11.266"></status>
+</kw>
+<kw name="Tarkista footer disabled" library="KW_UI">
 <kw name="Odota sivun latautuminen" library="common_keywords">
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <doc>Runs the specified keyword and retries if it fails.</doc>
@@ -641,268 +849,528 @@
 <arguments>
 <arg>class=loadingBar</arg>
 </arguments>
-<msg timestamp="20201210 16:24:34.308" level="INFO">Element 'class=loadingBar' did not exist.</msg>
-<status status="PASS" starttime="20201210 16:24:34.099" endtime="20201210 16:24:34.308"></status>
+<msg timestamp="20201211 15:52:11.482" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:11.268" endtime="20201211 15:52:11.482"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:34.099" endtime="20201210 16:24:34.308"></status>
+<status status="PASS" starttime="20201211 15:52:11.267" endtime="20201211 15:52:11.482"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:34.098" endtime="20201210 16:24:34.308"></status>
+<status status="PASS" starttime="20201211 15:52:11.266" endtime="20201211 15:52:11.482"></status>
 </kw>
-<kw name="Tarkista tasoristeyksen olemassaolo" library="KW_Tasoristeys">
-<kw name="Click Element At Coordinates" library="SeleniumLibrary">
-<doc>Click the element ``locator`` at ``xoffset/yoffset``.</doc>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
 <arguments>
-<arg>${kartta}</arg>
-<arg>20</arg>
-<arg>-30</arg>
+<arg>${FA_footer_Tallenna}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:34.309" level="INFO">Clicking element 'id=mapdiv' at coordinates x=20, y=-30.</msg>
-<status status="PASS" starttime="20201210 16:24:34.309" endtime="20201210 16:24:35.243"></status>
+<status status="PASS" starttime="20201211 15:52:11.482" endtime="20201211 15:52:11.911"></status>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>wait until element is visible</arg>
-<arg>${FA_otsikko}</arg>
-<arg>timeout=3</arg>
-</arguments>
-<assign>
-<var>${passed}</var>
-</assign>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${FA_otsikko}</arg>
-<arg>timeout=3</arg>
-</arguments>
-<msg timestamp="20201210 16:24:38.514" level="FAIL">Element 'css=#feature-attributes-header &gt; span' not visible after 3 seconds.</msg>
-<status status="FAIL" starttime="20201210 16:24:35.243" endtime="20201210 16:24:38.516"></status>
-</kw>
-<msg timestamp="20201210 16:24:38.516" level="INFO">${passed} = False</msg>
-<status status="PASS" starttime="20201210 16:24:35.243" endtime="20201210 16:24:38.516"></status>
+<status status="PASS" starttime="20201211 15:52:11.266" endtime="20201211 15:52:11.911"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${passed}</arg>
-<arg>Poista tasoristeys</arg>
+<arg>'${locator_TBchanged}' in '${LocatorForCheckbox} ${LocatorForRadiobuttons} ${LocatorForButton}'</arg>
+<arg>click element</arg>
+<arg>${locator_TBchanged}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:38.516" endtime="20201210 16:24:38.516"></status>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator_TBchanged}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:11.913" level="INFO">Clicking element 'css=#feature-attributes .checkbox:last-of-type input'.</msg>
+<status status="PASS" starttime="20201211 15:52:11.912" endtime="20201211 15:52:12.396"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:34.308" endtime="20201210 16:24:38.516"></status>
+<status status="PASS" starttime="20201211 15:52:11.912" endtime="20201211 15:52:12.396"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>SeleniumLibrary.Element Should Be Visible</arg>
+<arg>${FA_locator_textinput}</arg>
+</arguments>
+<assign>
+<var>${visible}</var>
+</assign>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>${FA_locator_textinput}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:12.614" level="FAIL">Element with locator 'css=.input-group .form-control' not found.</msg>
+<status status="FAIL" starttime="20201211 15:52:12.396" endtime="20201211 15:52:12.614"></status>
+</kw>
+<msg timestamp="20201211 15:52:12.614" level="INFO">${visible} = False</msg>
+<status status="PASS" starttime="20201211 15:52:12.396" endtime="20201211 15:52:12.614"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Visible}'=='True'</arg>
+<arg>SeleniumLibrary.Input text</arg>
+<arg>${FA_locator_textinput}</arg>
+<arg>12</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:12.614" endtime="20201211 15:52:12.614"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TL}'=='${TL_Tietyöt_RB}'</arg>
+<arg>Aseta Päivämäärä</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:12.614" endtime="20201211 15:52:12.615"></status>
+</kw>
+<kw name="Tarkista footer enabled" library="KW_UI">
+<kw name="Odota sivun latautuminen" library="common_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>10 min</arg>
+<arg>10 sec</arg>
+<arg>Element Should Not Be Visible</arg>
+<arg>class=loadingBar</arg>
+</arguments>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:12.823" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:12.616" endtime="20201211 15:52:12.823"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:12.615" endtime="20201211 15:52:12.823"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:12.615" endtime="20201211 15:52:12.824"></status>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<arguments>
+<arg>${FA_footer_Tallenna}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:12.824" endtime="20201211 15:52:13.464"></status>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<arguments>
+<arg>${FA_footer_Peruuta}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:13.464" endtime="20201211 15:52:14.096"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:12.615" endtime="20201211 15:52:14.096"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${Map_popup}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:14.096" endtime="20201211 15:52:14.528"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${koe}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:14.528" level="INFO">-</msg>
+<status status="PASS" starttime="20201211 15:52:14.528" endtime="20201211 15:52:14.528"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${koe}' == '${TL_Tielinkki_RB}'</arg>
+<arg>select radio button</arg>
+<arg>${Tielinkin_RB_ryhmä}</arg>
+<arg>${TL_Hallinnollinen luokka_RB}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:14.528" endtime="20201211 15:52:14.529"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${Muokkaustila_AddTool}</arg>
+<arg>${FA_footer_Peruuta}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:38.516" level="INFO">Clicking element 'css=.panel-group:not([style="display: none;"]) .action.add'.</msg>
-<status status="PASS" starttime="20201210 16:24:38.516" endtime="20201210 16:24:38.964"></status>
+<msg timestamp="20201211 15:52:14.529" level="INFO">Clicking element 'css=footer .cancel.btn.btn-secondary'.</msg>
+<status status="PASS" starttime="20201211 15:52:14.529" endtime="20201211 15:52:15.001"></status>
 </kw>
-<kw name="Click Element At Coordinates" library="SeleniumLibrary">
-<doc>Click the element ``locator`` at ``xoffset/yoffset``.</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${kartta}</arg>
-<arg>0</arg>
-<arg>20</arg>
+<arg>'${koe}' == '${TL_Tielinkki_RB}'</arg>
+<arg>select radio button</arg>
+<arg>${Tielinkin_RB_ryhmä}</arg>
+<arg>${TL_Toiminnallinen luokka_RB}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:38.964" level="INFO">Clicking element 'id=mapdiv' at coordinates x=0, y=20.</msg>
-<status status="PASS" starttime="20201210 16:24:38.964" endtime="20201210 16:24:39.894"></status>
+<status status="PASS" starttime="20201211 15:52:15.001" endtime="20201211 15:52:15.002"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:11.263" endtime="20201211 15:52:15.002"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:11.262" endtime="20201211 15:52:15.002"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:51:26.106" endtime="20201211 15:52:15.002"></status>
+</kw>
+<kw name="UI_5_liikennevalo" library="KW_UI">
+<arguments>
+<arg>${TL_Liikennevalo_RB}</arg>
+<arg>6710880, 240330</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${valitse tietolaji}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:15.005" endtime="20201211 15:52:15.437"></status>
+</kw>
+<kw name="Vaihda Tietolaji" library="common_keywords">
+<arguments>
+<arg>${TL}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${valitse tietolaji}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:15.438" endtime="20201211 15:52:15.863"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${valitse tietolaji}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:15.864" level="INFO">Clicking element 'css=.panel-header .action-mode-btn.btn.btn-block.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:52:15.863" endtime="20201211 15:52:16.352"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${FA_otsikko}</arg>
+<arg>${Valitse_tietolaji_ikkuna}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:39.894" endtime="20201210 16:24:40.725"></status>
+<status status="PASS" starttime="20201211 15:52:16.352" endtime="20201211 15:52:16.783"></status>
 </kw>
-<kw name="Täytetään tasoristeyksen kentät" library="KW_Tasoristeys">
-<kw name="Select From List By Value" library="SeleniumLibrary">
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<kw name="Select Radio Button" library="SeleniumLibrary">
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
 <arguments>
-<arg>xpath=.//label[contains(text(), 'Turvavarustus')]/../select</arg>
-<arg>2</arg>
+<arg>${Tietolaji_RB_group}</arg>
+<arg>${tietolaji_locator}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:40.725" level="INFO">Selecting options from selection list 'xpath=.//label[contains(text(), 'Turvavarustus')]/../select' by value 2.</msg>
-<status status="PASS" starttime="20201210 16:24:40.725" endtime="20201210 16:24:42.226"></status>
+<msg timestamp="20201211 15:52:16.784" level="INFO">Selecting 'trafficLights' from radio button 'navigation-radio'.</msg>
+<status status="PASS" starttime="20201211 15:52:16.783" endtime="20201211 15:52:17.465"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:15.437" endtime="20201211 15:52:17.465"></status>
+</kw>
+<kw name="Paikanna osoite" library="common_keywords">
+<arguments>
+<arg>${testipaikka}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Käyttää hakua paikantamaan osoite</arg>
+</arguments>
+<msg timestamp="20201211 15:52:17.465" level="INFO">Käyttää hakua paikantamaan osoite</msg>
+<status status="PASS" starttime="20201211 15:52:17.465" endtime="20201211 15:52:17.466"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${kartta}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:17.466" endtime="20201211 15:52:17.886"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>xpath=.//label[contains(text(), 'Nimi')]/../input</arg>
-<arg>Testi</arg>
+<arg>${Hae_syotekentta}</arg>
+<arg>${Osoite}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:42.226" level="INFO">Typing text 'Testi' into text field 'xpath=.//label[contains(text(), 'Nimi')]/../input'.</msg>
-<status status="PASS" starttime="20201210 16:24:42.226" endtime="20201210 16:24:42.947"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:40.725" endtime="20201210 16:24:42.947"></status>
+<msg timestamp="20201211 15:52:17.886" level="INFO">Typing text '6710880, 240330' into text field 'css=.location.input-sm'.</msg>
+<status status="PASS" starttime="20201211 15:52:17.886" endtime="20201211 15:52:18.587"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>${FA_footer_Tallenna}</arg>
+<arg>${Hae_btn}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:42.947" level="INFO">Clicking element 'css=footer .save.btn.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:42.947" endtime="20201210 16:24:43.404"></status>
+<msg timestamp="20201211 15:52:18.587" level="INFO">Clicking element 'css=.panel-header .btn.btn-sm.btn-primary'.</msg>
+<status status="PASS" starttime="20201211 15:52:18.587" endtime="20201211 15:52:19.036"></status>
 </kw>
-<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<arguments>
-<arg>${Spinner_Overlay}</arg>
-</arguments>
-<status status="PASS" starttime="20201210 16:24:43.404" endtime="20201210 16:24:47.954"></status>
-</kw>
-<status status="PASS" starttime="20201210 16:24:33.209" endtime="20201210 16:24:47.954"></status>
-</kw>
-<kw name="Siirry Katselutilaan" library="common_keywords">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${Siirry katselutilaan}</arg>
+<arg>${Kartta}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:47.955" endtime="20201210 16:24:48.376"></status>
+<status status="PASS" starttime="20201211 15:52:19.036" endtime="20201211 15:52:19.456"></status>
 </kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
-<arg>${Siirry katselutilaan}</arg>
+<arg>${Haku_tulokset}</arg>
+<arg>10</arg>
 </arguments>
-<msg timestamp="20201210 16:24:48.376" level="INFO">Clicking button 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.read-only-btn.btn-secondary'.</msg>
-<status status="PASS" starttime="20201210 16:24:48.376" endtime="20201210 16:24:49.433"></status>
+<status status="PASS" starttime="20201211 15:52:19.456" endtime="20201211 15:52:19.890"></status>
 </kw>
-<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is not visible.</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
 <arguments>
-<arg>${Map_popup}</arg>
+<arg>30 sec</arg>
+<arg>5 sec</arg>
+<arg>click element</arg>
+<arg>${Tyhjenna_tulokset_btn}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:49.433" endtime="20201210 16:24:49.854"></status>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Tyhjenna_tulokset_btn}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:19.891" level="INFO">Clicking element 'css=.panel-section button.btn.btn-secondary'.</msg>
+<status status="PASS" starttime="20201211 15:52:19.890" endtime="20201211 15:52:20.356"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:47.954" endtime="20201210 16:24:49.854"></status>
+<status status="PASS" starttime="20201211 15:52:19.890" endtime="20201211 15:52:20.356"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:17.465" endtime="20201211 15:52:20.356"></status>
+</kw>
+<kw name="Zoomaa kartta" library="common_keywords">
+<arguments>
+<arg>5</arg>
+<arg>20 m</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000</arg>
+</arguments>
+<msg timestamp="20201211 15:52:20.357" level="INFO">Zoomataan karttaa annetun maksimin mukaan, tai jos maksimia ei ole annettu kunnes mittasuhde on 1:10 000</msg>
+<status status="PASS" starttime="20201211 15:52:20.357" endtime="20201211 15:52:20.357"></status>
+</kw>
+<kw name="${i} IN RANGE [ ${loopvalue} ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${skaala}</arg>
+</arguments>
+<assign>
+<var>${var}</var>
+</assign>
+<msg timestamp="20201211 15:52:20.796" level="INFO">${var} = 20 m</msg>
+<status status="PASS" starttime="20201211 15:52:20.357" endtime="20201211 15:52:20.796"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${var}' == '${maxskaala}'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20201211 15:52:20.797" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20201211 15:52:20.797" endtime="20201211 15:52:20.797"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.796" endtime="20201211 15:52:20.797"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.357" endtime="20201211 15:52:20.797"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.357" endtime="20201211 15:52:20.797"></status>
+</kw>
+<kw name="Odota sivun latautuminen" library="common_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>10 min</arg>
+<arg>10 sec</arg>
+<arg>Element Should Not Be Visible</arg>
+<arg>class=loadingBar</arg>
+</arguments>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:21.228" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
+<status status="FAIL" starttime="20201211 15:52:20.798" endtime="20201211 15:52:21.228"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:31.656" level="FAIL">The element 'class=loadingBar' should not be visible, but it is.</msg>
+<status status="FAIL" starttime="20201211 15:52:31.229" endtime="20201211 15:52:31.656"></status>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:41.872" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:41.657" endtime="20201211 15:52:41.872"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.798" endtime="20201211 15:52:41.872"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.797" endtime="20201211 15:52:41.873"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:20.356" endtime="20201211 15:52:41.873"></status>
+</kw>
+<kw name="Odota sivun latautuminen" library="common_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>10 min</arg>
+<arg>10 sec</arg>
+<arg>Element Should Not Be Visible</arg>
+<arg>class=loadingBar</arg>
+</arguments>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:42.089" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:41.874" endtime="20201211 15:52:42.089"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:41.874" endtime="20201211 15:52:42.089"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:41.873" endtime="20201211 15:52:42.089"></status>
 </kw>
 <kw name="Click Element At Coordinates" library="SeleniumLibrary">
 <doc>Click the element ``locator`` at ``xoffset/yoffset``.</doc>
 <arguments>
-<arg>${Kartta}</arg>
+<arg>${kartta}</arg>
 <arg>0</arg>
 <arg>20</arg>
 </arguments>
-<msg timestamp="20201210 16:24:49.854" level="INFO">Clicking element 'id=mapdiv' at coordinates x=0, y=20.</msg>
-<status status="PASS" starttime="20201210 16:24:49.854" endtime="20201210 16:24:50.808"></status>
+<msg timestamp="20201211 15:52:42.090" level="INFO">Clicking element 'id=mapdiv' at coordinates x=0, y=20.</msg>
+<status status="PASS" starttime="20201211 15:52:42.089" endtime="20201211 15:52:43.046"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${FA_otsikko}</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:50.808" endtime="20201210 16:24:51.638"></status>
+<status status="PASS" starttime="20201211 15:52:43.046" endtime="20201211 15:52:43.882"></status>
 </kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<kw name="Tarkista footer disabled" library="KW_UI">
+<kw name="Odota sivun latautuminen" library="common_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
 <arguments>
-<arg>${FA_Lisätty_Järjestelmään}</arg>
-<arg>${date}</arg>
+<arg>10 min</arg>
+<arg>10 sec</arg>
+<arg>Element Should Not Be Visible</arg>
+<arg>class=loadingBar</arg>
 </arguments>
-<msg timestamp="20201210 16:24:52.062" level="INFO">Element 'css=#feature-attributes .form-group:first-of-type .form-control-static.asset-log-info' contains text '10.12.2020'.</msg>
-<status status="PASS" starttime="20201210 16:24:51.638" endtime="20201210 16:24:52.062"></status>
-</kw>
-<kw name="Poista Kohde" library="common_keywords">
-<kw name="Siirry Muokkaustilaan" library="common_keywords">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
 <arguments>
-<arg>${Siirry muokkaustilaan}</arg>
+<arg>class=loadingBar</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:24:52.062" endtime="20201210 16:24:52.486"></status>
+<msg timestamp="20201211 15:52:44.094" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:43.883" endtime="20201211 15:52:44.094"></status>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${Siirry muokkaustilaan}</arg>
-</arguments>
-<msg timestamp="20201210 16:24:52.487" level="INFO">Clicking element 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.edit-mode-btn.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:52.486" endtime="20201210 16:24:52.946"></status>
+<status status="PASS" starttime="20201211 15:52:43.882" endtime="20201211 15:52:44.094"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:52.062" endtime="20201210 16:24:52.946"></status>
+<status status="PASS" starttime="20201211 15:52:43.882" endtime="20201211 15:52:44.094"></status>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
-<arguments>
-<arg>${FA_Poista_chkbx}</arg>
-</arguments>
-<msg timestamp="20201210 16:24:52.947" level="INFO">Clicking element 'id=delete-checkbox'.</msg>
-<status status="PASS" starttime="20201210 16:24:52.946" endtime="20201210 16:24:53.401"></status>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<doc>Click the element identified by ``locator``.</doc>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
 <arguments>
 <arg>${FA_footer_Tallenna}</arg>
 </arguments>
-<msg timestamp="20201210 16:24:53.401" level="INFO">Clicking element 'css=footer .save.btn.btn-primary'.</msg>
-<status status="PASS" starttime="20201210 16:24:53.401" endtime="20201210 16:24:53.844"></status>
+<status status="PASS" starttime="20201211 15:52:44.094" endtime="20201211 15:52:44.512"></status>
 </kw>
-<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<arguments>
-<arg>css=.spinner-overlay.modal-overlay</arg>
-</arguments>
-<msg timestamp="20201210 16:24:58.406" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
-<status status="PASS" starttime="20201210 16:24:53.844" endtime="20201210 16:24:58.818"></status>
-</kw>
-<kw name="Siirry Katselutilaan" library="common_keywords">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is visible.</doc>
-<arguments>
-<arg>${Siirry katselutilaan}</arg>
-</arguments>
-<status status="PASS" starttime="20201210 16:24:58.819" endtime="20201210 16:24:59.241"></status>
+<status status="PASS" starttime="20201211 15:52:43.882" endtime="20201211 15:52:44.512"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks the button identified by ``locator``.</doc>
 <arguments>
-<arg>${Siirry katselutilaan}</arg>
+<arg>Siirry muokkaamaan liikennevaloa</arg>
 </arguments>
-<msg timestamp="20201210 16:24:59.241" level="INFO">Clicking button 'css=.panel-group:not([style="display: none;"]) .action-mode-btn.btn.btn-block.read-only-btn.btn-secondary'.</msg>
-<status status="PASS" starttime="20201210 16:24:59.241" endtime="20201210 16:25:00.306"></status>
+<msg timestamp="20201211 15:52:44.513" level="INFO">Clicking button 'Siirry muokkaamaan liikennevaloa'.</msg>
+<status status="PASS" starttime="20201211 15:52:44.512" endtime="20201211 15:52:45.487"></status>
 </kw>
-<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` is not visible.</doc>
+<kw name="Tarkista footer enabled" library="KW_UI">
+<kw name="Odota sivun latautuminen" library="common_keywords">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
 <arguments>
-<arg>${Map_popup}</arg>
+<arg>10 min</arg>
+<arg>10 sec</arg>
+<arg>Element Should Not Be Visible</arg>
+<arg>class=loadingBar</arg>
 </arguments>
-<status status="PASS" starttime="20201210 16:25:00.306" endtime="20201210 16:25:00.731"></status>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>class=loadingBar</arg>
+</arguments>
+<msg timestamp="20201211 15:52:45.700" level="INFO">Element 'class=loadingBar' did not exist.</msg>
+<status status="PASS" starttime="20201211 15:52:45.489" endtime="20201211 15:52:45.700"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:58.818" endtime="20201210 16:25:00.731"></status>
+<status status="PASS" starttime="20201211 15:52:45.488" endtime="20201211 15:52:45.700"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:52.062" endtime="20201210 16:25:00.731"></status>
+<status status="PASS" starttime="20201211 15:52:45.488" endtime="20201211 15:52:45.700"></status>
 </kw>
-<status status="PASS" starttime="20201210 16:24:00.676" endtime="20201210 16:25:00.731"></status>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<arguments>
+<arg>${FA_footer_Tallenna}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:45.701" endtime="20201211 15:52:46.338"></status>
 </kw>
-<doc>Rautatien tasoristeys, selain: Chrome
-- Luodaan uusi kunnan ylläpitämä Rautatien tasoristeys ja tarkistetaan formin validoinnit, sekä tietojen tallentuminen.</doc>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<arguments>
+<arg>${FA_footer_Peruuta}</arg>
+</arguments>
+<status status="PASS" starttime="20201211 15:52:46.338" endtime="20201211 15:52:46.978"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:45.487" endtime="20201211 15:52:46.978"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>trafficLight_info-1</arg>
+<arg>testi</arg>
+</arguments>
+<msg timestamp="20201211 15:52:46.979" level="INFO">Typing text 'testi' into text field 'trafficLight_info-1'.</msg>
+<status status="PASS" starttime="20201211 15:52:46.978" endtime="20201211 15:52:47.717"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${FA_footer_Peruuta}</arg>
+</arguments>
+<msg timestamp="20201211 15:52:47.717" level="INFO">Clicking element 'css=footer .cancel.btn.btn-secondary'.</msg>
+<status status="PASS" starttime="20201211 15:52:47.717" endtime="20201211 15:52:48.187"></status>
+</kw>
+<status status="PASS" starttime="20201211 15:52:15.004" endtime="20201211 15:52:48.187"></status>
+</kw>
+<doc>Käyttöliittymä, selain: Chrome
+- "Sinulla on tallentamattomia..." -dialogi ilmestyy kaikissa tietolajeissa, kun klikkaa muokkauksen jälkeen jotain muuta kuin Tallenna tai Peruuta.
+Testi checkboxilla muokattaville aineistoille
+Tarkistaa tietolajien avautuvan, ei yritä muokata niitä</doc>
 <tags>
 <tag>Mandatory</tag>
-<tag>Tasoristeys</tag>
+<tag>UI</tag>
 </tags>
-<status status="PASS" starttime="20201210 16:23:56.770" endtime="20201210 16:25:00.732" critical="yes"></status>
+<status status="PASS" starttime="20201211 15:51:23.759" endtime="20201211 15:52:48.187" critical="yes"></status>
 </test>
 <kw name="Close Browser" library="SeleniumLibrary" type="teardown">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20201210 16:25:00.740" endtime="20201210 16:25:03.015"></status>
+<status status="PASS" starttime="20201211 15:52:48.194" endtime="20201211 15:52:50.488"></status>
 </kw>
 <doc>Regression testcases for Digiroad</doc>
-<status status="PASS" starttime="20201210 16:23:34.660" endtime="20201210 16:25:03.015"></status>
+<status status="PASS" starttime="20201211 15:50:47.876" endtime="20201211 15:52:50.488"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">Mandatory</stat>
-<stat pass="1" fail="0">Tasoristeys</stat>
+<stat pass="2" fail="0">Mandatory</stat>
+<stat pass="2" fail="0">UI</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="testcases Tasoristeys">testcases Tasoristeys</stat>
+<stat pass="2" fail="0" id="s1" name="testcases UI">testcases UI</stat>
 </suite>
 </statistics>
 <errors>
