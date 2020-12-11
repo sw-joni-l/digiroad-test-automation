@@ -3,7 +3,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: "25"))
     }
     triggers {
-        cron('H 3 * * *')
+        cron('H 18 * * *')
     }
     agent {
         dockerfile {
