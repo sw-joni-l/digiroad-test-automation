@@ -453,11 +453,12 @@ Tielinkit_11
     FOR  ${n}  IN RANGE  10
         Click Element At coordinates                ${kartta}  0  20
         double click element at coordinates         ${kartta}  0  20
-        ${status}=  Run Keyword And Return Status  wait until element is visible               ${FA_otsikko}
+        ${status}=  Run Keyword And Return Status   element should contain  ${FA_otsikko}  ${tmp_linkID}
+        #${status}=  Run Keyword And Return Status  wait until element is visible               ${FA_otsikko}
         Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
         Exit For Loop If  ${status}
     END
-    element should contain                      ${FA_otsikko}  ${tmp_linkID}
+    #element should contain                      ${FA_otsikko}  ${tmp_linkID}
     Set Selenium Speed                          ${DELAY}
 
 Tielinkit_13

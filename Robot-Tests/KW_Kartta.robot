@@ -70,7 +70,7 @@ Kartta_4
     FOR   ${i}     IN RANGE    10
        Click Element                       ${zoombar_plus}
        #wait until element is visible       ${Map_popup}
-       Wait Until Element Contains         ${Map_popup}             ${Zoom_popup_context}
+       Wait until keyword succeeds  2x  200ms  Wait Until Element Contains         ${Map_popup}             ${Zoom_popup_context}
        Wait Until Element Is Not Visible   ${Map_popup}
        ${var}=     SeleniumLibrary.Get Text        ${skaala}
        Run Keyword If  '${var}'=='500 m'   Exit For Loop

@@ -42,8 +42,8 @@ UI_3
     wait until element is not visible       ${Map_popup}
     SeleniumLibrary.Input Text              ${Hae_syotekentta}       ${XSS_feed}
     Click Element                           ${Hae_btn}
-    wait until element is visible           ${Map_popup}
-    element text should be                  ${Map_popup}            ${Hakuvirheilmoitus}
+    #wait until element is visible           ${Map_popup}
+    Wait until keyword succeeds  2x  200ms  element text should be  ${Map_popup}  ${Hakuvirheilmoitus}
     Siirry Katselutilaan
     
 
