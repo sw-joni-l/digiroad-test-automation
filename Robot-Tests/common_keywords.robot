@@ -22,7 +22,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Firefox  #Headless
+${BROWSER}                  Headless Firefox
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -87,7 +87,8 @@ VerifyAttribute     [Arguments]     ${locator}    ${context}
     Should Be Equal                 ${LocatorValue}             ${context}
 
 Odota sivun latautuminen
-    Wait Until Keyword Succeeds  10 min  10 sec  Element Should Not Be Visible  class=loadingBar
+    Sleep                           1 s
+    Wait Until Keyword Succeeds     10 min  10 sec  Element Should Not Be Visible  class=loadingBar
 
 
 Zoomaa edestakaisin

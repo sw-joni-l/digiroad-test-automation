@@ -160,7 +160,7 @@ Luo pysäkki  [arguments]  ${ylläpitäjä}
     wait until element is visible               ${FA_otsikko}
     Täytetään pysäkin kentät                    ${ylläpitäjä}
     Click Element                               ${FA_footer_Tallenna}
-    #Wait Until Element Is Visible               ${MuokkausVaroitus}
+    Repeat Keyword  5 sec                       Wait Until Element Is Not Visible  ${Spinner_Overlay}
     #Click Button                                Kyllä
 
 

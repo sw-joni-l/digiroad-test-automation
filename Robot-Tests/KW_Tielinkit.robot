@@ -370,7 +370,7 @@ Tielinkit_10  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
     #   Tuplaklikkaus ei toiminut, päädyttiin käyttämään kahta erillistä sen sijaan, koska toimivat
     set selenium speed     0
     #click element at coordinates                ${kartta}   0  20
-    click element at coordinates                ${kartta}   0  20
+    #click element at coordinates                ${kartta}   0  20
     doubleclick_element_at_coordinates          ${kartta}   0  20
     set selenium speed      ${delay}
     wait until element is visible               ${FA_tielinkki_MML_ID}
@@ -390,8 +390,8 @@ Tielinkit_10  [arguments]  ${testipaikka}  ${EkaLinkId}  ${TokaLinkId}
 
     #   tuplaklikkaus toimi jostain syystä kahdella erillisellä klikkauksella parhaiten,
     set selenium speed     0.1
-    click element at coordinates                ${kartta}   304  -157           #-177
-    click element at coordinates                ${kartta}   305  -158           #-178
+    #click element at coordinates                ${kartta}   304  -157           #-177
+    #click element at coordinates                ${kartta}   305  -158           #-178
     doubleclick_element_at_coordinates          ${kartta}   304  -157           #-177
     set selenium speed      ${delay}
     wait until element is visible               ${FA_tielinkki_MML_ID}
@@ -449,15 +449,16 @@ Tielinkit_11
     click element                               ${tmp_ListLocator}
     click element at coordinates                ${kartta}  -100  -100
     Odota sivun latautuminen
-    Set Selenium Speed                          0
-    FOR  ${n}  IN RANGE  10
-        Click Element At coordinates                ${kartta}  0  20
+    #Set Selenium Speed                          0
+    #FOR  ${n}  IN RANGE  10
+        #Click Element At coordinates                ${kartta}  0  20
         double click element at coordinates         ${kartta}  0  20
-        ${status}=  Run Keyword And Return Status   element should contain  ${FA_otsikko}  ${tmp_linkID}
+        #${status}=  Run Keyword And Return Status   element should contain  ${FA_otsikko}  ${tmp_linkID}
+        element should contain  ${FA_otsikko}  ${tmp_linkID}
         #${status}=  Run Keyword And Return Status  wait until element is visible               ${FA_otsikko}
         Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
-        Exit For Loop If  ${status}
-    END
+        #Exit For Loop If  ${status}
+    #END
     #element should contain                      ${FA_otsikko}  ${tmp_linkID}
     Set Selenium Speed                          ${DELAY}
 
