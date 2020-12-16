@@ -10,7 +10,7 @@ pipeline {
                                         description: 'List of browsers used with testing')
     }
     triggers {
-        cron('H 18 * * 1-5 % SELAIN=Chrome')
+        cron('H 18 * * 1-5')
     }
     agent {
         dockerfile {
