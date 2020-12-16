@@ -29,9 +29,9 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh('echo ${params.SELAIN}')
-                sh('echo $SELAIN')
-                sh('echo ${SELAIN}')
+                echo '${params.SELAIN}'
+                echo '$SELAIN'
+                echo '${SELAIN}'
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
