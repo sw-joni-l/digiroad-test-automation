@@ -6,7 +6,7 @@ pipeline {
         choice(name: 'SELAIN', choices: ['Chrome',
                                         'Firefox',
                                         'Headless Chrome',
-                                        'Headless Firefox',]
+                                        'Headless Firefox'],
                                         description: 'List of browsers used with testing')
     }
     triggers {
