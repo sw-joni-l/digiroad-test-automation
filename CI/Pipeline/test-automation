@@ -6,8 +6,8 @@ pipeline {
         choice(name: 'SELAIN', choices: ['Chrome',
                                         'Firefox',
                                         'Headless Chrome',
-                                        'Headless Firefox',
-                                        description: 'List of browsers used with testing'])
+                                        'Headless Firefox',]
+                                        description: 'List of browsers used with testing')
     }
     triggers {
         cron('H 18 * * 1-5 %Chrome')
