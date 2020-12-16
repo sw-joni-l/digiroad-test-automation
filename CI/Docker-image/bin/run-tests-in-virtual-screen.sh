@@ -12,7 +12,6 @@ then
         ${ROBOT_OPTIONS} \
         -v LiviUSER:$ROBOT_CRED_USR \
         -v LiviPWD:$ROBOT_CRED_PSW \
-        -v BROWSER:$SELAIN \
         $ROBOT_TESTS_DIR
 else
     xvfb-run \
