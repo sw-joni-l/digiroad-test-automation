@@ -16,19 +16,19 @@ pipeline {
     stages {
         stage("Robot tests"){
             steps{
-                sh "docker run --user $(id -u):$(id -g) --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/robot-tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
+                sh "docker run --user root --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/robot-tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
             }
         }
     }
 
-    //post {
-    //    always {
-    //        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
-    //        archiveArtifacts artifacts: '**/log.html'
-    //       archiveArtifacts artifacts: '**/*.png'
-    //        deleteDir()
-    //    }
-    //}
+    post {
+        always {
+            step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
+            archiveArtifacts artifacts: '**/log.html'
+           archiveArtifacts artifacts: '**/*.png'
+            deleteDir()
+        }
+    }
 }
 /*    agent any
     stages {
