@@ -14,7 +14,7 @@ pipeline {
                         "--build-arg no_proxy=${no_proxy}",
                         "--build-arg JENKINS_UID=${jenkins_uid}"
                     ].join(" ")
-                    docker.build("-t digiroad2-robot:latest ${build_args} -f CI/Docker-image/Dockerfile.robot")
+                    docker.build("-t digiroad2-robot:latest ${build_args} -f CI/Docker-image/Dockerfile.robot .")
                 }
             }
         }
