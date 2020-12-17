@@ -21,14 +21,14 @@ pipeline {
         }
     }
 
-    post {
+    /*post {
         always {
             step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
             archiveArtifacts artifacts: '**/log.html'
             archiveArtifacts artifacts: '**/*.png'
             deleteDir()
         }
-    }
+    }*/
 }
 /*    agent any
     stages {
