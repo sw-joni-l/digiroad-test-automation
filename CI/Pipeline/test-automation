@@ -12,14 +12,12 @@ pipeline {
     triggers {
         cron('H 18 * * *')
     }
-    agent {
-        docker {
-            image 'digiroad2-robot:latest'
-            args '--shm-size=1g --env HTTPS_PROXY=$https_proxy -u root'
-        }
-    }
     stages {
         stage('Robot Tests') {
+            agent { docker {
+                    image 'digiroad2-robot:latest'
+                    args '--shm-size=1g --env HTTPS_PROXY=$https_proxy -u root'}
+            }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
                 BROWSER = '$SELAIN'
