@@ -16,7 +16,7 @@ pipeline {
                     ].join(" ")
                     docker.build(
                         "digiroad2-robot",
-                        "${build_args} -f CI/Docker-image/Dockerfile.robot ci"
+                        "${build_args} -f CI/Docker-image/Dockerfile.robot"
                     )
                 }
             }
