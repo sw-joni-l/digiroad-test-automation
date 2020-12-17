@@ -13,18 +13,16 @@ pipeline {
         cron('H 18 * * *')
     }
     agent {
-        dockerfile {
-            filename 'Dockerfile.robot'
-            dir 'CI/Docker-image/'
-            additionalBuildArgs  '--build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy'
-            args '--shm-size=1g --env HTTPS_PROXY=$https_proxy'
+        docker {
+            image 'digiroad2-robot:latest'
+            args '--shm-size=1g --env HTTPS_PROXY=$https_proxy -u root'
         }
     }
     stages {
         stage('Robot Tests') {
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                /*ROBOT_OPTIONS = '-v BROWSER:${params.SELAIN}'*/
+                BROWSER = $SELAIN
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
