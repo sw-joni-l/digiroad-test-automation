@@ -22,15 +22,14 @@ pipeline {
         stage('Robot Tests') {
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                BROWSER = $SELAIN
+                BROWSER = '$SELAIN'
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh "echo $SELAIN"
-                /*sh '''
+                sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
-                '''*/
+                '''
             }
         }
     }
