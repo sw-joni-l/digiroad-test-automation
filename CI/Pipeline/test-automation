@@ -12,6 +12,7 @@ pipeline {
     triggers {
         cron('H 18 * * *')
     }
+    agent any
     stages {
         stage('Robot Tests') {
             agent { docker {
