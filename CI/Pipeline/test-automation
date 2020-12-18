@@ -16,8 +16,7 @@ pipeline {
     stages {
         stage("Robot tests"){
             steps{
-                echo "$BUILD_USER_ID"
-                sh "docker run --env HTTPS_PROXY=$https_proxy -u $BUILD_USER_ID --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
+                sh "docker run --env HTTPS_PROXY=$https_proxy -u $(id -u) --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
             }
         }
     }
