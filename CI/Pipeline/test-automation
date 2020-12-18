@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage("Robot tests"){
             steps{
-                sh "docker run --user root --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/robot-tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
+                sh "docker run --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/robot-tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
             }
         }
     }
