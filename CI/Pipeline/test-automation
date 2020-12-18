@@ -25,7 +25,7 @@ pipeline {
         always {
             step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
             archiveArtifacts artifacts: '**/log.html'
-           archiveArtifacts artifacts: '**/*.png'
+            archiveArtifacts artifacts: '**/*.png'
             deleteDir()
         }
     }
