@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage("Robot tests"){
             steps{
-                sh "chmod 777 /logs"
+                sh "chmod 777 logs"
                 sh "docker run --env HTTPS_PROXY=$https_proxy --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
             }
         }
