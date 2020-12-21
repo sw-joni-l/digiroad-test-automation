@@ -21,7 +21,7 @@ pipeline {
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                BROWSER = '$SELAIN'
+                ROBOT_OPTIONS = "-v BROWSER:$SELAIN"
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
