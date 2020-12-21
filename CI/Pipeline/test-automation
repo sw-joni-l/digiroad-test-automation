@@ -12,7 +12,7 @@ pipeline {
     triggers {
         cron('H 18 * * *')
     }
-    agent none
+    agent any
     stages {
         stage('Robot Tests') {
             agent { docker {
@@ -26,9 +26,10 @@ pipeline {
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
             steps {
-                sh '''
+                echo "$WORKSPACE"
+                /*sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
-                '''
+                '''*/
             }
         }
     }
