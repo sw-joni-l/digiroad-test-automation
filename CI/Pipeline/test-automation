@@ -12,32 +12,12 @@ pipeline {
     triggers {
         cron('H 18 * * *')
     }
-    agent any
-    stages {
-        stage("Robot tests"){
-            steps{
-                sh"mkdir $WORKSPACE/logs"
-                sh "chmod 777 $WORKSPACE/logs"
-                sh "docker run --env HTTPS_PROXY=$https_proxy -u 1000 --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
-            }
-        }
-    }
-
-    post {
-        always {
-            step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
-            archiveArtifacts artifacts: '**/log.html'
-            archiveArtifacts artifacts: '**/*.png'
-            deleteDir()
-        }
-    }
-}
-/*    agent any
+    agent none
     stages {
         stage('Robot Tests') {
             agent { docker {
                     image 'digiroad2-robot:latest'
-                    args '--shm-size=1g --env HTTPS_PROXY=$https_proxy -u root'}
+                    args '--shm-size=1g --env HTTPS_PROXY=$https_proxy'}
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
@@ -49,6 +29,27 @@ pipeline {
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
+            }
+        }
+    }
+    post {
+        always {
+            step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
+            archiveArtifacts artifacts: '**/log.html'
+            archiveArtifacts artifacts: '**/*.png'
+            deleteDir()
+        }
+    }
+}
+/*    
+*/
+    /*agent any
+    stages {
+        stage("Robot tests"){
+            steps{
+                sh"mkdir $WORKSPACE/logs"
+                sh "chmod 777 $WORKSPACE/logs"
+                sh "docker run --env HTTPS_PROXY=$https_proxy --shm-size=1g -e BROWSER=$SELAIN -v $WORKSPACE/Robot-Tests:/opt/robotframework/tests:Z -v $WORKSPACE/logs:/opt/robotframework/reports:Z digiroad2-robot:latest"
             }
         }
     }
