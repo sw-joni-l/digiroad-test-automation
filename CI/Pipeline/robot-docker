@@ -13,7 +13,6 @@ pipeline {
                             "--build-arg http_proxy=${http_proxy}",
                             "--build-arg https_proxy=${http_proxy}",
                             "--build-arg no_proxy=${no_proxy}",
-                            "--build-arg JENKINS_UID=${jenkins_uid}"
                         ].join(" ")
                         docker.build("digiroad2-robot:latest ${build_args} -f Dockerfile.robot")
                     }

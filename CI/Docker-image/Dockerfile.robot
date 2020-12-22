@@ -124,4 +124,4 @@ USER ${ROBOT_UID}:${ROBOT_GID}
 WORKDIR ${ROBOT_WORK_DIR}
 
 # Execute all robot tests
-CMD ["run-tests-in-virtual-screen.sh"]
+#CMD ["run-tests-in-virtual-screen.sh"]
