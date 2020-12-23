@@ -39,8 +39,8 @@ ENV SELENIUM_LIBRARY_VERSION 4.5.0
 ENV XVFB_VERSION 1.20
 
 # Prepare binaries to be executed
-COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
-COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
+#COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
+#COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 
 # Install system dependencies
@@ -64,8 +64,8 @@ RUN apk update \
     "firefox-esr~$FIREFOX_VERSION" \
     xauth \
     "xvfb-run~$XVFB_VERSION" \
-  && mv /usr/lib/chromium/chrome /usr/lib/chromium/chrome-original \
-  && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
+  #&& mv /usr/lib/chromium/chrome /usr/lib/chromium/chrome-original \
+  #&& ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
 # FIXME: above is a workaround, as the path is ignored
 
 # Install Robot Framework and Selenium Library
@@ -112,8 +112,8 @@ RUN chmod ugo+w /var/log \
 ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
 # Add path for google chrome as chromium-browser
-#ENV CHROME_BIN=/usr/bin/chromium-browser \
-#    CHROME_PATH=/usr/lib/chromium/
+ENV CHROME_BIN=/usr/bin/chromium-browser \
+    CHROME_PATH=/usr/lib/chromium/
 
 # Set up a volume for the generated reports
 VOLUME ${ROBOT_REPORTS_DIR}
@@ -124,4 +124,4 @@ USER ${ROBOT_UID}:${ROBOT_GID}
 WORKDIR ${ROBOT_WORK_DIR}
 
 # Execute all robot tests
-CMD ["run-tests-in-virtual-screen.sh"]
+#CMD ["run-tests-in-virtual-screen.sh"]
