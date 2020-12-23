@@ -112,8 +112,8 @@ RUN chmod ugo+w /var/log \
 ENV PATH=/opt/robotframework/bin:/opt/robotframework/drivers:$PATH
 
 # Add path for google chrome as chromium-browser
-ENV CHROME_BIN=/usr/bin/chromium-browser \
-    CHROME_PATH=/usr/lib/chromium/
+#ENV CHROME_BIN=/usr/bin/chromium-browser \
+#    CHROME_PATH=/usr/lib/chromium/
 
 # Set up a volume for the generated reports
 VOLUME ${ROBOT_REPORTS_DIR}

@@ -29,6 +29,7 @@ pipeline {
                 sh '''
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
+                sh 'cp /var/log/chromedriver $ROBOT_REPORTS_DIR'
             }
         }
     }
@@ -37,6 +38,7 @@ pipeline {
             step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
             archiveArtifacts artifacts: '**/log.html'
             archiveArtifacts artifacts: '**/*.png'
+            archiveArtifacts artifacts: '**/chromedriver'
             deleteDir()
         }
     }
