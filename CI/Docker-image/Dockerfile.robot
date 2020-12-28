@@ -93,6 +93,7 @@ RUN apk update \
     && mkdir -p /opt/robotframework/drivers/ \
     && mv geckodriver /opt/robotframework/drivers/geckodriver \
     && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
+    && chown root:root /opt/robotframework/drivers/geckodriver \
 
   && apk del --no-cache --update-cache .build-deps
 
