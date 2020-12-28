@@ -9,7 +9,7 @@ Library                     String
 Library                     selenium_extensions.py
 Library                     DateTime
 
-#Resource                    c:/tools/omat/DRownvariables.robot
+Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
@@ -38,7 +38,7 @@ Login To DigiRoad
     #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
-    Open Browser                    ${LOGIN URL}            ${BROWSER}
+    Open Browser                    ${LOGIN URL}            ${BROWSER}  options=add_argument('--no-sandbox')
     #Maximize Browser Window
     set window size    1920   1200
     Set Selenium Speed              ${DELAY}

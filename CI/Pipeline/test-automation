@@ -17,7 +17,7 @@ pipeline {
         stage('Robot Tests') {
             agent { docker {
                     image 'digiroad2-robot:latest'
-                    args '--shm-size=1g --env HTTPS_PROXY=$https_proxy'}
+                    args '--shm-size=1g --env HTTPS_PROXY=$https_proxy --env HOME=/opt/robotframework/temp/'}
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
