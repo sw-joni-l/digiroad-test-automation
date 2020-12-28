@@ -90,12 +90,13 @@ RUN apk update \
 # Download Gecko drivers directly from the GitHub repository
   && wget -q "https://github.com/mozilla/geckodriver/releases/download/$GECKO_DRIVER_VERSION/geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz" \
     && tar xzf geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
-    && mkdir -p /opt/robotframework/drivers/ \
-    && mv geckodriver /opt/robotframework/drivers/geckodriver \
     && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
-    && chown root:root /opt/robotframework/drivers/geckodriver \
-
+    && chmod +x geckodriver \
+    && mv geckodriver /usr/bin/ \
   && apk del --no-cache --update-cache .build-deps
+
+    #&& mkdir -p /opt/robotframework/drivers/ \
+    #&& mv geckodriver /opt/robotframework/drivers/geckodriver \
 
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
