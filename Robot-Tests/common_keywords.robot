@@ -9,7 +9,7 @@ Library                     String
 Library                     selenium_extensions.py
 Library                     DateTime
 
-Resource                    c:/tools/omat/DRownvariables.robot
+#Resource                    c:/tools/omat/DRownvariables.robot
 #Library                    DateTime
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
