@@ -4,8 +4,7 @@ HOME=${ROBOT_WORK_DIR}
 
 if [ $SELAIN==- ]
 then
-    DATE= $( date '+%u' )
-    if [ $DATE -le 5 ]
+    if [ $( date '+%u' ) -le 5 ]
     then
         SELAIN=Chrome
     else
