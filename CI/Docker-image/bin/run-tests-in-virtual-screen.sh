@@ -7,10 +7,9 @@ then
     DATE= date '+%u'
     if [ $DATE < 6 ]
     then
-        echo  '- toimii'
         SELAIN=Chrome
+        echo  $SELAIN
     else
-        echo  '- toimii'
         SELAIN=Firefox
     fi
 fi
@@ -22,6 +21,8 @@ then
         --server-args="-screen 0 ${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_COLOUR_DEPTH} -ac" \
         robot \
         --outputDir $ROBOT_REPORTS_DIR \
+        --name  $SELAIN \
+        -v BROWSER:$SELAIN \
         ${ROBOT_OPTIONS} \
         -v LiviUSER:$ROBOT_CRED_USR \
         -v LiviPWD:$ROBOT_CRED_PSW \
