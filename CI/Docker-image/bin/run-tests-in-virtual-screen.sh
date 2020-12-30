@@ -2,6 +2,17 @@
 
 HOME=${ROBOT_WORK_DIR}
 
+if [ $SELAIN=='-']
+then
+    DATE= date '+%u'
+    if [ $DATE < 6 ]
+    then
+        SELAIN=Chrome
+    else
+        SELAIN=Firefox
+    fi
+fi
+
 # No need for the overhead of Pabot if no parallelisation is required
 if [ $ROBOT_THREADS -eq 1 ]
 then

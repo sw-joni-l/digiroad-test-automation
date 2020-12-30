@@ -10,7 +10,6 @@ Library                     selenium_extensions.py
 Library                     DateTime
 
 #Resource                    c:/tools/omat/DRownvariables.robot
-#Library                    DateTime
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
 Resource                    KW_Kartta.robot
@@ -22,7 +21,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Firefox
+${BROWSER}                  Empty
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -36,6 +35,7 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 Login To DigiRoad
     #log to console                  ${CURDIR}
     #Add Image Path                  ${IMAGE_DIR}
+    #${BROWSER}=  Run Keyword If  '${BROWSER}'=='Empty'  Valitse Selain  ${BROWSER}  ELSE  Set Variable  ${BROWSER}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}            ${BROWSER}  options=add_argument('--no-sandbox')
@@ -180,6 +180,17 @@ Valitse Kohde
         ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
         Exit For Loop If  '${status}'=='True'
     END
+
+Valitse Selain
+    [Documentation]  Valitsee selaimen testeihin viikonpäivän mukaan, käytössä CI ympäristössä
+    [Arguments]  ${BROWSER}
+    ${date}=  Get Current Date
+    ${date}=  Convert Date  ${date}  result_format=%w
+    ${BROWSER}=  Run Keyword If  0<=${date}<5  Set Variable  Chrome
+    ...  ELSE IF  Set Variable  Firefox
+    log to console  ${BROWSER}
+    [Return]  ${BROWSER}
+
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille

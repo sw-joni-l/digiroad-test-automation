@@ -3,7 +3,8 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: "25"))
     }
     parameters {
-        choice(name: 'SELAIN', choices: ['Chrome',
+        choice(name: 'SELAIN', choices: ['-',
+                                        'Chrome',
                                         'Firefox',
                                         'headlesschrome',
                                         'headlessfirefox'],
@@ -21,7 +22,7 @@ pipeline {
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                ROBOT_OPTIONS = "-v BROWSER:$SELAIN"
+                ROBOT_OPTIONS = "-v BROWSER:$SELAIN --name $SELAIN"
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
@@ -36,7 +37,7 @@ pipeline {
     post {
         always {
             step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
-            archiveArtifacts artifacts: '**/log.html, **/logs/*.png'
+            archiveArtifacts artifacts: '**/logs/*'
             deleteDir()
         }
     }
