@@ -2,13 +2,15 @@
 
 HOME=${ROBOT_WORK_DIR}
 
-if [ $SELAIN==-]
+if [ $SELAIN==- ]
 then
     DATE= date '+%u'
     if [ $DATE < 6 ]
     then
+        echo  '- toimii'
         SELAIN=Chrome
     else
+        echo  '- toimii'
         SELAIN=Firefox
     fi
 fi
