@@ -4,11 +4,10 @@ HOME=${ROBOT_WORK_DIR}
 
 if [ $SELAIN==- ]
 then
-    DATE= date '+%u'
-    if [ $DATE < 6 ]
+    DATE= $( date '+%u' )
+    if [ $DATE -le 5 ]
     then
         SELAIN=Chrome
-        echo  $SELAIN
     else
         SELAIN=Firefox
     fi
