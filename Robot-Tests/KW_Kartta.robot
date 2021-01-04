@@ -61,16 +61,14 @@ Kartta_3
 Kartta_4
     [Documentation]   Sovellus näyttää viestin "Zoomaa lähemmäksi, jos haluat nähdä kohteita", kun mittakaavataso on liian pieni.
     ...     Testissä käytössä oletustietolaji, eli joukkoliikenteen pysäkki (näkyvät 1:20 000 mittakaavalla)
-    Click Element                           ${zoombar_plus}
-    #wait until element is visible           ${Map_popup}
-    Wait Until Element Contains             ${Map_popup}             ${Zoom_popup_context}
-    Wait Until Element Is Not Visible       ${Map_popup}
 
     Log  Zoomataan karttaa ja tarkistetaan, että haluttu ilmoitus tulee näkyviin
     FOR   ${i}     IN RANGE    10
+        Wait Until Element Is Not Visible  ${Map_popup}
        Click Element                       ${zoombar_plus}
        #wait until element is visible       ${Map_popup}
-       Wait until keyword succeeds  2x  200ms  Wait Until Element Contains         ${Map_popup}             ${Zoom_popup_context}
+       #Wait until keyword succeeds  2x  200ms  
+       Wait Until Element Contains         ${Map_popup}             ${Zoom_popup_context}
        Wait Until Element Is Not Visible   ${Map_popup}
        ${var}=     SeleniumLibrary.Get Text        ${skaala}
        Run Keyword If  '${var}'=='500 m'   Exit For Loop

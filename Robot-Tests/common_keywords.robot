@@ -21,7 +21,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  Empty
+${BROWSER}                  headlessfirefox
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/

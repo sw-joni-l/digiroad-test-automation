@@ -20,6 +20,7 @@ then
         robot \
         --outputDir $ROBOT_REPORTS_DIR \
         --name  $SELAIN \
+        -T \
         -v BROWSER:$SELAIN \
         ${ROBOT_OPTIONS} \
         -v LiviUSER:$ROBOT_CRED_USR \
