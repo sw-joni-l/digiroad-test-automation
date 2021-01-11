@@ -6,3 +6,6 @@ testi.robot
 .gitignore
 *.log
 *pabot*
+.pki
+.cache
+.ash_history

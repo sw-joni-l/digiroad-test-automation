@@ -37,6 +37,7 @@ UI_2
 UI_3
     Log    Syöttää XSSllä hakukenttään. Haku ei saa mennä siitä rikki.
     wait until element is visible           ${Hae_syotekentta}
+    wait until element is not visible       ${Map_popup}
     Siirry muokkaustilaan
     wait until element is visible           ${Map_popup}
     wait until element is not visible       ${Map_popup}
