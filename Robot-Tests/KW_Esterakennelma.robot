@@ -66,11 +66,12 @@ Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
     Log  Tarkistetaan, että ominaisuustietojen muokkauksesta tulee muokkausvaroitus.
     #click element at coordinates                ${kartta}   0   20
     #wait until element is visible               ${FA_otsikko}
-    DDM_tietolajit
-    Click element at coordinates                ${Kartta}  100  100
-    Wait Until Element Is Visible               ${Muokkausvaroitus}
-    Click Button                                ${Muokkausvaroitus_Sulje_btn}
-    click element                               ${FA_footer_Peruuta}
+    #Otettu pois koska ei toimi luotettavasti CI ympäristössä
+    #DDM_tietolajit
+    #Click element at coordinates                ${Kartta}  100  100
+    #Wait Until Element Is Visible               ${Muokkausvaroitus}
+    #Click Button                                ${Muokkausvaroitus_Sulje_btn}
+    #click element                               ${FA_footer_Peruuta}
 
 Este_4  [arguments]  ${testipaikka}
     ${date}=  Get Current Date                  result_format=%d.%m.%Y
