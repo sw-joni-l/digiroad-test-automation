@@ -507,8 +507,8 @@ Vaihda Tielinkin visualisointi  [Arguments]  ${tielinkin_visualisointi}
     wait until element is visible   ${Tielinkin_legenda_boksi_kaikki}
 
 Arvo linkki korjattavien listalta
-    Log  Arvotaan listalta linkki väliltä 1-100
-    ${RandListItem}=            Evaluate                random.randint(1, 100)       modules=random
+    Log  Arvotaan listalta linkki väliltä 1-25
+    ${RandListItem}=            Evaluate                random.randint(1,25)       modules=random
     ${tmp_ListLocator}=         set variable            xpath=(.//*[@id='work-list']//*[@class='work-list-item'])[${RandListItem}]
     Set Test Variable           ${tmp_ListLocator}
 
