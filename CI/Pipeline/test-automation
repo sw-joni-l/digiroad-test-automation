@@ -13,7 +13,7 @@ pipeline {
     triggers {
         cron('H 18 * * *')
     }
-    agent any
+    agent none
     stages {
         stage('Robot Tests') {
             agent { docker {
@@ -22,7 +22,7 @@ pipeline {
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                /*ROBOT_OPTIONS = "-v BROWSER:$SELAIN --name $SELAIN"*/
+                ROBOT_OPTIONS = "-i tagi"
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
@@ -31,15 +31,16 @@ pipeline {
                     /opt/robotframework/bin/run-tests-in-virtual-screen.sh
                 '''
             }
+            post {
+                always {
+                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
+                    archiveArtifacts artifacts: 'logs/*.html'
+                    deleteDir()
+                }
+            }
         }
     }
-    post {
-        always {
-            step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
-            archiveArtifacts artifacts: '**/*.html'
-            deleteDir()
-        }
-    }
+    
 }
 /*    
 */
