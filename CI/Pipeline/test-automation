@@ -34,7 +34,7 @@ pipeline {
             post {
                 always {
                     step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
-                    archiveArtifacts artifacts: 'logs/*.html'
+                    archiveArtifacts artifacts: 'logs/**'
                     deleteDir()
                 }
             }
