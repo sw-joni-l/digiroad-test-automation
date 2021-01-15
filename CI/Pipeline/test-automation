@@ -22,7 +22,7 @@ pipeline {
             }
             environment {
                 ROBOT_CRED = credentials("ROBOT_USER")
-                ROBOT_OPTIONS = "-i tagi"
+                /*ROBOT_OPTIONS = "-i tagi"*/
                 ROBOT_TESTS_DIR = "$WORKSPACE/Robot-Tests"
                 ROBOT_REPORTS_DIR = "$WORKSPACE/logs"
             }
