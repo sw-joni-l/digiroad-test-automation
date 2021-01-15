@@ -33,9 +33,10 @@ pipeline {
             }
             post {
                 always {
-                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'niko.lahtinen@sitowise.com', sendToIndividuals: false])
+                    step([$class: 'Mailer', recipients: 'kehitys@digiroad.fi', sendToIndividuals: false])
                     archiveArtifacts artifacts: 'logs/**'
                     deleteDir()
+                    */ notifyEveryUnstableBuild: true,*/
                 }
             }
         }
