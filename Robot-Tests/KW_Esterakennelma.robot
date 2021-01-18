@@ -61,7 +61,7 @@ Este_3  [arguments]  ${testipaikka}  ${Este_tyyppi}
     Wait Until Element Is Visible               ${Muokkausvaroitus}
     Click Button                                ${Muokkausvaroitus_Sulje_btn}
     click element                               ${FA_footer_Peruuta}
-    Sleep  5 s
+    #Sleep  5 s
 
     Log  Tarkistetaan, että ominaisuustietojen muokkauksesta tulee muokkausvaroitus.
     #click element at coordinates                ${kartta}   0   20
