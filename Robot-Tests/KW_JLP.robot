@@ -104,15 +104,22 @@ JLP_4  [arguments]  ${testipaikka}  ${ylläpitäjä}
     Vaihda Tietolaji                            ${TL_Esterakennelma_RB}
     Vaihda Tietolaji                            ${TL_Joukkoliikenteen_pysäkki_RB}
     Odota sivun latautuminen
-    FOR  ${var}  IN RANGE  10
-        #For loopilla varmistetaan elementin avaaminen, 
-        Click Element At Coordinates                ${Kartta}  0  20
-        ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  3 s
-        Exit For Loop If  ${status}
-        Run Keyword If  ${var} == 9  Fail  Ei Voitu Avata Kohteen Tietoja
-    END
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_Lisätty_Järjestelmään}
     Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
     Poista Pysäkki
+    
+    
+    
+    #FOR  ${var}  IN RANGE  10
+        #For loopilla varmistetaan elementin avaaminen, 
+    #    Click Element At Coordinates                ${Kartta}  0  20
+    #    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}  3 s
+    #    Exit For Loop If  ${status}
+    #    Run Keyword If  ${var} == 9  Fail  Ei Voitu Avata Kohteen Tietoja
+    #END
+    #Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
+    #Poista Pysäkki
 
 
 #######################

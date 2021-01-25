@@ -93,7 +93,7 @@ Tasoristeys_4  [arguments]  ${testipaikka}
     Luo tasoristeys                             tyyppi
     Siirry Katselutilaan
     Click Element At Coordinates                ${Kartta}  0  20
-    Wait Until Element Is Visible               ${FA_otsikko}
+    Wait Until Element Is Visible               ${FA_Lisätty_Järjestelmään}
     Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
     Poista Kohde
 
