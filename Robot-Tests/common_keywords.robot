@@ -2,7 +2,7 @@
 # pybot -d .\logs .\testcases*
 *** Settings ***
 #Library                     SeleniumLibrary     timeout=30.0   run_on_failure=None
-Library                     SeleniumLibrary     timeout=10.0   run_on_failure=Capture Page Screenshot
+Library                     SeleniumLibrary     timeout=15.0   run_on_failure=Capture Page Screenshot
 #Library                     Dialogs
 Library                     String
 #Library                    SikuliLibrary
@@ -21,7 +21,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 
 *** Variables ***
-${BROWSER}                  headlessfirefox
+${BROWSER}                  Firefox
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
