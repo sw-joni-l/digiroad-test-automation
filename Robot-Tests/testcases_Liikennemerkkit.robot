@@ -8,8 +8,8 @@ Suite Teardown      Close Browser
 Test Setup          Testin Aloitus
 
 *** Test Cases ***
-Liikennemerkit 1
-    [Tags]              Merkki  
-    [Documentation]     Liikennemerkit, selain: ${BROWSER}
-    ...  
-    KW_Liikennemerkit.Liikennemerkit 1  7320569, 599457
+#Liikennemerkit 1
+#    [Tags]              Merkki  
+#    [Documentation]     Liikennemerkit, selain: ${BROWSER}
+#    ...  
+#    KW_Liikennemerkit.Liikennemerkit 1  7320569, 599457

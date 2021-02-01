@@ -433,13 +433,16 @@ Tielinkit_11
     vaihda tietolaji                            ${TL_Tielinkki_RB}
     Odota sivun latautuminen
     wait until element is visible               ${FA_Link_incomplete-links}  10
+    
     Log  avataan Korjattavien linkkien lista
     click element                               ${FA_Link_incomplete-links}
     wait until element is visible               css=.content-box>header  20
+
     Log  tarkistetaan, että listalta löytyvät otsikot
     page should contain                         Kunnan omistama
     page should contain                         Yksityisen omistama
     page should contain                         Valtion omistama
+
     Log  Tarkistetaan, että listan linkeistä satunnaisesti valittu paikka/linkki
     Arvo linkki korjattavien listalta
     wait until element is visible               ${tmp_ListLocator}
@@ -449,18 +452,12 @@ Tielinkit_11
     Log  ${tmp_linkID}
     click element                               ${tmp_ListLocator}
     click element at coordinates                ${kartta}  -100  -100
+    Zoomaa kartta                               10  5 m
     Odota sivun latautuminen
-    #Set Selenium Speed                          0
-    #FOR  ${n}  IN RANGE  10
-        #Click Element At coordinates                ${kartta}  0  20
-        double click element at coordinates         ${kartta}  0  20
-        #${status}=  Run Keyword And Return Status   element should contain  ${FA_otsikko}  ${tmp_linkID}
-        element should contain  ${FA_otsikko}  ${tmp_linkID}
-        #${status}=  Run Keyword And Return Status  wait until element is visible               ${FA_otsikko}
-        Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
-        #Exit For Loop If  ${status}
-    #END
-    #element should contain                      ${FA_otsikko}  ${tmp_linkID}
+    double click element at coordinates         ${kartta}  0  20
+    element should contain                      ${FA_otsikko}  ${tmp_linkID}
+
+    Log  varmistetaan että kartalta klikattu linkin ID täsmää listalta otettuun.
     Set Selenium Speed                          ${DELAY}
 
 Tielinkit_13
