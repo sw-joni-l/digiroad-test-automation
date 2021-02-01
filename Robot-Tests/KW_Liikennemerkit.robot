@@ -27,6 +27,17 @@ Liikennemerkit_1  [arguments]  ${testipaikka}
     Click Element                               ${FA_footer_Tallenna}
 
 
+Liikennemerkit_2  [Arguments]  ${testipaikka}  ${Merkin_tyyppi}  ${Merkin_teksti}
+    Testin Aloitus
+    log  Paikannetaan Liikennemerkki. Tarkistetaan liikennemerkin tyyppi.
+    Siirry Testipaikkaan            ${TL_Liikennemerkit_RB}  ${testipaikka}
+    Click Element                   ${Merkin_tyyppi}
+    Odota sivun latautuminen
+
+    Click Element At Coordinates    ${Kartta}  0  20
+    Wait Until Element Is Visible   ${FA_otsikko}
+    Element Should Contain          css=#feature-attributes-form  ${Merkin_teksti}
+
 
 #######################
 ## Sisäiset keywordit #
