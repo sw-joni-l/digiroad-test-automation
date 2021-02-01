@@ -1,78 +1,6 @@
 *** Settings ***
 Documentation       Pageobject for Traffic signs (Liikennemerkit)
 
-*** Variables ***
-${LM_Varoitusmerkit}    generalWarningSigns
-${LM_Etuajo-oikeus}     priorityAndGiveWaySigns
-${LM_Kielto}            prohibitionsAndRestrictions
-${LM_Määräysmerkit}     mandatorySigns
-${LM_Sääntömerkit}      regulatorySigns
-${LM_Opastusmerkit}     informationSigns
-${LM_Palvelukohteet}    serviceSigns
-${LM_Muut_merkit}       otherSigns
-
-@{LM_lista}  
-...     ${LM_Varoitusmerkit}  ${LM_Etuajo-oikeus}  ${LM_Kielto}
-...     ${LM_Määräysmerkit}  ${LM_Sääntömerkit}  ${LM_Opastusmerkit}
-...     ${LM_Palvelukohteet}  ${LM_Muut_merkit}
-
-#####################
-### Merkin kentät ###
-#####################
-
-${Tyyppi}                           css=#main-trafficSigns_type
-${Tyyppi_DDM}                       css=#main-trafficSigns_type > option:nth-child(3)
-${Alityyppi}                        css=#trafficSigns_type
-${Alityyppi_DDM}                    css=#trafficSigns_type > option:nth-child(32)
-${Arvo}                             css=#trafficSigns_value
-${Päämerkin_Teksti}                 css=#main_sign_text
-${Kunnan_ID}                        css=#municipality_id
-${Lisätieto}                        css=#trafficSigns_info
-${Rakenne}                          css=#structure
-${Rakenne_DDM}                      css=#structure > option:nth-child(3)
-${Kunto}                            css=#condition
-${Kunto_DDM}                        css=#condition > option:nth-child(3)
-${Koko}                             css=#size
-${Koko_DDM}                         css=#size > option:nth-child(2)
-${Korkeus}                          css=#height
-${Kalvon_Tyypi}                     css=#coating_type
-${Kalvon_Tyypi_DDM}                 css=#coating_type > option:nth-child(2)
-${Merkin_Materiaali}                css=#sign_material
-${Merkin_Materiaali_DDM}            css=#sign_material > option:nth-child(2)
-${Sijaintitarkenne}                 css=#location_specifier
-${Sijaintitarkenne_DDM}             css=#location_specifier > option:nth-child(2)
-${Maastokoordinaatti_X}             css=#terrain_coordinates_x
-${Maastokoordinaatti_Y}             css=#terrain_coordinates_y
-${Kaista}                           css=#lane
-${Kaistan_Tyyppi}                   css=#lane_type
-${Kaistan_Tyyppi_DDM}               css=#lane_type > option:nth-child(2)
-${Tila}                             css=#life_cycle
-${Tila_DDM}                         css=#life_cycle > option:nth-child(2)
-${Alkupäivämäärä}                   css=#trafficSign_start_date
-${Loppupäivämäärä}                  css=#trafficSign_end_date
-${Vauriotyyppi}                     css=#type_of_damage
-${Vauriotyyppi_DDM}                 css=#type_of_damage > option:nth-child(2)
-${Korjauksen_Kiireellisyys}         css=#urgency_of_repair
-${Korjauksen_Kiireellisyys_DDM}     css=#urgency_of_repair > option:nth-child(2)
-${Arvioitu_Käyttöikä}               css=#lifespan_left
-
-${FA_Tyyppi}                        css=#feature-attributes-form > div > div > div:nth-child(3) > p
-${FA_Alityyppi}                     css=#feature-attributes-form > div > div > div:nth-child(4) > p
-${FA_Arvo}                          css=#feature-attributes-form > div > div > div:nth-child(5) > p
-${FA_Päämerkin_Teksti}              css=#feature-attributes-form > div > div > div:nth-child(6) > p
-${FA_Kunnan_ID}                     css=#feature-attributes-form > div > div > div:nth-child(7) > p
-${FA_Lisätieto}                     css=#feature-attributes-form > div > div > div:nth-child(8) > p
-${FA_Rakenne}                       css=#feature-attributes-form > div > div > div:nth-child(9) > p
-${FA_Kunto}                         css=#feature-attributes-form > div > div > div:nth-child(10) > p
-${FA_Koko}                          css=#feature-attributes-form > div > div > div:nth-child(11) > p
-${FA_Korkeus}                       css=#feature-attributes-form > div > div > div:nth-child(12) > p
-${FA_Kalvon_Tyyppi}                 css=#feature-attributes-form > div > div > div:nth-child(13) > p
-
-
-
-
-
-
 *** Keywords ***
 
 Liikennemerkit_1  [arguments]  ${testipaikka}
@@ -84,14 +12,19 @@ Liikennemerkit_1  [arguments]  ${testipaikka}
     Alusta Testipaikka
     Luo Liikennemerkki
 
+    Log  Alustetaan testipaikka uusiksi. Tarkistetaan, että liikennemerkki näkyy oikeassa kategoriassa.
     Siirry Katselutilaan
+    Testin Aloitus
+    Siirry Testipaikkaan                        ${TL_Liikennemerkit_RB}  ${Testipaikka}
+    Click Element                               ${LM_Kielto}
+    Odota sivun latautuminen
     ${date}=  Get Current Date                  result_format=%d.%m.%Y
-    Click Element At Coordinates  ${Kartta}  0  20
-    Pause Execution
-    Wait Until Element Is Visible  ${FA_otsikko}
-    Tarkista Merkin Kentät  ${date}
-
-    Pause Execution
+    Click Element At Coordinates         ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Tarkista Merkin Kentät                      ${date}
+    Siirry Muokkaustilaan
+    Click Element                               ${FA_Poista_chkbx}
+    Click Element                               ${FA_footer_Tallenna}
 
 
 
@@ -166,7 +99,7 @@ Tarkista Merkin Kentät  [Arguments]  ${date}
     Element Should Contain                      ${FA_Kunto}  Tyydyttävä
     Element Should Contain                      ${FA_Koko}  Normaalikokoinen merkki
     Element Should Contain                      ${FA_Korkeus}  100
-    Element Should Contain                      ${FA_Kalvon_Tyypi}  R2-luokan kalvo
+    Element Should Contain                      ${FA_Kalvon_Tyyppi}  R2-luokan kalvo
     Element Should Contain                      ${FA_Merkin_Materiaali}  Alumiini
     Element Should Contain                      ${FA_Sijaintitarkenne}  Väylän vasen puoli
     Element Should Contain                      ${FA_Maastokoordinaatti_X}  82
@@ -179,3 +112,82 @@ Tarkista Merkin Kentät  [Arguments]  ${date}
     Element Should Contain                      ${FA_Vauriotyyppi}  Kolhiintunut
     Element Should Contain                      ${FA_Korjauksen_Kiireellisyys}  Kiireellinen
     Element Should Contain                      ${FA_Arvioitu_Käyttöikä}  1
+
+*** Variables ***
+${LM_Varoitusmerkit}    generalWarningSigns
+${LM_Etuajo-oikeus}     priorityAndGiveWaySigns
+${LM_Kielto}            prohibitionsAndRestrictions
+${LM_Määräysmerkit}     mandatorySigns
+${LM_Sääntömerkit}      regulatorySigns
+${LM_Opastusmerkit}     informationSigns
+${LM_Palvelukohteet}    serviceSigns
+${LM_Muut_merkit}       otherSigns
+
+@{LM_lista}  
+...     ${LM_Varoitusmerkit}  ${LM_Etuajo-oikeus}  ${LM_Kielto}
+...     ${LM_Määräysmerkit}  ${LM_Sääntömerkit}  ${LM_Opastusmerkit}
+...     ${LM_Palvelukohteet}  ${LM_Muut_merkit}
+
+#####################
+### Merkin kentät ###
+#####################
+
+${Tyyppi}                           css=#main-trafficSigns_type
+${Tyyppi_DDM}                       css=#main-trafficSigns_type > option:nth-child(3)
+${Alityyppi}                        css=#trafficSigns_type
+${Alityyppi_DDM}                    css=#trafficSigns_type > option:nth-child(32)
+${Arvo}                             css=#trafficSigns_value
+${Päämerkin_Teksti}                 css=#main_sign_text
+${Kunnan_ID}                        css=#municipality_id
+${Lisätieto}                        css=#trafficSigns_info
+${Rakenne}                          css=#structure
+${Rakenne_DDM}                      css=#structure > option:nth-child(3)
+${Kunto}                            css=#condition
+${Kunto_DDM}                        css=#condition > option:nth-child(3)
+${Koko}                             css=#size
+${Koko_DDM}                         css=#size > option:nth-child(2)
+${Korkeus}                          css=#height
+${Kalvon_Tyypi}                     css=#coating_type
+${Kalvon_Tyypi_DDM}                 css=#coating_type > option:nth-child(2)
+${Merkin_Materiaali}                css=#sign_material
+${Merkin_Materiaali_DDM}            css=#sign_material > option:nth-child(2)
+${Sijaintitarkenne}                 css=#location_specifier
+${Sijaintitarkenne_DDM}             css=#location_specifier > option:nth-child(2)
+${Maastokoordinaatti_X}             css=#terrain_coordinates_x
+${Maastokoordinaatti_Y}             css=#terrain_coordinates_y
+${Kaista}                           css=#lane
+${Kaistan_Tyyppi}                   css=#lane_type
+${Kaistan_Tyyppi_DDM}               css=#lane_type > option:nth-child(2)
+${Tila}                             css=#life_cycle
+${Tila_DDM}                         css=#life_cycle > option:nth-child(2)
+${Alkupäivämäärä}                   css=#trafficSign_start_date
+${Loppupäivämäärä}                  css=#trafficSign_end_date
+${Vauriotyyppi}                     css=#type_of_damage
+${Vauriotyyppi_DDM}                 css=#type_of_damage > option:nth-child(2)
+${Korjauksen_Kiireellisyys}         css=#urgency_of_repair
+${Korjauksen_Kiireellisyys_DDM}     css=#urgency_of_repair > option:nth-child(2)
+${Arvioitu_Käyttöikä}               css=#lifespan_left
+
+${FA_Tyyppi}                        css=#feature-attributes-form > div > div > div:nth-child(3) > p
+${FA_Alityyppi}                     css=#feature-attributes-form > div > div > div:nth-child(4) > p
+${FA_Arvo}                          css=#feature-attributes-form > div > div > div:nth-child(5) > p
+${FA_Päämerkin_Teksti}              css=#feature-attributes-form > div > div > div:nth-child(6) > p
+${FA_Kunnan_ID}                     css=#feature-attributes-form > div > div > div:nth-child(7) > p
+${FA_Lisätieto}                     css=#feature-attributes-form > div > div > div:nth-child(8) > p
+${FA_Rakenne}                       css=#feature-attributes-form > div > div > div:nth-child(9) > p
+${FA_Kunto}                         css=#feature-attributes-form > div > div > div:nth-child(10) > p
+${FA_Koko}                          css=#feature-attributes-form > div > div > div:nth-child(11) > p
+${FA_Korkeus}                       css=#feature-attributes-form > div > div > div:nth-child(12) > p
+${FA_Kalvon_Tyyppi}                 css=#feature-attributes-form > div > div > div:nth-child(13) > p
+${FA_Merkin_Materiaali}                css=#feature-attributes-form > div > div > div:nth-child(14) > p
+${FA_Sijaintitarkenne}                 css=#feature-attributes-form > div > div > div:nth-child(15) > p
+${FA_Maastokoordinaatti_X}             css=#feature-attributes-form > div > div > div:nth-child(16) > p
+${FA_Maastokoordinaatti_Y}             css=#feature-attributes-form > div > div > div:nth-child(17) > p
+${FA_Kaista}                           css=#feature-attributes-form > div > div > div:nth-child(18) > p
+${FA_Kaistan_Tyyppi}                   css=#feature-attributes-form > div > div > div:nth-child(19) > p
+${FA_Tila}                             css=#feature-attributes-form > div > div > div:nth-child(20) > p
+${FA_Alkupäivämäärä}                   css=#feature-attributes-form > div > div > div:nth-child(21) > p
+${FA_Loppupäivämäärä}                  css=#feature-attributes-form > div > div > div:nth-child(22) > p
+${FA_Vauriotyyppi}                     css=#feature-attributes-form > div > div > div:nth-child(23) > p
+${FA_Korjauksen_Kiireellisyys}         css=#feature-attributes-form > div > div > div:nth-child(24) > p
+${FA_Arvioitu_Käyttöikä}               css=#feature-attributes-form > div > div > div:nth-child(25) > p
