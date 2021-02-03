@@ -14,7 +14,7 @@ Liikennemerkit 1
     ...  
     KW_Liikennemerkit.Liikennemerkit 1  7320569, 599457
 
-Esterakennelma 2
+Liikennemerkit 2
     [Tags]              Merkki  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Tarkistetaan kaikki eri tyyppiset liikennemerkit
