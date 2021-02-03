@@ -19,6 +19,7 @@ Resource                    KW_Esterakennelma.robot
 Resource                    KW_Tasoristeys.robot
 Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
+Resource                    KW_Liikennemerkit.robot
 
 *** Variables ***
 ${BROWSER}                  Firefox

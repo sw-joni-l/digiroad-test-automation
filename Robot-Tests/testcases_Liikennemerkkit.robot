@@ -18,7 +18,7 @@ Esterakennelma 2
     [Tags]              Merkki  Mandatory
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Tarkistetaan kaikki eri tyyppiset liikennemerkit
-    #KW_Liikennemerkit.Liikennemerkit 2  6715385, 243668  ${LM_Varoitusmerkit}   Varoitusmerkit
+    KW_Liikennemerkit.Liikennemerkit 2  6715385, 243668  ${LM_Varoitusmerkit}   Varoitusmerkit
     KW_Liikennemerkit.Liikennemerkit 2  7320750, 599530  ${LM_Etuajo-oikeus}    Etuajo-oikeus ja väistämismerkit
     KW_Liikennemerkit.Liikennemerkit 2  7320796, 599590  ${LM_Kielto}           Kielto- ja rajoitusmerkit
     KW_Liikennemerkit.Liikennemerkit 2  7320761, 599545  ${LM_Määräysmerkit}    Määräysmerkit
