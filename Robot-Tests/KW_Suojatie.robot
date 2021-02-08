@@ -119,4 +119,4 @@ Luo Suojatie  [arguments]  ${tyyppi}
     wait until element is visible               ${FA_otsikko}
     Click Element                               ${FA_footer_Tallenna}
     Wait Until Element Is Not Visible           ${Spinner_Overlay}
-
+    Odota sivun latautuminen
