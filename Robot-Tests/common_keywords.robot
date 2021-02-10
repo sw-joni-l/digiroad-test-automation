@@ -2,7 +2,7 @@
 # pybot -d .\logs .\testcases*
 *** Settings ***
 #Library                     SeleniumLibrary     timeout=30.0   run_on_failure=None
-Library                     SeleniumLibrary     timeout=15.0   run_on_failure=Capture Page Screenshot
+Library                     SeleniumLibrary     timeout=30.0   run_on_failure=Capture Page Screenshot
 #Library                     Dialogs
 Library                     String
 #Library                    SikuliLibrary
