@@ -25,6 +25,7 @@ Liikennemerkit_1  [arguments]  ${testipaikka}
     Siirry Muokkaustilaan
     Click Element                               ${FA_Poista_chkbx}
     Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
 
 
 Liikennemerkit_2  [Arguments]  ${testipaikka}  ${Merkin_tyyppi}  ${Merkin_teksti}
@@ -38,6 +39,44 @@ Liikennemerkit_2  [Arguments]  ${testipaikka}  ${Merkin_tyyppi}  ${Merkin_teksti
     Wait Until Element Is Visible   ${FA_otsikko}
     Element Should Contain          css=#feature-attributes-form  ${Merkin_teksti}
 
+Liikennemerkit_3  [Arguments]  ${testipaikka}
+    Log  Loudaan uusi merkki. Tarkistetaan kentän raja-arvot ja xss/html injektiot.
+    Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
+    Valitse kaikki Liikennemerkit
+    Odota sivun latautuminen
+
+    Log  Luodaan uusi liikennemerkki, ja testtaan voidaanko virheellisiä arvoja tallettaa
+    Alusta Testipaikka
+    Siirry Muokkaustilaan
+    Odota sivun latautuminen
+    click element                           ${Muokkaustila_AddTool}
+    Click Element At Coordinates            ${Kartta}  0  20
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Element Should Be Enabled               ${FA_footer_Peruuta}
+    Click Element   ${Tyyppi}
+    Click Element   ${Tyyppi_DDM}
+    Click Element   ${Alityyppi}
+    Click Element   ${Alityyppi_DDM}
+
+    FOR  ${teksti}  IN  @{Haku_Muuttujat}
+        Syota virheellinen arvo                 ${Arvo}  ${teksti}
+    END
+
+    FOR  ${teksti}  IN  @{Nopeusrajoitukset}
+        Syota kelvollinen arvo                  ${Arvo}  ${teksti}
+    END
+
+
+    Log  Arvotaan satunnainen numero, tallennus pitäisi olla poissa. Jos nopeus = oikea rajoitus, testiä ei ajeta.
+    ${numero}  ${status}=  Arvo Numero
+    Run Keyword If  '${status}'=='False'  Input Text  ${Arvo}  ${numero}
+    Element Should Be Disabled  ${FA_footer_Tallenna}
+
+    Log  Arvotaan satunnainen string, tallennus pitäisi olla poissa.
+    ${str}=  Generate Random String
+    Log To Console  ${str}
+    Input Text  ${Arvo}  ${str}
+    Element Should Be Disabled  ${FA_footer_Tallenna}
 
 #######################
 ## Sisäiset keywordit #
@@ -54,6 +93,7 @@ Luo Liikennemerkki
     click element                           ${Muokkaustila_AddTool}
     Click Element At Coordinates            ${Kartta}  0  20
     Wait Until Element Is Visible           ${FA_otsikko}
+    Element Should Be Enabled                ${FA_footer_Peruuta}
     Täytä Liikennemerkin kentät
     Click Element                           ${FA_footer_Tallenna}
     sleep  1
@@ -124,6 +164,25 @@ Tarkista Merkin Kentät  [Arguments]  ${date}
     Element Should Contain                      ${FA_Korjauksen_Kiireellisyys}  Kiireellinen
     Element Should Contain                      ${FA_Arvioitu_Käyttöikä}  1
 
+Syota virheellinen arvo  [Arguments]  ${kenttä}  ${arvo}
+    Input Text  ${kenttä}  ${Arvo}
+    Click Element  ${kenttä}
+    Element Should Be Disabled  ${FA_footer_Tallenna}
+
+Syota kelvollinen arvo
+    [Arguments]  ${kenttä}  ${arvo}
+    Input Text  ${kenttä}  ${Arvo}
+    Click Element  ${kenttä}
+    Element Should Be Enabled  ${FA_footer_Tallenna}
+
+Arvo Numero
+    ${numero}=  Evaluate  random.randint(0, sys.maxsize)
+    ${numero}=  Convert To String  ${numero}
+    FOR  ${num}  IN  @{Nopeusrajoitukset}
+        ${status}=  Run Keyword and return status  Should Be Equal  ${num}  ${numero}
+    END
+    [Return]  ${numero}  ${status}
+
 *** Variables ***
 ${LM_Varoitusmerkit}    generalWarningSigns
 ${LM_Etuajo-oikeus}     priorityAndGiveWaySigns
@@ -138,6 +197,9 @@ ${LM_Muut_merkit}       otherSigns
 ...     ${LM_Varoitusmerkit}  ${LM_Etuajo-oikeus}  ${LM_Kielto}
 ...     ${LM_Määräysmerkit}  ${LM_Sääntömerkit}  ${LM_Opastusmerkit}
 ...     ${LM_Palvelukohteet}  ${LM_Muut_merkit}
+
+@{Nopeusrajoitukset}
+...     20  30  40  50  60  70  80  90  100  120
 
 #####################
 ### Merkin kentät ###

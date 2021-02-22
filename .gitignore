@@ -9,3 +9,5 @@ testi.robot
 .pki
 .cache
 .ash_history
+.mozilla
+.config

@@ -176,12 +176,19 @@ ${Taustakartta}                                 css=[title="Taustakarttasarja"]
 ${Ortokuvat}                                    css=[title="Ortokuvat"]
 ${Maastokartta}                                 css=[title="Maastokartta"]
 ${spinner_tausta}                               url("${LOGIN URL}images/spinner.gif")
-${XSS_feed}                                     <h2>testi</h2><
 ${MuokkausVaroitus}                             css=.modal-overlay.confirm-modal .content
 ${MuokkausVaroitus_teksti}                      Olet muokannut tietolajia.Tallenna tai peru muutoksesi.
 ${Muokkausvaroitus_Sulje_btn}                   css=.btn.btn-secondary.close
 ${Muokkausvaroitus_Ei_btn}                      css=.btn.btn-secondary.no
 ${Muokkausvaroitus_Kyllä_btn}                   css=.btn.btn-primary.yes
+
+${xss1}                                         <h2>testi</h2><
+${xss2}                                         \'
+${xss3}                                         <p>abc</p>
+${html1}                                        <script>
+${html2}                                        <html>
+${html3}                                        </script><
+
 #${Kartan_polyline_aineisto}                     css=polyline
 #${Kartan_polyline_aineistoKOE}                  css=polyline[id^=OpenLayers_Geometry_LineString_]
 #${Kartan_polyline_aineisto2}                    css=polyline[id^=OpenLayers_Geometry_LineString_][stroke-opacity="0.7"][stroke-width="10"]
@@ -238,5 +245,9 @@ ${map_overlay}                                  css=.spinner-overlay.modal-overl
 ...  ${TL_Opastustaulu_RB}  ${TL_Esterakennelma_RB}   ${TL_Rautatien tasoristeys_RB}
 # Checkbox 8 kpl
 
+
+@{Haku_Muuttujat}
+...     ${html1}    ${html2}    ${html3}
+...     ${xss1}     ${xss2}     ${xss3}
 
 *** Keywords ***

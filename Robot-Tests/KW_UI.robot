@@ -11,6 +11,7 @@ ${LocatorForCheckbox}                           css=#feature-attributes .checkbo
 ${LocatorForCheckboxpp}                         xpath=.//label[text() = 'Poista']/input
 ${LocatorForButton}                             css=#feature-attributes .form-group.adjacent-link:last-of-type .new.btn.btn-new
 ${LocatorForRadiobuttons}                       css=#feature-attributes .radio [type="radio"]:not([checked=""])
+#${string}
 
 *** Keywords ***
 UI_1
@@ -41,10 +42,13 @@ UI_3
     Siirry muokkaustilaan
     wait until element is visible           ${Map_popup}
     wait until element is not visible       ${Map_popup}
-    SeleniumLibrary.Input Text              ${Hae_syotekentta}       ${XSS_feed}
-    Click Element                           ${Hae_btn}
-    #wait until element is visible           ${Map_popup}
-    Wait until keyword succeeds  2x  200ms  element text should be  ${Map_popup}  ${Hakuvirheilmoitus}
+    FOR  ${string}  IN  @{Haku_Muuttujat}
+        SeleniumLibrary.Input Text              ${Hae_syotekentta}       ${string}
+        Click Element                           ${Hae_btn}
+        #wait until element is visible           ${Map_popup}
+        Wait until keyword succeeds  2x  200ms  element text should be  ${Map_popup}  ${Hakuvirheilmoitus}
+        Wait Until Element is not visible       ${Map_popup}
+    END
     Siirry Katselutilaan
     
 
