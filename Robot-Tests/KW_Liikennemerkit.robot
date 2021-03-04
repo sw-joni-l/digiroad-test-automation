@@ -62,21 +62,60 @@ Liikennemerkit_3  [Arguments]  ${testipaikka}
         Syota virheellinen arvo                 ${Arvo}  ${teksti}
     END
 
+    Log  Arvotaan satunnainen numero, tallennus pitäisi olla poissa. Jos nopeus = oikea rajoitus, testiä ei ajeta.
+    ${numero}  ${status}=  Arvo Numero
+    Run Keyword If  '${status}'=='False'  Input Text  ${Arvo}  ${numero}
+    Element Should Be Disabled                  ${FA_footer_Tallenna}
+
+    Log  Arvotaan satunnainen string, tallennus pitäisi olla poissa.
+    ${str}=  Generate Random String
+    Input Text                                  ${Arvo}  ${str}
+    Click Element                               ${Päämerkin_Teksti}
+    Element Should Be Disabled                  ${FA_footer_Tallenna}
+
     FOR  ${teksti}  IN  @{Nopeusrajoitukset}
         Syota kelvollinen arvo                  ${Arvo}  ${teksti}
     END
 
+    Log  Kaista numeron testit
 
-    Log  Arvotaan satunnainen numero, tallennus pitäisi olla poissa. Jos nopeus = oikea rajoitus, testiä ei ajeta.
-    ${numero}  ${status}=  Arvo Numero
-    Run Keyword If  '${status}'=='False'  Input Text  ${Arvo}  ${numero}
-    Element Should Be Disabled  ${FA_footer_Tallenna}
+    FOR  ${teksti}  IN  10  00  40  30  100  999
+        Syota virheellinen arvo                 ${Kaista}  ${teksti}
+    END
 
-    Log  Arvotaan satunnainen string, tallennus pitäisi olla poissa.
-    ${str}=  Generate Random String
-    Log To Console  ${str}
-    Input Text  ${Arvo}  ${str}
-    Element Should Be Disabled  ${FA_footer_Tallenna}
+    FOR  ${teksti}  IN  11  19  25  24  31  39
+        Syota kelvollinen arvo                  ${Kaista}  ${teksti}
+    END
+
+
+Liikennemerkit_4  [Arguments]  ${testipaikka}
+    Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
+    Valitse kaikki Liikennemerkit
+    Odota sivun latautuminen
+
+    Log  Luodaan uusi merkki, ja sille lisä kilpi. Siirretään molempia yhdessä.
+    Alusta Testipaikka
+    Siirry Muokkaustilaan
+    Odota sivun latautuminen
+    click element                           ${Muokkaustila_AddTool}
+    Click Element At Coordinates            ${Kartta}  0  20
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Element Should Be Enabled               ${FA_footer_Peruuta}
+
+    Log  Täytetään liikennemerkin kentät.
+    Click Element                           ${Tyyppi}
+    Click Element                           ${Tyyppi_DDM}
+    Click Element                           ${Alityyppi}
+    Click Element                           ${Alityyppi_DDM}
+    Input Text                              ${Arvo}  100
+    Täytä Lisäkilven Kentät
+    Click Element                           ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible       ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Siirry Katselutilaan
+    Alusta Testipaikka
+
 
 #######################
 ## Sisäiset keywordit #
@@ -138,7 +177,22 @@ Täytä Liikennemerkin kentät
     Click Element   ${Korjauksen_Kiireellisyys_DDM}     
     Input Text      ${Arvioitu_Käyttöikä}       1     
 
-Tarkista Merkin Kentät  [Arguments]  ${date}
+Täytä Lisäkilven Kentät
+    Click Element  ${Lisakilpi}
+    Click Element  ${LK_Alityyppi}
+    Click Element  ${LK_Alityyppi_DDM}
+    Input Text     ${LK_Arvo}                          40
+    Input Text     ${LK_Teksti}                        teksti
+    Input Text     ${LK_Lisatieto}                     ei lisä tietoaäöäÅ
+    Click Element  ${LK_Koko}
+    Click Element  ${LK_Koko_DDM}
+    Click Element  ${LK_KalvonTyyppi}
+    Click Element  ${LK_KalvonTyyppi_DDM}
+    Click Element  ${LK_LisakilvenVari}
+    Click Element  ${LK_LisakilvenVari_DDM}
+
+Tarkista Merkin Kentät  
+    [Arguments]  ${date}
     Element Should Contain                      ${FA_Lisätty_Järjestelmään}  ${date}
     Element Should Contain                      ${FA_Tyyppi}  Kielto- ja rajoitusmerkit
     Element Should Contain                      ${FA_Alityyppi}  C32 Nopeusrajoitus
@@ -164,16 +218,17 @@ Tarkista Merkin Kentät  [Arguments]  ${date}
     Element Should Contain                      ${FA_Korjauksen_Kiireellisyys}  Kiireellinen
     Element Should Contain                      ${FA_Arvioitu_Käyttöikä}  1
 
-Syota virheellinen arvo  [Arguments]  ${kenttä}  ${arvo}
-    Input Text  ${kenttä}  ${Arvo}
-    Click Element  ${kenttä}
+Syota virheellinen arvo  
+    [Arguments]                 ${kenttä}  ${arvo}
+    Input Text                  ${kenttä}  ${Arvo}
+    Click Element               ${Päämerkin_Teksti}
     Element Should Be Disabled  ${FA_footer_Tallenna}
 
 Syota kelvollinen arvo
-    [Arguments]  ${kenttä}  ${arvo}
-    Input Text  ${kenttä}  ${Arvo}
-    Click Element  ${kenttä}
-    Element Should Be Enabled  ${FA_footer_Tallenna}
+    [Arguments]                 ${kenttä}  ${arvo}
+    Input Text                  ${kenttä}  ${Arvo}
+    Click Element               ${Päämerkin_Teksti}
+    Element Should Be Enabled   ${FA_footer_Tallenna}
 
 Arvo Numero
     ${numero}=  Evaluate  random.randint(0, sys.maxsize)
@@ -204,6 +259,8 @@ ${LM_Muut_merkit}       otherSigns
 #####################
 ### Merkin kentät ###
 #####################
+
+#_DMM valitsin on alasvetovalikon valinta.
 
 ${Tyyppi}                           css=#main-trafficSigns_type
 ${Tyyppi_DDM}                       css=#main-trafficSigns_type > option:nth-child(3)
@@ -240,6 +297,21 @@ ${Vauriotyyppi_DDM}                 css=#type_of_damage > option:nth-child(2)
 ${Korjauksen_Kiireellisyys}         css=#urgency_of_repair
 ${Korjauksen_Kiireellisyys_DDM}     css=#urgency_of_repair > option:nth-child(2)
 ${Arvioitu_Käyttöikä}               css=#lifespan_left
+
+#Lisäkilven kentät
+${Lisakilpi}                        css=#additional-panel-checkbox
+${LK_Alityyppi}                     css=#panelType
+${LK_Alityyppi_DDM}                 css=#panelType  > option:nth-child(10)
+${LK_Arvo}                          css=#panelValue
+${LK_Teksti}                        css=#text
+${LK_Lisatieto}                     css=#panelInfo
+${LK_Koko}                          css=.form-group.editable.form-traffic-sign-panel #size
+${LK_Koko_DDM}                      css=.form-group.editable.form-traffic-sign-panel #size > option:nth-child(1)
+${LK_KalvonTyyppi}                  css=.panel-group-container #coating_type
+${LK_KalvonTyyppi_DDM}              css=.panel-group-container #coating_type option:nth-child(2)
+${LK_LisakilvenVari}                css=#additional_panel_color
+${LK_LisakilvenVari_DDM}            css=#additional_panel_color option:nth-child(2)
+
 
 ${FA_Tyyppi}                        css=#feature-attributes-form > div > div > div:nth-child(3) > p
 ${FA_Alityyppi}                     css=#feature-attributes-form > div > div > div:nth-child(4) > p

@@ -27,8 +27,14 @@ Liikennemerkit 2
     KW_Liikennemerkit.Liikennemerkit 2  6671427, 384107  ${LM_Palvelukohteet}   Palvelukohteet
     KW_Liikennemerkit.Liikennemerkit 2  6670501, 385948  ${LM_Muut_merkit}      Muut merkit
 
-#Liikennemerkit 3
-#    [Tags]              Merkki  
-#    [Documentation]     Liikennemerkit, selain: ${BROWSER}
-#    ...  
-#    KW_Liikennemerkit.Liikennemerkit 3  7320569, 599457
+Liikennemerkit 3
+    [Tags]              Merkki  
+    [Documentation]     Liikennemerkit, selain: ${BROWSER}
+    ...  
+    KW_Liikennemerkit.Liikennemerkit 3  7320569, 599457
+
+Liikennemerkit_4
+    [Tags]              Merkki  
+    [Documentation]     Liikennemerkit, selain: ${BROWSER}
+    ...  
+    KW_Liikennemerkit.Liikennemerkit 4  7320569, 599457
