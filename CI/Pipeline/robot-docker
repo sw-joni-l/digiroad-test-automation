@@ -2,6 +2,9 @@ pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: "25"))
     }
+    triggers {
+        cron('H 1 * * *')
+    }
     agent any
     stages{
         stage("build docker"){
