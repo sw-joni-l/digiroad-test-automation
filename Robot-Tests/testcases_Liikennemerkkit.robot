@@ -37,4 +37,4 @@ Liikennemerkit_4
     [Tags]              Merkki  
     [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  
-    KW_Liikennemerkit.Liikennemerkit 4  7320569, 599457
+    KW_Liikennemerkit.Liikennemerkit 4  7320574, 599512

@@ -113,8 +113,30 @@ Liikennemerkit_4  [Arguments]  ${testipaikka}
     Wait Until Element Is Not Visible       ${Spinner_Overlay}
     Odota sivun latautuminen
 
-    Siirry Katselutilaan
-    Alusta Testipaikka
+    Log  Siirretään liikennemerkkiä lisäkilvellä
+    Click Element                           ${Muokkaustila_SelectTool}
+    Click Element at Coordinates            ${Kartta}  0  20
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Siirrä Kohde                            0  -40
+    Click Element                           ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible       ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Log  Tarkistetaan onko liikennemerkki siirtynyt. 
+    Log  Klikataan vanhaan kohtaan, jolloin merkki ei pitäisi aueta
+    Click Element At coordinates            ${Kartta}  0  20
+    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
+    Run Keyword If  ${status}==True         Alusta Testipaikka
+    Run Keyword If  ${status}==True         Fail  Liikennemerkki ei siirtynyt.
+
+    Click Element At coordinates            ${Kartta}  0  -40
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Click Element                           ${FA_Poista_chkbx}
+    Click Element                           ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible       ${Spinner_Overlay}
+
+    #Siirry Katselutilaan
+    #Alusta Testipaikka
 
 
 #######################
