@@ -6,7 +6,7 @@ Documentation       Pageobject for Traffic signs (Liikennemerkit)
 Liikennemerkit_1  [arguments]  ${testipaikka}
     log  Luodaan uusi Liikennemerkki, Täytetään kaikki kentät
     Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
-    Valitse kaikki Liikennemerkit
+    #Valitse kaikki Liikennemerkit
     Odota sivun latautuminen
 
     Alusta Testipaikka
@@ -16,7 +16,7 @@ Liikennemerkit_1  [arguments]  ${testipaikka}
     Siirry Katselutilaan
     Testin Aloitus
     Siirry Testipaikkaan                        ${TL_Liikennemerkit_RB}  ${Testipaikka}
-    Click Element                               ${LM_Kielto}
+    #Click Element                               ${LM_Kielto}
     Odota sivun latautuminen
     ${date}=  Get Current Date                  result_format=%d.%m.%Y
     Click Element At Coordinates         ${Kartta}  0  20
@@ -32,6 +32,7 @@ Liikennemerkit_2  [Arguments]  ${testipaikka}  ${Merkin_tyyppi}  ${Merkin_teksti
     Testin Aloitus
     log  Paikannetaan Liikennemerkki. Tarkistetaan liikennemerkin tyyppi.
     Siirry Testipaikkaan            ${TL_Liikennemerkit_RB}  ${testipaikka}
+    Valitse kaikki Liikennemerkit
     Click Element                   ${Merkin_tyyppi}
     Odota sivun latautuminen
 
@@ -42,7 +43,7 @@ Liikennemerkit_2  [Arguments]  ${testipaikka}  ${Merkin_tyyppi}  ${Merkin_teksti
 Liikennemerkit_3  [Arguments]  ${testipaikka}
     Log  Loudaan uusi merkki. Tarkistetaan kentän raja-arvot ja xss/html injektiot.
     Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
-    Valitse kaikki Liikennemerkit
+    #Valitse kaikki Liikennemerkit
     Odota sivun latautuminen
 
     Log  Luodaan uusi liikennemerkki, ja testtaan voidaanko virheellisiä arvoja tallettaa
@@ -90,7 +91,7 @@ Liikennemerkit_3  [Arguments]  ${testipaikka}
 
 Liikennemerkit_4  [Arguments]  ${testipaikka}
     Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
-    Valitse kaikki Liikennemerkit
+    #Valitse kaikki Liikennemerkit
     Odota sivun latautuminen
 
     Log  Luodaan uusi merkki, ja sille lisä kilpi. Siirretään molempia yhdessä.

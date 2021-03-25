@@ -1,4 +1,3 @@
-
 *** Settings ***
 Documentation       Pageobject for User Interface testcases
 # Resource            PO_MainPage.robot
