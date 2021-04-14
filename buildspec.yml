@@ -7,15 +7,15 @@ version: 0.2
 #    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
 
 phases:
-  Login_to_ecr:
+  pre-build:
     commands:
       - echo Logging to aws ECR
       - aws ecr get-login-password --region eu-west-1 --profile vaylaapp | docker login --username AWS --password-stdin 475079312496.dkr.ecr.eu-west-1.amazonaws.com
-  pull:
+  install:
     commands:
       - echo Pulling image from ECR
       - docker pull 475079312496.dkr.ecr.eu-west-1.amazonaws.com/digiroadautomation:latest
-  test:
+  build:
     commands:
       - echo Starting docker and running tests
       - docker run -ti 475079312496.dkr.ecr.eu-west-1.amazonaws.com/digiroadautomation:latest
