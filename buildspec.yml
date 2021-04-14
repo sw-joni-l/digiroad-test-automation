@@ -1,10 +1,10 @@
 version: 0.2
 
-env:
-  variables:
-    
-  parameter-store:
-    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+#env:
+#  variables:
+#   
+#  parameter-store:
+#    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
 
 phases:
   Login_to_ecr:
