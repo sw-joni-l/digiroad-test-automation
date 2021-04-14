@@ -153,7 +153,7 @@ Poista Pysäkki
     element text should be                      ${MuokkausVaroitus}     ${Pysäkin_poisto}
     Wait until element is not visible           ${Map_popup}
     click element                               ${muokkausvaroitus_kyllä_btn}
-    sleep  2 s
+    sleep                                       2 s
     Siirry Katselutilaan
 
 
