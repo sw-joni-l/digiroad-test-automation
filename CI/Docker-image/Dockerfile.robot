@@ -1,4 +1,5 @@
-FROM python:3.9.0-alpine3.12
+ARG image="python:3.9.0-alpine3.12"
+FROM ${image}
 
 #MAINTAINER 
 LABEL description Robot Framework in Docker.
@@ -42,6 +43,7 @@ ENV XVFB_VERSION 1.20
 #COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 #COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
+RUN ["chmod", "+x", "/opt/robotframework/bin/run-tests-in-virtual-screen.sh"]
 
 # Install system dependencies
 RUN rm -rf /var/cache/apk/* && \
