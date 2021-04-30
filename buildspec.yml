@@ -1,16 +1,16 @@
 version: 0.2
 
 env:
-parameter-store:
-     Password: "DigiroadUserPassword"
+  parameter-store:
+    Password: "DigiroadUserPassword"
 
 phases:
   build:
-commands:
+    commands:
       - echo Selecting browser based on weekday
       - if [ $( date '+%u' ) -le 5 ]; then SELAIN=Chrome; else SELAIN=Firefox fi;  fi
       - echo Selected Browser=$SELAIN
-      - xvfb-run --server-args="-screen 0 1920x1080x24 -ac" robot --xunit xunitlog.xml -d /robotlogs -T -v LiviUSER:$USERNAME -v LiviPWD:$Password -v BROWSER:$SELAIN Robot-Tests/testcases_Kaistatyokalu.robot
+      - xvfb-run --server-args="-screen 0 1920x1080x24 -ac" robot --xunit xunitlog.xml -d /robotlogs -T -v LiviUSER:$USERNAME -v LiviPWD:$Password -v BROWSER:$SELAIN Robot-Tests/
 
 artifacts:
   files:
