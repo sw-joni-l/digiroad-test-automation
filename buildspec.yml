@@ -1,26 +1,18 @@
 version: 0.2
 
-#env:
-#  variables:
-#   
-#  parameter-store:
-#    LOGIN_PASSWORD: /CodeBuild/dockerLoginPassword
+env:
+parameter-store:
+     Password: "DigiroadUserPassword"
 
 phases:
-  pre_build:
-    commands:
-      - echo Logging to aws ECR
-      - aws ecr get-login-password --region eu-west-1 --profile vaylaapp | docker login --username AWS --password-stdin 475079312496.dkr.ecr.eu-west-1.amazonaws.com
-  install:
-    commands:
-      - echo Pulling image from ECR
-      - docker pull 475079312496.dkr.ecr.eu-west-1.amazonaws.com/digiroadautomation:latest
   build:
-    commands:
-      - echo Starting docker and running tests
-      - docker run -ti 475079312496.dkr.ecr.eu-west-1.amazonaws.com/digiroadautomation:latest
-      - print("Hello World!")
-      - exit()
-  post_build:
-    commands:
-      - echo Entered the post_build phase...
+commands:
+      - echo Selecting browser based on weekday
+      - if [ $( date '+%u' ) -le 5 ]; then SELAIN=Chrome; else SELAIN=Firefox fi;  fi
+      - echo Selected Browser=$SELAIN
+      - xvfb-run --server-args="-screen 0 1920x1080x24 -ac" robot --xunit xunitlog.xml -d /robotlogs -T -v LiviUSER:$USERNAME -v LiviPWD:$Password -v BROWSER:$SELAIN Robot-Tests/testcases_Kaistatyokalu.robot
+
+artifacts:
+  files:
+    - '/robotlogs/*'
+  name: $(date +%Y-%m-%d)-$SELAIN
