@@ -42,8 +42,8 @@ ENV XVFB_VERSION 1.20
 # Prepare binaries to be executed
 #COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 #COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
-COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
-RUN ["chmod", "+x", "/opt/robotframework/bin/run-tests-in-virtual-screen.sh"]
+#COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
+#RUN ["chmod", "+x", "/opt/robotframework/bin/run-tests-in-virtual-screen.sh"]
 
 # Install system dependencies
 RUN rm -rf /var/cache/apk/* && \
@@ -128,4 +128,4 @@ USER ${ROBOT_UID}:${ROBOT_GID}
 WORKDIR ${ROBOT_WORK_DIR}
 
 # Execute all robot tests
-CMD ["run-tests-in-virtual-screen.sh"]
+#CMD ["run-tests-in-virtual-screen.sh"]
