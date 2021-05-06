@@ -167,9 +167,9 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
 
 UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
     wait until element is visible           ${valitse tietolaji}
-    Vaihda Tietolaji                        ${TL}
     Paikanna osoite                         ${testipaikka}
     Zoomaa kartta                           5   20 m
+    Vaihda Tietolaji                        ${TL}
     Odota sivun latautuminen
     click element at coordinates            ${kartta}   0   20
     Wait until element is visible           ${FA_otsikko}
