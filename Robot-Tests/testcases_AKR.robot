@@ -17,4 +17,4 @@ Ajoneuvokohtaiset rajoitukset 1
 
 Ajoneuvokohtaiset rajoitukset 2
     [Tags]              Ajoneuvokohtaiset Rajoitukset
-    KW_AKR.Ajoneuvokohtaiset_rajoitukset_2  6672408, 384223
+    KW_AKR.Ajoneuvokohtaiset_rajoitukset_2  6852309, 387166
