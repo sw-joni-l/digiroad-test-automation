@@ -131,13 +131,14 @@ Tielinkit_2
     vaihda tietolaji                            ${TL_Tielinkki_RB}
     Paikanna osoite                             6711279, 239896
     Log  Zoomataan yksi steppi kauemmas (1:50 000) ja varmistetaan, että popup ilmestyy
+    Click Element                               ${zoombar_minus}
     Wait Until Element Is Not Visible           ${Map_popup}
     Click Element                               ${zoombar_minus}
     wait until element is visible               ${Map_popup}
     element text should be                      ${Map_popup}             ${Zoom_popup_context}
     Wait Until Element Is Not Visible           ${Map_popup}
-    set selenium speed                          0.3
-    Repeat Keyword  2 times  Click Element   ${zoombar_plus}
+    set selenium speed                          0.6
+    Repeat Keyword  3 times  Click Element   ${zoombar_plus}
     set selenium speed                          ${DELAY}
     Odota sivun latautuminen
     Log  klikataan tielinkkiä kartalta
