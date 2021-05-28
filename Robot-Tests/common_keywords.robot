@@ -21,6 +21,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 Resource                    KW_Liikennemerkit.robot
 Resource                    KW_Kaistatyokalu.robot
+#Resource                    KW_AKR.robot
 
 *** Variables ***
 ${BROWSER}                  Firefox
@@ -37,10 +38,12 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 Login To DigiRoad
     #log to console                  ${CURDIR}
     #Add Image Path                  ${IMAGE_DIR}
-    #${BROWSER}=  Run Keyword If  '${BROWSER}'=='Empty'  Valitse Selain  ${BROWSER}  ELSE  Set Variable  ${BROWSER}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
-    Open Browser                    ${LOGIN URL}            ${BROWSER}  options=add_argument('--no-sandbox')
+    Open Browser                    ${LOGIN URL}  ${BROWSER}
+    ...  service_log_path=driver.log  
+    ...  options=add_argument('--no-sandbox');add_argument('--disable-gpu');add_argument('--verbose')
+    
     #Maximize Browser Window
     set window size    1920   1200
     Set Selenium Speed              ${DELAY}
@@ -185,6 +188,7 @@ Valitse Kohde
 
 Valitse Selain
     [Documentation]  Valitsee selaimen testeihin viikonpäivän mukaan, käytössä CI ympäristössä
+    #Ei käytössä
     [Arguments]  ${BROWSER}
     ${date}=  Get Current Date
     ${date}=  Convert Date  ${date}  result_format=%w
