@@ -21,7 +21,11 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 Resource                    KW_Liikennemerkit.robot
 Resource                    KW_Kaistatyokalu.robot
+<<<<<<< HEAD
 #Resource                    KW_AKR.robot
+=======
+Resource                    KW_Kaantymisrajoitus.robot
+>>>>>>> TL_Kaantymisrajoitus
 
 *** Variables ***
 ${BROWSER}                  Firefox
