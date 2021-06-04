@@ -33,9 +33,9 @@ Ajoneuvokohtaiset_rajoitukset_2  [arguments]  ${testipaikka}
     Wait Until Element Is Visible                       ${FA_Uusi_rajoitus}
     Click Element                                       ${FA_Uusi_rajoitus}
     Click Element                                       ${FA_Uusi_rajoitus_DDM}
-    Wait Until Element Is Visible                       ${FA_Rajoutuksen_Voimassaoloaika}
-    Click Element                                       ${FA_Rajoutuksen_Voimassaoloaika}
-    Click Element                                       ${FA_Rajoutuksen_Voimassaoloaika_DDM}
+    Wait Until Element Is Visible                       ${FA_Rajoituksen_Voimassaoloaika}
+    Click Element                                       ${FA_Rajoituksen_Voimassaoloaika}
+    Click Element                                       ${FA_Rajoituksen_Voimassaoloaika_DDM}
     #Pause Execution
     Click Element                                       ${FA_Rajoituksen_Poikkeus}
     Click Element                                       ${FA_Rajoituksen_Poikkeus_DDM}
@@ -127,8 +127,8 @@ ${FA_Poista_rajoitus}                   css=ul.edit-control-group > li:nth-child
 
 ${FA_Uusi_rajoitus}                     css=.form-group.new-prohibition .form-control.select
 ${FA_Uusi_rajoitus_DDM}                 css=.form-group.new-prohibition .form-control.select option:nth-child(4)
-${FA_Rajoutuksen_Voimassaoloaika}       css=.form-group.new-validity-period .form-control
-${FA_Rajoutuksen_Voimassaoloaika_DDM}   css=.form-group.new-validity-period .form-control option:nth-child(3)
+#${FA_Rajoutuksen_Voimassaoloaika}       css=.form-group.new-validity-period .form-control
+#${FA_Rajoutuksen_Voimassaoloaika_DDM}   css=.form-group.new-validity-period .form-control option:nth-child(3)
 ${FA_Rajoituksen_Poikkeus}              css=.form-group.new-exception
 ${FA_Rajoituksen_Poikkeus_DDM}          css=.form-group.new-exception .form-control option:nth-child(2)
 ${FA_Rajoituksen_Lisätieto}             css=.form-control.additional-info
