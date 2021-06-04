@@ -126,6 +126,9 @@ ${FA_Liikennemäärä_Rajoitus}                    css=.form-control.traffic-vol
 ${FA_SuurinSallittuMassa_Rajoitus}              css=.form-control.total-weight-limit
 ${FA_Poista_chkbx}                              id=delete-checkbox
 
+${FA_Rajoituksen_Voimassaoloaika}               css=.form-group.new-validity-period .form-control
+${FA_Rajoituksen_Voimassaoloaika_DDM}           css=.form-group.new-validity-period .form-control option:nth-child(3)
+
 
 ########################
 # map-plugins / Footer #

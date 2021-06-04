@@ -21,6 +21,7 @@ Resource                    KW_Opastustaulu.robot
 Resource                    KW_Suojatie.robot
 Resource                    KW_Liikennemerkit.robot
 Resource                    KW_Kaistatyokalu.robot
+Resource                    KW_Kaantymisrajoitus.robot
 
 *** Variables ***
 ${BROWSER}                  Firefox
