@@ -70,6 +70,51 @@ KR_3  [arguments]  ${testipaikka}
     Wait Until Element Is Visible                       ${FA_otsikko}
     Element Should Contain                              ${FA_Lisätty_Järjestelmään}  Muokattu viimeksi: / -
 
+KR_4  [arguments]  ${testipaikka}
+    Siirry Testipaikkaan                                ${TL_Kääntymisrajoitus_RB}  ${Testipaikka}
+    Zoomaa kartta                                       1  20 m
+    Odota sivun latautuminen
+
+    Tarkista Kääntymisrajoitus
+
+    Siirry Muokkaustilaan
+    Click Element At Coordinates                        ${Kartta}  0  20
+    Wait Until Element Is Visible                       ${FA_otsikko}
+
+    Log  Valitaan Tielinkki jolle luodaan Kääntymisrajoitus
+    Wait Until Element Is Visible                       ${FA_Uusi_Kääntymisrajoitus}
+    Click Element                                       ${FA_Uusi_Kääntymisrajoitus}
+    Log  Asetetaan rajoituksen lisäsäännöt
+
+    Click Element                                       ${FA_Jatka_Kääntymisrajoitusta}
+    Sleep  10 s
+    Click Element                                       ${FA_header_Tallenna}
+    Wait Until Element Is Not Visible                   ${Spinner_Overlay}
+    Sleep  1 m
+
+    #Tarkistetaan välilinkin tiedot
+    Siirry Katselutilaan
+    Click Element At Coordinates                        ${Kartta}  0  20
+    Wait Until Element Is Visible                       ${FA_otsikko}
+    Page Should Contain                                 LINK ID: 2034709
+    Page Should Contain                                 ✚
+
+    #Poistetaan linkki
+    Siirry Muokkaustilaan
+    Wait Until Element Is Visible                       ${FA_Muokkaa_Välilinkkiä}
+    Click Element                                       ${FA_Muokkaa_Välilinkkiä}
+    Click Element                                       css=.checkbox-remove
+    Click Element                                       ${FA_footer_Tallenna}
+    Wait until element is not Visible                   ${Spinner_Overlay}
+    Siirry Katselutilaan
+
+    #Tarkistetaan, että poisto onnistui
+    Click Element At Coordinates                        ${Kartta}  0  20
+    Wait Until Element Is Visible                       ${FA_otsikko}
+    Element Should Contain  ${FA_Lisätty_Järjestelmään}  Muokattu viimeksi: / -
+    Pause Execution
+
+
 ##########################
 ### Sisäiset Keywordit ###
 ##########################
@@ -93,6 +138,8 @@ Poista Kääntymisrajoitus
 
 ${FA_Uusi_Kääntymisrajoitus}            css=#feature-attributes-form > div > div > div:nth-child(7) > div.form-group > div > div:nth-child(1) > button
 
+${FA_Muokkaa_Välilinkkiä}           css=#feature-attributes-form > div > div > div:nth-child(12) > div.form-group > div > div:nth-child(2) > button
 ${FA_Uusi_Ajoneuvopoikkeus}         css=.form-control.select.new-exception
 ${FA_Uusi_Ajoneuvopoikkeus_DDM1}     css=.form-control.select.new-exception option:nth-child(2)
 ${FA_Uusi_Ajoneuvopoikkeus_DDM2}     css=.form-control.select.new-exception option:nth-child(3)
+${FA_Jatka_Kääntymisrajoitusta}     css=.target-link-selection ul li:nth-child(3) [name="target"]
