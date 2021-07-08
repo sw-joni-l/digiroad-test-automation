@@ -22,6 +22,7 @@ Resource                    KW_Suojatie.robot
 Resource                    KW_Liikennemerkit.robot
 Resource                    KW_Kaistatyokalu.robot
 Resource                    KW_Kaantymisrajoitus.robot
+Resource                    KW_Nopeusrajoitus.robot
 #Resource                    KW_AKR.robot
 
 *** Variables ***
@@ -29,6 +30,7 @@ ${BROWSER}                  Firefox
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
+#${LOGIN URL}               https://digiroaddev.testivaylapilvi.fi/
 ${LOGIN URL}                https://testiextranet.vayla.fi/digiroad/
 ${LiviUserNameField}        id=username
 ${LiviPasswordField}        id=password

@@ -110,6 +110,7 @@ ${FA_Linkkien_lkm}                              css=#feature-attributes .form-gr
 ${FA_Geometrian_lahde}                          css=#feature-attributes .form-group:first-of-type+div+div .form-control-static.asset-log-info
 ${FA_Anna_Palautetta}                           css=.feedback-data-link.btn.btn-quaternary
 ${FA_Geometria_Notifikaatio}                    css=.form-group.form-notification
+${FA_linkkien_lukumaara}                        css=div:nth-child(3) > p
 
 
 #${FA_locator_textinput}                         css=#feature-attributes .form-control[type="text"]:first-of-type
