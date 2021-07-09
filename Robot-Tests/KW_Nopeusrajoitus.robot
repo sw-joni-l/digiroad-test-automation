@@ -138,7 +138,7 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     Log  Ei voi aloittaa monivalintaa, jos on muokannut jotain toista nopeusrajoitusta ensin 206.118
     Siirry Muokkaustilaan
     Click Element                               ${Popup_NopeusRajoitus}
-    Click Element                               ${Popup_NopeusRajoitus_DDM}
+    Click Element                               ${Popup_NopeusRajoitus_120}
     Click Element                               css=.${TL_Nopeusrajoitus_RB} .polygon
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Wait Until Element Is Not Visible           ${Map_popup}

@@ -9,13 +9,13 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Liikennemerkit 1
-    [Tags]              Merkki  
+    [Tags]              Merkki  AWS
     [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  
     KW_Liikennemerkit.Liikennemerkit 1  7320569, 599457
 
 Liikennemerkit 2
-    [Tags]              Merkki  Mandatory
+    [Tags]              Merkki
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Tarkistetaan kaikki eri tyyppiset liikennemerkit
     KW_Liikennemerkit.Liikennemerkit 2  6715385, 243668  ${LM_Varoitusmerkit}   Varoitusmerkit
@@ -28,13 +28,13 @@ Liikennemerkit 2
     KW_Liikennemerkit.Liikennemerkit 2  6670501, 385948  ${LM_Muut_merkit}      Muut merkit
 
 Liikennemerkit 3
-    [Tags]              Merkki  
+    [Tags]              Merkki  AWS
     [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  
     KW_Liikennemerkit.Liikennemerkit 3  7320569, 599457
 
 Liikennemerkit_4
-    [Tags]              Merkki  
+    [Tags]              Merkki  AWS
     [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  
     KW_Liikennemerkit.Liikennemerkit 4  7320574, 599512

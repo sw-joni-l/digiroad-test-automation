@@ -16,19 +16,19 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Pysäkit 1
-    [Tags]              JLP  Mandatory
+    [Tags]              JLP
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...  - Kartalla näkyvät pysäkit kun mittakaava on 1:20000 tai tarkempi.
     KW_JLP.JLP_1  6710928,255265
 
 Pysäkit 2
-    [Tags]              JLP  Mandatory
+    [Tags]              JLP
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...  - Luetaan terminaalipysäkin tiedot
     KW_JLP.JLP_2  6672029, 385242
 
 Pysäkit 3
-    [Tags]              JLP  Mandatory  JLPuudet
+    [Tags]              JLP
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...   - Pysäkkien siirrosta yli 50m tulee popup, varmistetaan ELYn ja kuntalaisten viestit.
     KW_JLP.JLP_3  6710786, 241841  ei
@@ -36,7 +36,7 @@ Pysäkit 3
     KW_JLP.JLP_3  6706716, 243306  kyllä
 
 Pysäkit 4
-    [Tags]              JLP  Mandatory  JLPuudet
+    [Tags]              JLP  AWS
     [Documentation]     Pysäkit, selain: ${BROWSER}
     ...   - Luodaan uusi kunnan ylläpitämä pysäkki ja tarkistetaan formin validoinnit, sekä tietojen tallentuminen.
     KW_JLP.JLP_4  7537607, 583699  ELY

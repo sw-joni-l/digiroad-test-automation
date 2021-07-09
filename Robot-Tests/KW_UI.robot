@@ -27,11 +27,11 @@ UI_2
     wait until element is visible           ${Taustakartta}
     Click Element                           ${Käyttöohje}
     #    Get Window Titles
-    Select Window                           title=Käyttöohje
+    Switch Window                           title=Käyttöohje
     wait until element is visible           id=md-title
     Title Should Be                         Käyttöohje
     Close Window
-    Select Window                           title=Digiroad
+    Switch Window                           title=Digiroad
     Element should be visible               ${Käyttöohje}
 
 UI_3

@@ -15,7 +15,7 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Tielinkit 1
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Kun tielinkit avataan ensimmäisen kerran, toiminnallinen luokka on näkyvissä.
     ...  Myöhemmin on valittuna se ominaisuus, joka on viimeisimmäksi valittu ennen kuin on vaihdettu tietolajia.
@@ -23,7 +23,7 @@ Tielinkit 1
 
 
 Tielinkit 2
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkit näkyvät ja ne saa valittua kun mittakaava on vähintään 1:20000.
     ...  Valinnan saa poistettua klikkaamalla muualle. Tielinkin valinta säilyy kun karttaa liikutellaan ja zoomaillaan.
@@ -31,7 +31,7 @@ Tielinkit 2
     KW_Tielinkit.Tielinkit_2
 
 Tielinkit 3
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien toiminnalliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     Log  Testille annetaan parametrina toiminnallinen luokka ja paikka jossa se testataan (osoite tai koordinaatti)
@@ -46,7 +46,7 @@ Tielinkit 3
     KW_Tielinkit.Tielinkit_3  8  6711878, 240628
 
 Tielinkit 4
-    [Tags]              Roadlinks  Mandatory  Functionality
+    [Tags]              Roadlinks
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien tyyppi täsmää kartan aineiston visualisointiin ja formilla näytettävään tielinkin tyyppiin.
     ...  Samalla tarkistetaan, että Kevyen liikenteen väylät ja lautta/lossiväylät ja ajopolut on visualisoitu ohuemmalla viivalla (määritelty css selectorissa, jolla aineisto tarkistetaan.)
@@ -65,7 +65,7 @@ Tielinkit 4
     KW_Tielinkit.Tielinkit_4    Lautta/lossi                   6709978, 238631
 
 Tielinkit 5
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien hallinnolliset luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     KW_Tielinkit.Tielinkit_5   Kunnan omistama                 6676125, 373042
@@ -74,7 +74,7 @@ Tielinkit 5
     KW_Tielinkit.Tielinkit_5   Tuntematon                      6676135, 372839
 
 Tielinkit 6
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkkien silta luokat vastaa kartan aineiston visualisointia ja formilla näytettävää luokkaa.
     KW_Tielinkit.Tielinkit_6   Silta, Taso 1   6675257, 385417
@@ -83,7 +83,7 @@ Tielinkit 6
     KW_Tielinkit.Tielinkit_6   Maan pinnalla   6675510, 385480
 
 Tielinkit 7
-    [Tags]              Roadlinks  Optional  Functionality
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Yksisuuntaiset tielinkit on visualisoitu suuntanuolella. Tarkistetaan myös liikennevirta molempiin suuntiin
     KW_Tielinkit.Tielinkit_7   6710973, 238687  ${Digitointisuuntaa vastaan}
@@ -91,13 +91,13 @@ Tielinkit 7
     KW_Tielinkit.Tielinkit_7   6711090, 239950  ${Molempiin suuntiin}
 
 Tielinkit 8
-    [Tags]              Roadlinks  Optional  Layout
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Radionappien järjestys on: toiminnallinen luokka, tielinkin tyyppi, hallinnollinen luokka, silta, alikulku tai tunneli.
     KW_Tielinkit.Tielinkit_8
 
 Tielinkit 9
-    [Tags]              Roadlinks  Optional  Layout
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkin ominaisuustiedoissa näkyy Link ID, MML ID, viimeisin muokkaus, linkkien lukumäärä, hallinnollinen luokka,
     ...  toiminnallinen luokka, liikennevirran suunta, tielinkin tyyppi, silta/alikulku/tunneli, kuntanumero, tien nimi suomeksi,
@@ -105,7 +105,7 @@ Tielinkit 9
     KW_Tielinkit.Tielinkit_9
 
 Tielinkit 10
-    [Tags]              Roadlinks  Optional  Functionality  Edit  Sikuli
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Tielinkin muokkaus ketjuna. Toiminnallista luokkaa, liikennevirran suuntaa ja tielinkin tyyppiä voi muokata.
     ...  Liikennevirran suuntaa ja muita ominaisuuksia muokatessa myös visualisointi muuttuu vastaavasti.
@@ -115,7 +115,7 @@ Tielinkit 10
     KW_Tielinkit.Tielinkit_10   6711434, 240090  Linkin ID: 5790802   Linkin ID: 5790806
 
 Tielinkit 11
-    [Tags]              Roadlinks  Optional  Functionality  Edit
+    [Tags]              Roadlinks  AWS
     [Documentation]     Tielinkit, selain: ${BROWSER}
     ...  - Korjattavien linkkien lista, tarkistettaan että kyseisestä linkistä aukeaa lista ja sivun ryhmittely on ok.
     ...  Tarkistetaan, että listan linkeistä aukeaa kyseinen paikka

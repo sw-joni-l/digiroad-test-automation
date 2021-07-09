@@ -10,14 +10,17 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Kääntymisrajoitus 1
+    [Tags]  
     [Documentation]  Takistetaan tielinkki, jolla on yksi kääntymirajoitus.
     KW_Kaantymisrajoitus.KR_1  6671992, 385433
 
 Kääntymisrajoitus 2
+    [Tags]  
     [Documentation]  Tarkistetaan tielinkki, jossa on useita kääntymisrajoituksia.
     KW_Kaantymisrajoitus.KR_2  6711114, 238672
 
 Kääntymisrajoitus 3
+    [Tags]  AWS
     [Documentation]  Luodaan uusi kääntymisrajoitus, tarkistetaan tallennetut tiedot.
     KW_Kaantymisrajoitus.KR_3  6750859, 480701
 

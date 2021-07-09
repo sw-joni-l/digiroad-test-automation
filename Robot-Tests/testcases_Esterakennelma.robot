@@ -16,13 +16,13 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 Esterakennelma 1
-    [Tags]              Este  Mandatory  
+    [Tags]              Este
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Kartalla näkyvät Esterakennelma kun mittakaava on 1:20000 tai tarkempi.
     KW_Esterakennelma.Este_1  6711851,240709
 
 Esterakennelma 2
-    [Tags]              Este  Mandatory  tagi
+    [Tags]              Este
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Tarkistetaan esterakenelmien tyyppi
     KW_Esterakennelma.Este_2  6711851,240709  Suljettu yhteys
@@ -30,13 +30,13 @@ Esterakennelma 2
     KW_Esterakennelma.Este_2  6711833,239489  Geometrian ulkopuolella
 
 Esterakennelma 3
-    [Tags]              Este  Mandatory
+    [Tags]              Este
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...   - Esterakennelmaa voi siirtää, sekä tyyppiä muokata.
     KW_Esterakennelma.Este_3  6761072,212356  Suljettu yhteys
 
 Esterakennelma 4
-    [Tags]              Este  Mandatory
+    [Tags]              Este  AWS
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...   - Luodaan uusi kunnan esteraknnelma, tarkistetaan luontipäivä ja poistetaan este.
     KW_Esterakennelma.Este_4  7537607, 583699

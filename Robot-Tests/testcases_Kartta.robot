@@ -22,25 +22,25 @@ Test Setup          Testin Aloitus
 
 *** Test Cases ***
 KartanKäyttö 1
-    [Tags]              Map   Mandatory
+    [Tags]              Map   AWS
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Kartan käyttö zoom-napeilla, tuplaklikkaamalla ja SHIFT+piirto
     KW_Kartta.Kartta_1
 
 KartanKäyttö 2
-    [Tags]              Map   Mandatory
+    [Tags]              Map   AWS
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Kartan liikuttaminen raahaamalla ja haulla
     KW_Kartta.Kartta_2
 
 KartanKäyttö 3
-    [Tags]              Map   Mandatory
+    [Tags]              Map   AWS
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Taustakartaksi voi valita ortokuvat, taustakarttasarjan tai maastokartan.
     KW_Kartta.Kartta_3
 
 KartanKäyttö 4
-    [Tags]              Map   Mandatory
+    [Tags]              Map   AWS
     [Documentation]     Kartan käyttö, selain: ${BROWSER}
     ...  - Sovellus näyttää viestin "Zoomaa lähemmäksi, jos haluat nähdä kohteita", kun mittakaavataso on liian pieni.
     KW_Kartta.Kartta_4
