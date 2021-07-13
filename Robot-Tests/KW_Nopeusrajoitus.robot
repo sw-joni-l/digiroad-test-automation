@@ -166,6 +166,63 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     Click Element                               ${Popup_NopeusRajoitus_DDM}
     Click Element                               ${FA_header_Tallenna}
 
+Nopeusrajoitus 4  [arguments]  ${testipaikka}
+    Vaihda tietolaji                            ${TL_Nopeusrajoitus_RB}
+    Paikanna osoite                             ${testipaikka}
+    Zoomaa kartta                               10  5 m
+    Odota sivun latautuminen
+
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element SHould Not Be Visible               ${FA_Jaa_Nopeusrajoitus}
+
+    Log  Peruuta-painike peruuttaa molempisuuntaisen nopeusrajoituksen jaon, rivi:290
+    Siirry Muokkaustilaan
+    Click Element                               ${FA_Jaa_Nopeusrajoitus}
+    Click Element                               ${FA_Rajoitus_A}
+    Click Element                               ${FA_Rajoitus_A_DDM}
+    Click Element                               ${FA_Rajoitus_B}
+    Click Element                               ${FA_Rajoitus_B_DDM}
+    Click Element                               ${FA_footer_Peruuta}
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+
+    Log  Kaksisuuntaiseksi jaettua nopeusrajoitusta ei voi tallentaa, jos molemmilla nopeusrajoituksilla on sama rajoitusarvo, rivi:289, BUGI talletuksen voitehdä.
+    Click Element                               ${FA_Jaa_Nopeusrajoitus}
+    Element should be visible                  css=.save[disabled]
+    Log  Painetaan tallennus nappia, mitään ei pitäisi tapahtua.
+    Click Element                               ${FA_footer_Tallenna}
+
+    Log  "Jaa nopeusrajoitus kaksisuuntaiseksi"-painike luo kartalle nopeusrajoituksen kohdalle kaksi erisuuntaista nopeusrajoitusta Rivi 288
+    Click Element                               ${FA_Rajoitus_A}
+    Click Element                               ${FA_Rajoitus_A_DDM}
+    Click Element                               ${FA_Rajoitus_B}
+    Click Element                               ${FA_Rajoitus_B_DDM}
+    Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Log  Nollataan Rajoitukset
+    Click Element At Coordinates                ${Kartta}  0  -55
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Click Element                               ${Popup_NopeusRajoitus}
+    Click Element                               ${Popup_NopeusRajoitus_DDM}
+    Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Click Element At Coordinates                ${Kartta}  0  85
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Click Element                               ${Popup_NopeusRajoitus}
+    Click Element                               ${Popup_NopeusRajoitus_DDM}
+    Click Element                               ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Siirry Katselutilaan
+    Click Element At Coordinates                ${Kartta}  0  20
+    Wait Until Element Is Visible               ${FA_otsikko}
+    Element Should Contain                      ${FA_Nopeusrajoitus}  60 km/h
 
 
 ##########################
@@ -189,3 +246,4 @@ ${FA_Nopeusrajoitus}        css=#feature-attributes-form > div > div > div:nth-c
 ${Popup_NopeusRajoitus}     css=div.form-group.editable > select
 ${Popup_NopeusRajoitus_DDM}  css=div.form-group.editable > select option:nth-child(7)
 ${Popup_NopeusRajoitus_120}  css=div.form-group.editable > select option:nth-child(2)
+${FA_Jaa_Nopeusrajoitus}    id=separate-limit

@@ -23,5 +23,11 @@ Nopeusrajoitus 2
 Nopeusrajoitus 3
     [Tags]  AWS
     [Documentation]  Nopeusrajotusten muokkaus monivalintatyökalulla.
-    ...  Testaa regressio testit 206.116
+    ...  Testaa regressio testit 206.116, 206.118
     KW_Nopeusrajoitus.Nopeusrajoitus 3  6938911, 393122
+
+Nopeusrajoitus 4
+    [Tags]  AWS
+    [Documentation]  Nopeusrajoituksen muuntaminen kaksisuuntaiseksi.
+
+    KW_Nopeusrajoitus.Nopeusrajoitus 4  6939251, 393673
