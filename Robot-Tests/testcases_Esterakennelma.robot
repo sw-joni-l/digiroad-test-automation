@@ -19,7 +19,7 @@ Esterakennelma 1
     [Tags]              Este
     [Documentation]     Esterakennelma, selain: ${BROWSER}
     ...  - Kartalla näkyvät Esterakennelma kun mittakaava on 1:20000 tai tarkempi.
-    KW_Esterakennelma.Este_1  6711851,240709
+    KW_Esterakennelma.Este_1  6936240, 397200
 
 Esterakennelma 2
     [Tags]              Este

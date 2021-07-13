@@ -115,7 +115,7 @@ Nopeusrajoitus_2  [arguments]  ${testipaikka}
     Element should contain                      ${Map_popup}  ${Zoom_popup_context}
     Odota sivun latautuminen
     Click Element At Coordinates                ${Kartta}  0  20
-    Repeat Keyword  5 s  Element Should Not Be Visible    ${FA_otsikko}
+    Repeat Keyword  10 s  Element Should Not Be Visible    ${FA_otsikko}
 
 Nopeusrajoitus 3  [arguments]  ${testipaikka}
     vaihda tietolaji                            ${TL_Nopeusrajoitus_RB}
