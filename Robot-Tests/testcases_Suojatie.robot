@@ -19,7 +19,7 @@ Suojatie 1
     [Tags]              Suojatie
     [Documentation]     Suojatie, selain: ${BROWSER}
     ...  - Kartalla näkyvät Suojatie kun mittakaava on 1:20000 tai tarkempi.
-    KW_Suojatie.Suojatie_1  6818936, 325475
+    KW_Suojatie.Suojatie_1  6773658, 266918
 
 Suojatie 2
     #Laatuvirhe lista ei avaa suojatie kohteita

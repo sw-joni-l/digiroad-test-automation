@@ -18,17 +18,19 @@ ${FA_Suojatie_Poista_chkbx}                          id=removebox
 
 Suojatie_1  [arguments]  ${testipaikka}
     Log  Zoomataan testipaikkaan, tarkistetaan että kohteessa on jotain tietoa
-    Siirry Testipaikkaan                ${TL_Suojatie_RB}  ${testipaikka}
+    Vaihda Tietolaji                    ${TL_Suojatie_RB}
+    Paikanna osoite                     ${testipaikka}
+    Odota sivun latautuminen
+
     Click Element At Coordinates        ${Kartta}  0  20
     Wait Until Element Is Visible       ${FA_otsikko}
     Click Element At Coordinates        ${Kartta}  0  -100
     Wait Until Element Is Not Visible   ${FA_otsikko}
 
-    Log  zoomataan kauemmas ja varmistetaan, ettei suojatie ole enää näkyvissä
-    set selenium speed                  0.3
-    Repeat Keyword                      4 times  click element  ${zoombar_minus}
-    Set Selenium Speed                  ${DELAY}
+    Log  zoomataan kauemmas ja varmistetaan, ettei esterakennelma ole enää näkyvissä
+    Click Element                       ${zoombar_minus}
     Odota sivun latautuminen
+    Wait Until Element Is Not Visible   ${Map_popup}
     Click Element At Coordinates        ${Kartta}  0  20
     Repeat Keyword  10 s                Element Should Not Be Visible   ${FA_otsikko}
 
