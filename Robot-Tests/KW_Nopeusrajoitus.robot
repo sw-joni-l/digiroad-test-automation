@@ -103,6 +103,14 @@ Nopeusrajoitus_2  [arguments]  ${testipaikka}
     ${id}=  Get Text                            ${FA_otsikko}
     Siirry Muokkaustilaan
     Element Should Contain                      ${FA_otsikko}  ${id}
+
+    Log  Tarkistaa, että nopeusrajoitukset ovat laskevassa järjestyksessä.
+    Click Element                               ${Popup_NopeusRajoitus}
+    FOR  ${i}  IN RANGE  2  12
+        ${n}=  Evaluate  -${i}+1
+        Element Should Contain  css=div.form-group.editable > select option:nth-child(${i})  ${Nopeusrajoitukset}[${n}]
+    END
+
     Siirry Katselutilaan
 
     Click Element At Coordinates                ${Kartta}  50  50
