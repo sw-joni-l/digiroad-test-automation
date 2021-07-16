@@ -16,7 +16,7 @@ Liikennemerkit 1
 
 Liikennemerkit 2
     [Tags]              Merkki
-    [Documentation]     Esterakennelma, selain: ${BROWSER}
+    [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  - Tarkistetaan kaikki eri tyyppiset liikennemerkit
     KW_Liikennemerkit.Liikennemerkit 2  6715385, 243668  ${LM_Varoitusmerkit}   Varoitusmerkit
     KW_Liikennemerkit.Liikennemerkit 2  7320750, 599530  ${LM_Etuajo-oikeus}    Etuajo-oikeus ja väistämismerkit
@@ -38,3 +38,9 @@ Liikennemerkit_4
     [Documentation]     Liikennemerkit, selain: ${BROWSER}
     ...  
     KW_Liikennemerkit.Liikennemerkit 4  7320574, 599512
+
+Liikennemerkit_5
+    [Tags]              Merkki  AWS
+    [Documentation]     Liikennemerkit, selain: ${BROWSER}
+    ...  Liikennemerkkien perustestit.
+    KW_Liikennemerkit.Liikennemerkit 5  7320574, 599512

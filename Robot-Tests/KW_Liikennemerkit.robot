@@ -19,7 +19,7 @@ Liikennemerkit_1  [arguments]  ${testipaikka}
     #Click Element                               ${LM_Kielto}
     Odota sivun latautuminen
     ${date}=  Get Current Date                  result_format=%d.%m.%Y
-    Click Element At Coordinates         ${Kartta}  0  20
+    Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
     Tarkista Merkin Kentät                      ${date}
     Siirry Muokkaustilaan
@@ -138,6 +138,44 @@ Liikennemerkit_4  [Arguments]  ${testipaikka}
 
     #Siirry Katselutilaan
     #Alusta Testipaikka
+
+Liikennemerkit_5  [Arguments]  ${Testipaikka}
+    Siirry Testipaikkaan  ${TL_Liikennemerkit_RB}  ${Testipaikka}
+    Odota sivun latautuminen
+    Alusta Testipaikka
+
+    Log  Liikennemerkkiä ei voi lisätä muokkaustyökalulla. Rivi:779
+    Siirry Muokkaustilaan
+    Click Element At Coordinates            ${Kartta}  0  20
+    Repeat Keyword  10 s  Element Should Not Be Visible  ${FA_otsikko}
+
+    Log  Liikennemerkin voi lisätä lisäystyökalulla. Rivi: 778
+    Click Element                           ${Muokkaustila_AddTool}
+    Click Element At Coordinates            ${Kartta}  0  20
+    Log  Klikkaamalla kartalta sijainti uudelle liikennemerkille, avautuu ominaisuustietonäkymä uudelle liikennemerkille. Rivi: 781
+    Wait Until Element Is Visible           ${FA_otsikko}
+
+    Log  Uuden liikennemerkin luonti peruutetaan painamalla "Peruuta" -painiketta. Rivi: 785
+    Click Element                           ${FA_footer_Peruuta}
+    Wait Until Element Is Not Visible       ${FA_otsikko}
+
+    Log  Jos lisäystyökalulla klikkaa kohtaa, jolla ei ole linkkiä, liikennemerkki muodostuu lähimmälle linkille. Rivi: 782
+    Click Element At Coordinates            ${Kartta}  40  20
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Log  Uusi liikennemerkki luodaan painamalla "Tallenna"-painiketta. Rivi: 784
+    Click Element                           ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible       ${Spinner_Overlay}
+    Odota sivun latautuminen
+
+    Click Element                           ${Muokkaustila_SelectTool}
+    Click Element At Coordinates            ${Kartta}  0  20
+    Wait Until Element Is Visible           ${FA_otsikko}
+    Log  Liikennemerkin voi poistaa: Rivi 790
+    Click Element                           ${FA_Poista_chkbx}
+    Click Element                           ${FA_footer_Tallenna}
+    Wait Until Element Is Not Visible       ${Spinner_Overlay}
+    Odota sivun latautuminen
+
 
 
 #######################
