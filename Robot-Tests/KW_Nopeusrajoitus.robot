@@ -173,6 +173,8 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     Click Element                               ${Popup_NopeusRajoitus}
     Click Element                               ${Popup_NopeusRajoitus_DDM}
     Click Element                               ${FA_header_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
+    Odota sivun latautuminen
 
 Nopeusrajoitus 4  [arguments]  ${testipaikka}
     Vaihda tietolaji                            ${TL_Nopeusrajoitus_RB}

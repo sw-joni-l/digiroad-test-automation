@@ -8,7 +8,7 @@ Suite Teardown      Close Browser
 Test Setup          Testin Aloitus
 *** Test Cases ***
 Nopeusrajoitus 1
-    [Tags]  AWS
+    [Tags]  AWS  Nopeus
     [Documentation]  Nopeusrajoituksen muokkaus leikkaustyökalulla.
     ...  Testaa regressio testit  206.30, 206.38, 206.86, 206.101, 206.102, 206.104
     KW_Nopeusrajoitus.Nopeusrajoitus 1  6938239, 393170
@@ -21,13 +21,13 @@ Nopeusrajoitus 2
 
 
 Nopeusrajoitus 3
-    [Tags]  AWS
+    [Tags]  AWS  testi  Nopeus
     [Documentation]  Nopeusrajotusten muokkaus monivalintatyökalulla.
     ...  Testaa regressio testit 206.116, 206.118
     KW_Nopeusrajoitus.Nopeusrajoitus 3  6938911, 393122
 
 Nopeusrajoitus 4
-    [Tags]  AWS
+    [Tags]  AWS  testi  Nopeus
     [Documentation]  Nopeusrajoituksen muuntaminen kaksisuuntaiseksi.
 
     KW_Nopeusrajoitus.Nopeusrajoitus 4  6939251, 393673
