@@ -148,8 +148,9 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Zoomaa kartta                           5   20 m
     #Zoomaa edestakaisin
     Odota sivun latautuminen
+    Siirry Muokkaustilaan
     click element at coordinates            ${kartta}   0   20
-    Run Keyword If                          '${TL}' == '${TL_Suojatie_RB}'  Siirry muokkaustilaan
+    #Run Keyword If                          '${TL}' == '${TL_Suojatie_RB}'  Siirry muokkaustilaan
     #   Scrollataan formin loppuun, jotta checkbox tulee näkyviin.
     #    pause execution
     wait until element is visible   css=[class='form-group']
@@ -164,21 +165,22 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     # pause execution
     Run Keyword If     '${TL}' == '${TL_Rautatien_tasoristeys_RB}'    Tarkista Muokkaustila radio non-unit  ${LocatorForCheckbox}  ${TL}
     ...  ELSE     Tarkista muokkaustila radio non-unit  ${LocatorForCheckbox}  EMPTY
+    Siirry Katselutilaan
 
 UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
     wait until element is visible           ${valitse tietolaji}
     Paikanna osoite                         ${testipaikka}
-    Zoomaa kartta                           5   20 m
     Vaihda Tietolaji                        ${TL}
-    Odota sivun latautuminen
+    Zoomaa kartta                           5   20 m
     click element at coordinates            ${kartta}   0   20
     Wait until element is visible           ${FA_otsikko}
+    Siirry Muokkaustilaan
     Tarkista footer disabled
     Click Button                            Siirry muokkaamaan liikennevaloa
     Tarkista footer enabled
     SeleniumLibrary.Input Text              trafficLight_info-1  testi
     Click element                           ${FA_footer_Peruuta}
-
+    Siirry Katselutilaan
  
 
 
