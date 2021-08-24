@@ -140,22 +140,25 @@ UI_5_radio_unit  [Arguments]  @{Tietolaji_lista}
 
 UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Log  UI_5 Tietolajit jotka muokattavissa checkboxin kautta
-    wait until element is visible           ${Taustakartta}
-    wait until element is visible           ${valitse tietolaji}
-    Vaihda Tietolaji                        ${TL}
-    set test variable  ${koe}  -
-    Paikanna osoite                         ${testipaikka}
-    Zoomaa kartta                           5   20 m
+    # wait until element is visible           ${Taustakartta}
+    # wait until element is visible           ${valitse tietolaji}
+    # Vaihda Tietolaji                        ${TL}
+     set test variable  ${koe}  -
+    # Paikanna osoite                         ${testipaikka}
+    # Zoomaa kartta                           5   20 m
     #Zoomaa edestakaisin
+
+    Siirry Testipaikkaan  ${TL}  ${testipaikka}
+
     Odota sivun latautuminen
     Siirry Muokkaustilaan
     click element at coordinates            ${kartta}   0   20
     #Run Keyword If                          '${TL}' == '${TL_Suojatie_RB}'  Siirry muokkaustilaan
     #   Scrollataan formin loppuun, jotta checkbox tulee näkyviin.
     #    pause execution
-    wait until element is visible   css=[class='form-group']
-    ${c} =   get element count      css=[class='form-group']
-    Run Keyword If                          ${c} == 0   click element at coordinates     ${kartta}   1   0
+    wait until element is visible              ${FA_otsikko}
+    # ${c} =   get element count      css=[class='form-group']
+    # Run Keyword If                          ${c} == 0   click element at coordinates     ${kartta}   1   0
     Run Keyword If                          '${TL}' == '${TL_Joukkoliikenteen_pysäkki_RB}'
     ...  Execute Javascript                 var element = document.getElementById("feature-attributes-form");
     ...                                     element.scrollIntoView({block: "end"});
@@ -168,10 +171,7 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Siirry Katselutilaan
 
 UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
-    wait until element is visible           ${valitse tietolaji}
-    Paikanna osoite                         ${testipaikka}
-    Vaihda Tietolaji                        ${TL}
-    Zoomaa kartta                           5   20 m
+    Siirry Testipaikkaan  ${TL}  ${testipaikka}
     click element at coordinates            ${kartta}   0   20
     Wait until element is visible           ${FA_otsikko}
     Siirry Muokkaustilaan
