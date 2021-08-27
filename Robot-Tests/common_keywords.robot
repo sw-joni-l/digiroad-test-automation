@@ -23,10 +23,11 @@ Resource                    KW_Liikennemerkit.robot
 Resource                    KW_Kaistatyokalu.robot
 Resource                    KW_Kaantymisrajoitus.robot
 Resource                    KW_Nopeusrajoitus.robot
+Resource                    KW_SuurinSallittu.robot
 #Resource                    KW_AKR.robot
 
 *** Variables ***
-${BROWSER}                  Firefox
+${BROWSER}                  firefox  #Chrome  #
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
