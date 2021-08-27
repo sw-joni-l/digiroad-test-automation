@@ -148,7 +148,14 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     # Zoomaa kartta                           5   20 m
     #Zoomaa edestakaisin
 
-    Siirry Testipaikkaan  ${TL}  ${testipaikka}
+    #Siirry Testipaikkaan  ${TL}  ${testipaikka}
+
+    wait until element is visible       ${valitse tietolaji}
+    Paikanna osoite                     ${testipaikka}
+    Zoomaa kartta                       5  20 m
+    Odota sivun latautuminen
+    vaihda tietolaji                    ${TL}
+
 
     Odota sivun latautuminen
     Siirry Muokkaustilaan
@@ -171,7 +178,15 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     Siirry Katselutilaan
 
 UI_5_liikennevalo  [Arguments]  ${TL}  ${testipaikka}
-    Siirry Testipaikkaan  ${TL}  ${testipaikka}
+    #Siirry Testipaikkaan  ${TL}  ${testipaikka}
+
+    wait until element is visible       ${valitse tietolaji}
+    Paikanna osoite                     ${testipaikka}
+    Zoomaa kartta                       5  20 m
+    Odota sivun latautuminen
+    vaihda tietolaji                    ${TL}
+    Odota sivun latautuminen
+
     click element at coordinates            ${kartta}   0   20
     Wait until element is visible           ${FA_otsikko}
     Siirry Muokkaustilaan
