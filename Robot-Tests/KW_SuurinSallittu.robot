@@ -9,6 +9,7 @@ Documentation       Keywords for obstacles (Esterakennelma)
 
 Massa_1  [arguments]  ${tietolaji}  ${testipaikka}  ${rajoitus}
     Siirry Testipaikkaan                ${tietolaji}  ${testipaikka}
+    Zoomaa kartta  5  5 m
     Click Element At Coordinates        ${Kartta}  0  20
     Wait Until Element Is Visible       ${FA_otsikko}
     #Element Should Contain              ${FA_SuurinSallittu_Rajoitus}  on
