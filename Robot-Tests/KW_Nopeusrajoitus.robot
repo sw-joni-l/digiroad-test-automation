@@ -139,6 +139,7 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     Click Element                               ${FA_header_Peruuta}
     Click Element                               ${Muokkaustila_SelectTool}
     Siirry Katselutilaan
+    sleep  1 s
     Click Element at Coordinates                ${Kartta}  0  20
     Wait Until Element contains                 ${FA_Nopeusrajoitus}  60 km/h
     #Element Should Contain                      ${FA_Nopeusrajoitus}  60 km/h
