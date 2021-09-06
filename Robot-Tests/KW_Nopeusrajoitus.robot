@@ -9,6 +9,11 @@ Nopeusrajoitus_1  [arguments]  ${testipaikka}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5  50 m
 
+    #Nollataan rajoitus tarvittaessa
+    Click Element At Coordinates                ${Kartta}  10  0
+    ${status}=  Run Keyword And Return Status   Element Should Contain  ${FA_Nopeusrajoitus}  60 km/h
+    Run Keyword If  ${status}==False            Nollaa Nollaa Nopeusrajoitus
+
     Odota sivun latautuminen
     Siirry Muokkaustilaan
     Log  Leikataan rajoitus kahteen osaan 206.86
@@ -129,6 +134,10 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     vaihda tietolaji                            ${TL_Nopeusrajoitus_RB}
     Paikanna osoite                             ${testipaikka}
     Odota sivun latautuminen
+
+    #Hankala tarkistaa onko kaikki kohdat ==60, nollataan joka kerta.
+    Nollaa Nollaa Nopeusrajoitus
+
     Siirry Muokkaustilaan
     Click Element                               css=.${TL_Nopeusrajoitus_RB} .polygon
 
@@ -240,6 +249,20 @@ Nopeusrajoitus 4  [arguments]  ${testipaikka}
 ### Sisäiset Keywordit ###
 ##########################
 
+Nollaa Nollaa Nopeusrajoitus
+    Siirry Muokkaustilaan
+    Element should be visible                   css=.${TL_Nopeusrajoitus_RB} .polygon
+    Click Element                               css=.${TL_Nopeusrajoitus_RB} .polygon
+    Suorita monivalinta
+    Click Element                               ${Popup_NopeusRajoitus}
+    Click Element                               ${Popup_NopeusRajoitus_60}
+    Click Element                               ${FA_header_Tallenna}
+    Wait Until Element Is Not Visible           ${Spinner_Overlay}
+    Odota sivun latautuminen
+    Siirry Katselutilaan
+
+
+
 Suorita monivalinta
     Click Element At Coordinates                ${Kartta}  -100  -100
     Click Element At Coordinates                ${Kartta}  100  -100
@@ -257,4 +280,5 @@ ${FA_Nopeusrajoitus}        css=#feature-attributes-form > div > div > div:nth-c
 ${Popup_NopeusRajoitus}     css=div.form-group.editable > select
 ${Popup_NopeusRajoitus_DDM}  css=div.form-group.editable > select option:nth-child(7)
 ${Popup_NopeusRajoitus_120}  css=div.form-group.editable > select option:nth-child(2)
+${Popup_NopeusRajoitus_60}  css=div.form-group.editable > select option:nth-child(7)
 ${FA_Jaa_Nopeusrajoitus}    id=separate-limit

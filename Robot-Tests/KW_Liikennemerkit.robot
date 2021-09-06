@@ -96,6 +96,12 @@ Liikennemerkit_4  [Arguments]  ${testipaikka}
 
     Log  Luodaan uusi merkki, ja sille lisä kilpi. Siirretään molempia yhdessä.
     Alusta Testipaikka
+
+    Click Element At Coordinates  ${Kartta}  0  -40
+    ${status}=  Run Keyword And Return Status  Wait Until Element Is Visible  ${FA_otsikko}
+    Run Keyword If  ${status}==True  Poista Kohde
+
+
     Siirry Muokkaustilaan
     Odota sivun latautuminen
     click element                           ${Muokkaustila_AddTool}
