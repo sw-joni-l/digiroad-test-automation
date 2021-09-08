@@ -24,7 +24,7 @@ Liikennemerkit 2
     KW_Liikennemerkit.Liikennemerkit 2  7320761, 599545  ${LM_Määräysmerkit}    Määräysmerkit
     KW_Liikennemerkit.Liikennemerkit 2  7320120, 599020  ${LM_Sääntömerkit}     Sääntömerkit
     KW_Liikennemerkit.Liikennemerkit 2  7252914, 514594  ${LM_Opastusmerkit}    Opastusmerkit
-    KW_Liikennemerkit.Liikennemerkit 2  6671427, 384107  ${LM_Palvelukohteet}   Palvelukohteet
+    #KW_Liikennemerkit.Liikennemerkit 2  6671427, 384107  ${LM_Palvelukohteet}   Palvelukohteet
     KW_Liikennemerkit.Liikennemerkit 2  6670501, 385948  ${LM_Muut_merkit}      Muut merkit
 
 Liikennemerkit 3
