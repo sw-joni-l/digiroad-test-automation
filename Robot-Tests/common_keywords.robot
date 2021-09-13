@@ -2,7 +2,7 @@
 # pybot -d .\logs .\testcases*
 *** Settings ***
 #Library                     SeleniumLibrary     timeout=30.0   run_on_failure=None
-Library                     SeleniumLibrary     timeout=30.0   run_on_failure=Capture Page Screenshot
+Library                     SeleniumLibrary     timeout=35.0   run_on_failure=Capture Page Screenshot
 #Library                     Dialogs
 Library                     String
 #Library                    SikuliLibrary
@@ -202,6 +202,11 @@ Valitse Selain
     log to console  ${BROWSER}
     [Return]  ${BROWSER}
 
+Suorita monivalinta
+    Click Element At Coordinates                ${Kartta}  -100  -100
+    Click Element At Coordinates                ${Kartta}  100  -100
+    Click Element At Coordinates                ${Kartta}  100  100
+    Doubleclick Element At Coordinates          ${Kartta}  -100  100
 
 testklick
     [documentation]     Kutsutaan testklick, voidaan hakea testissä clikkaus paikka kohdille

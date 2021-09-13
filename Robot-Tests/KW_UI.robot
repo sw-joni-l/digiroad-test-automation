@@ -151,15 +151,13 @@ UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
     #Siirry Testipaikkaan  ${TL}  ${testipaikka}
 
     wait until element is visible       ${valitse tietolaji}
+    vaihda tietolaji                    ${TL}
     Paikanna osoite                     ${testipaikka}
     Zoomaa kartta                       5  20 m
     Odota sivun latautuminen
-    vaihda tietolaji                    ${TL}
 
-
-    Odota sivun latautuminen
     Siirry Muokkaustilaan
-    click element at coordinates            ${kartta}   0   20
+    click element at coordinates            ${kartta}  0  20
     #Run Keyword If                          '${TL}' == '${TL_Suojatie_RB}'  Siirry muokkaustilaan
     #   Scrollataan formin loppuun, jotta checkbox tulee näkyviin.
     #    pause execution
