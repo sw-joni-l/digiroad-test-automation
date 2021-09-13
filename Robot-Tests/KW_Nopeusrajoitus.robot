@@ -262,15 +262,6 @@ Nollaa Nollaa Nopeusrajoitus
     Siirry Katselutilaan
 
 
-
-Suorita monivalinta
-    Click Element At Coordinates                ${Kartta}  -100  -100
-    Click Element At Coordinates                ${Kartta}  100  -100
-    Click Element At Coordinates                ${Kartta}  100  100
-    Doubleclick Element At Coordinates          ${Kartta}  -100  100
-
-
-
 *** Variables ***
 ${FA_Rajoitus_A}            css=.speed-limit-a
 ${FA_Rajoitus_A_DDM}        css=.speed-limit-a option:nth-child(2)
