@@ -25,6 +25,7 @@ Resource                    KW_Kaantymisrajoitus.robot
 Resource                    KW_Nopeusrajoitus.robot
 Resource                    KW_SuurinSallittu.robot
 Resource                    KW_Pysakointikielto.robot
+Resource                    KW_Liikennevalo.robot
 #Resource                    KW_AKR.robot
 
 *** Variables ***
