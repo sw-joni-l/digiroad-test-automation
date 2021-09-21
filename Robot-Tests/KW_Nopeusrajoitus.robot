@@ -12,7 +12,7 @@ Nopeusrajoitus_1  [arguments]  ${testipaikka}
     #Nollataan rajoitus tarvittaessa
     Click Element At Coordinates                ${Kartta}  10  0
     ${status}=  Run Keyword And Return Status   Element Should Contain  ${FA_Nopeusrajoitus}  60 km/h
-    Run Keyword If  ${status}==False            Nollaa Nollaa Nopeusrajoitus
+    Run Keyword If  ${status}==False            Nollaa Nopeusrajoitus
 
     Odota sivun latautuminen
     Siirry Muokkaustilaan
@@ -136,7 +136,7 @@ Nopeusrajoitus 3  [arguments]  ${testipaikka}
     Odota sivun latautuminen
 
     #Hankala tarkistaa onko kaikki kohdat ==60, nollataan joka kerta.
-    Nollaa Nollaa Nopeusrajoitus
+    Nollaa Nopeusrajoitus
 
     Siirry Muokkaustilaan
     Click Element                               css=.${TL_Nopeusrajoitus_RB} .polygon
@@ -249,7 +249,7 @@ Nopeusrajoitus 4  [arguments]  ${testipaikka}
 ### Sisäiset Keywordit ###
 ##########################
 
-Nollaa Nollaa Nopeusrajoitus
+Nollaa Nopeusrajoitus
     Siirry Muokkaustilaan
     Element should be visible                   css=.${TL_Nopeusrajoitus_RB} .polygon
     Click Element                               css=.${TL_Nopeusrajoitus_RB} .polygon
