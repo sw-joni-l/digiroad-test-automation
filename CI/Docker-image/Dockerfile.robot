@@ -38,6 +38,7 @@ ENV PABOT_VERSION 1.10.0
 ENV ROBOT_FRAMEWORK_VERSION 4.0.2
 ENV SELENIUM_LIBRARY_VERSION 5.1.3
 ENV XVFB_VERSION 1.20
+ENV ROBOT_FRAMEWORK_REQUESTS_VERSION 0.9.1
 
 # Prepare binaries to be executed
 #COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
@@ -76,6 +77,7 @@ RUN apk update \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
+    robotframework-requests==$ROBOT_FRAMEWORK_REQUESTS_VERSION \
     PyYAML \
 
 
