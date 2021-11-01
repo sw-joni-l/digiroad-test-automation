@@ -8,6 +8,7 @@ Documentation       Keywords for Suurin Sallittu
 *** Keywords ***
 
 Massa_1  [arguments]  ${tietolaji}  ${testipaikka}  ${rajoitus}
+    Testin Aloitus
     Siirry Testipaikkaan                ${tietolaji}  ${testipaikka}
     Zoomaa kartta  5  5 m
     Click Element At Coordinates        ${Kartta}  0  20

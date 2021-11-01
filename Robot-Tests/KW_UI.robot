@@ -139,6 +139,7 @@ UI_5_radio_unit  [Arguments]  @{Tietolaji_lista}
 
 
 UI_5_chkbx  [Arguments]  ${TL}  ${testipaikka}
+    Testin Aloitus
     Log  UI_5 Tietolajit jotka muokattavissa checkboxin kautta
     # wait until element is visible           ${Taustakartta}
     # wait until element is visible           ${valitse tietolaji}
