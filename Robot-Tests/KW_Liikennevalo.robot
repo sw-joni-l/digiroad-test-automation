@@ -20,7 +20,7 @@ Valo 1
     [Teardown]  Poista Kohde Apin Kautta  ${API_URI_TL}  ${response.content}
 
 Valo 2  [Arguments]  ${testipaikka}
-    Log  Vaihdetaan liikennemerkin suuntaa
+    Log  Vaihdetaan liikennevalon suuntaa
     Siirry Testipaikkaan                ${TL_Liikennevalo_RB}  ${testipaikka}
     Click Element At Coordinates        ${Kartta}  0  20
     Wait Until Element Is Visible       ${FA_otsikko}
