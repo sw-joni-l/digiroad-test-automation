@@ -27,6 +27,7 @@ Resource                    KW_SuurinSallittu.robot
 Resource                    KW_Pysakointikielto.robot
 Resource                    KW_Liikennevalo.robot
 Resource                    KW_KapyTietolaji.robot
+Resource                    KW_VAK.robot
 #Resource                    KW_AKR.robot
 
 *** Variables ***
