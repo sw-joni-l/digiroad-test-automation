@@ -11,3 +11,4 @@ testi.robot
 .ash_history
 .mozilla
 .config
+*.ps1
