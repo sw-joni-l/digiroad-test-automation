@@ -120,7 +120,6 @@ Poista Rajoitukset
 
 
 *** Variables ***
-${FA_linkkien_lukumaara}                css=div:nth-child(3) > p
 ${FA_Rajoitus}                          css=.form-control-static.existing-prohibition > h4
 ${FA_Rajoitukse_Voimassaoloaika}        css=.form-control-static.existing-prohibition > .validity-period-group > ul > li:nth-child(1)
 ${FA_Poista_rajoitus}                   css=ul.edit-control-group > li:nth-child(1) > div > button
