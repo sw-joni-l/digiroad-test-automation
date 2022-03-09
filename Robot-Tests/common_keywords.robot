@@ -1,15 +1,10 @@
-# Niko Lahtinen  Sitowise  2020
-# pybot -d .\logs .\testcases*
 *** Settings ***
-#Library                     SeleniumLibrary     timeout=30.0   run_on_failure=None
 Library                     SeleniumLibrary     timeout=35.0   run_on_failure=Capture Page Screenshot
 #Library                     Dialogs
 Library                     String
-#Library                    SikuliLibrary
 Library                     selenium_extensions.py
 Library                     DateTime
 
-#Resource                    c:/tools/omat/DRownvariables.robot
 Resource                    variables.robot
 Resource                    KW_Tielinkit.robot
 Resource                    KW_Kartta.robot
@@ -31,7 +26,7 @@ Resource                    KW_VAK.robot
 #Resource                    KW_AKR.robot
 
 *** Variables ***
-${BROWSER}                  firefox  #Chrome  #
+${BROWSER}                  firefox  #Chrome
 ${DELAY}                    0.2
 
 #${LOGIN URL}               https://devtest.vayla.fi/digiroad/
@@ -44,28 +39,24 @@ ${IMAGE_DIR}                ${CURDIR}\\img
 
 *** Keywords ***
 Login To DigiRoad
-    #log to console                  ${CURDIR}
-    #Add Image Path                  ${IMAGE_DIR}
     Log                             ${BROWSER}
     Log                             ${LOGIN URL}
     Open Browser                    ${LOGIN URL}  ${BROWSER}
-    ...  service_log_path=driver.log  
     ...  options=add_argument('--no-sandbox');add_argument('--disable-gpu');add_argument('--verbose')
+    #    ...  service_log_path=driver.log
     
     #Maximize Browser Window
-    set window size    1920   1200
+    set window size    1920   1080
     Set Selenium Speed              ${DELAY}
     wait until element is visible   ${LiviUserNameField}
-    ${temp}=                        set variable            ${LOG LEVEL}
+    #${temp}=                        set variable            ${LOG LEVEL}
     #Set Log Level                   NONE
     Input Password                  ${LiviUserNameField}    ${LiviUSER}
     Input Password                  ${LiviPasswordField}    ${LiviPWD}
     Click Button                    ${LiviLoginButton}
-    Set Log Level                   ${temp}
+    #Set Log Level                   ${temp}
     wait until element is visible   ${kartta}  30
-    #run keyword if  '${LOGIN URL}'=='https://testiextranet.vayla.fi/digiroad/'  Sulje QA popup
     Odota sivun latautuminen
-    #Set Min Similarity   0.9              # Oli 0.6 tarkista toimiiko vielä
     sleep  5
 
 Sulje QA popup
@@ -77,7 +68,6 @@ Testin Aloitus
     Go to  ${LOGIN URL}
     wait until element is enabled  ${kartta}
     wait until element is visible  ${Siirry muokkaustilaan}  120
-    #run keyword if  '${LOGIN URL}'=='https://testiextra.vayla.fi/digiroad/'  Sulje QA popup
 
 
 ###################
