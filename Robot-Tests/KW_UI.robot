@@ -10,6 +10,7 @@ ${LocatorForCheckbox}                           css=#feature-attributes .checkbo
 ${LocatorForCheckboxpp}                         xpath=.//label[text() = 'Poista']/input
 ${LocatorForButton}                             css=#feature-attributes .form-group.adjacent-link:last-of-type .new.btn.btn-new
 ${LocatorForRadiobuttons}                       css=#feature-attributes .radio [type="radio"]:not([checked=""])
+${WidthInputLocator}                            css=.form-control.unit
 #${string}
 
 *** Keywords ***
@@ -262,6 +263,7 @@ Tarkista muokkaustila radio non-unit  [Arguments]      ${locator_TBchanged}  ${T
 
     ${visible}=  Run Keyword And Return Status  SeleniumLibrary.Element Should Be Visible  ${FA_locator_textinput}
     Run Keyword If  '${Visible}'=='True'  SeleniumLibrary.Input text        ${FA_locator_textinput}  12
+    Run Keyword If  '${TL}'=='${TL_suurin_sallittu_leveys_RB}'  SeleniumLibrary.Input text  ${WidthInputLocator}  100
     Run Keyword If  '${TL}'=='${TL_Tietyöt_RB}'  Aseta Päivämäärä
 
     
@@ -284,7 +286,8 @@ Tarkista muokkaustila radio unit  [Arguments]      ${locator_TBchanged}  ${TL}
 
 
     ${visible}=  Run Keyword And Return Status  SeleniumLibrary.Element Should Be Visible  ${FA_locator_unitinput}
-    Run Keyword If  '${Visible}'=='True'  SeleniumLibrary.Input text        ${FA_locator_unitinput}  12
+    Run Keyword If  '${Visible}'=='True' and '${TL}'!='${TL_suurin_sallittu_pituus_RB}'  SeleniumLibrary.Input text        ${FA_locator_unitinput}  12
+    Run Keyword If  '${TL}'=='${TL_suurin_sallittu_pituus_RB}'  SeleniumLibrary.Input text  ${WidthInputLocator}  100
     #Run Keyword If  '${TL}'=='${TL_Tietyöt_RB}'  Aseta Päivämäärä
 
     
