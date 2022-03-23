@@ -103,7 +103,7 @@ ${FA_tielinkki_korjattavien_eka_linkki}         xpath=(.//*[@id='work-list']//*[
 ${Tielinkin palluraaineistot}    ${TL_Palvelupiste_RB} ${TL_Opastustaulu_RB} ${TL_Esterakennelma_RB} ${TL_Rautatien tasoristeys_RB} ${TL_Liikennevalo_RB}
 @{Tielinkin_RB_tekstit}     Toiminnallinen luokka  Tielinkin tyyppi  Hallinnollinen luokka  Silta, alikulku tai tunneli
 @{tielinkin_formin_otsikot}  Linkin ID:  Hallinnollinen luokka   Toiminnallinen luokka   Liikennevirran suunta   Tielinkin tyyppi   Silta, alikulku tai tunneli
-...  Kuntanumero   Tienimi (Suomi)   Tienimi (Ruotsi)   Tienimi (Saame)   Tienumero   Tieosanumero   Osoitenumerot oikealla   Osoitenumerot vasemmalla   MML ID
+...  Kuntanumero   Tiennimi (Suomi)   Tiennimi (Ruotsi)   Tiennimi (Saame)   Tienumero   Tieosanumero   Osoitenumerot oikealla   Osoitenumerot vasemmalla   MML ID
 #Linkin ID
 
 ## KUVAT
