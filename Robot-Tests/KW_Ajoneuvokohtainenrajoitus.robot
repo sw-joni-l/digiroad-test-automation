@@ -57,10 +57,21 @@ Ajoneuvorajoite_3   [arguments]     ${testipaikka}
     Click Element At Coordinates                ${Kartta}  0  0
     Wait Until Element Is Visible               css=#feature-attributes
 
+    #Luodaan ajoneuvorajoite, voimassaoloaika ja poikkeus
     #Click Element                               css=#feature-attributes-form
     #Click Element                               css=#form-control select > select option:nth-child(2)
     #vaihtoehto
-    Select From List By Index                   css=#feature-attributes-form > div > div > div.form-elements-container > div:nth-child(1) > ul.edit-control-group > li > div > select    2
+    Click Element                   ${Popup_AjoneuvoRajoitus}
+    Click Element                   ${Popup_AjoneuvoRajoitus_Moottori}
+
+    #voimassaoloaika
+    #Select From List By Index                   
+
+    #poikkeus
+    #Select From List By Index                   
+
+    #Peruutus
+    Click Element                               css=#feature-attributes-footer > div > button.cancel.btn.btn-secondary
 
 
 
@@ -220,9 +231,8 @@ ${FA_Rajoitus_A}            css=.prohibition-a
 ${FA_Rajoitus_A_DDM}        css=.prohibition-a option:nth-child(2)
 ${FA_Rajoitus_B}            css=.prohibition-b
 ${FA_Rajoitus_B_DDM}        css=.prohibition-b option:nth-child(8)
-${FA_Ajoneuvorajoitus}      css=#feature-attributes-form > div    # > div > div:nth-child(4) > p
-${Popup_AjoneuvoRajoitus}     css=div.form-group.editable > select
-${Popup_AjoneuvoRajoitus_DDM}  css=div.form-group.editable > select option:nth-child(7)
-${Popup_AjoneuvoRajoitus_120}  css=div.form-group.editable > select option:nth-child(2)
-${Popup_AjoneuvoRajoitus_60}  css=div.form-group.editable > select option:nth-child(7)
+#${FA_Ajoneuvorajoitus}      css=#feature-attributes-form > div > div > div:nth-child(4) > p
+${Popup_AjoneuvoRajoitus}     id=feature-attributes-form
+#${Popup_AjoneuvoRajoitus_Sotilas}  css=.form-control option[data="Sotilasajoneuvo"]
+#${Popup_AjoneuvoRajoitus_Moottori}  css=.form-control option[data="Moottoriajoneuvo"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit
