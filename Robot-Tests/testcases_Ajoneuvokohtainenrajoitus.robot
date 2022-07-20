@@ -31,7 +31,7 @@ Ajoneuvorajoitus 3
     [Tags]  AWS  Rajoite
     [Documentation]  Ajoneuvorajoituksen muokkaus ketjun osalle (tuplaklikkaus)
 
-    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_3      6902484, 431976
+    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_3      6903282, 431245
 
 
 Ajoneuvorajoitus 4
