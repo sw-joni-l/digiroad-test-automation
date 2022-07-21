@@ -31,6 +31,7 @@ Ajoneuvorajoite_1   [arguments]     ${testipaikka}
 
 
 Ajoneuvorajoite_2   [arguments]     ${testipaikka}
+    Log     Ajoneuvorajoituksen muokkaus koko ketjulle
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
@@ -41,28 +42,49 @@ Ajoneuvorajoite_2   [arguments]     ${testipaikka}
     Siirry Muokkaustilaan
     Click Element At Coordinates                ${Kartta}  0  0
     Wait Until Element Is Visible               css=#feature-attributes
-
 
 
 Ajoneuvorajoite_3   [arguments]     ${testipaikka}
-    #testataan tuplaklikkaus
+    Log     Ketjun osan muokkaus
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
 
-    Click Element At Coordinates                ${Kartta}   0  0
+    Odota sivun latautuminen
+    Siirry Muokkaustilaan
+    Tupla Klikkaa Kartan Keskelle
+    Wait Until Element Is Visible               css=#feature-attributes-form > div > div > div.form-elements-container > div > label
+
+    Click Element                               css=.form-control
+    Click Element                               css=.form-control option[data=10]
+
+    #Click Element                               css=.linear-asset.form-controls > cancel.btn.btn-secondary
+
+
+
+
+Ajoneuvorajoite_4   [arguments]     ${testipaikka}
+    Log     Luodaan uusi ajoneuvokohtainen rajoitus
+    #testataan rajoituksen lisääminen
+    Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
+    Paikanna osoite                             ${testipaikka}
+    Zoomaa kartta                               5   5 m
 
     Odota sivun latautuminen
     Siirry Muokkaustilaan
+    #Wait Until Element Is Visible               css=#map-tools > div > div.asset-type-container > div.panel-group.simple-limit.prohibitions > div > div.panel-section.panel-toggle-edit-mode > button
     Click Element At Coordinates                ${Kartta}  0  0
-    Wait Until Element Is Visible               css=#feature-attributes
+
+    Wait Until Element Is Visible               css=#feature-attributes-footer
 
     #Luodaan ajoneuvorajoite, voimassaoloaika ja poikkeus
-    #Click Element                               css=#feature-attributes-form
-    #Click Element                               css=#form-control select > select option:nth-child(2)
-    #vaihtoehto
-    Click Element                   ${Popup_AjoneuvoRajoitus}
-    Click Element                   ${Popup_AjoneuvoRajoitus_Moottori}
+    #Click Element At Coordinates                ${Kartta}  0  0
+    Wait Until Element Is Visible                   css=#feature-attributes-form
+    Click Element                               ${Popup_AjoneuvoRajoitus}
+    Click Element                               css=.form-control option[value=3]
+    Sleep           10
+    #Click Element                               ${Popup_AjoneuvoRajoitus}
+    #Click Element                               ${Popup_AjoneuvoRajoitus_Moottori}
 
     #voimassaoloaika
     #Select From List By Index                   
@@ -71,30 +93,15 @@ Ajoneuvorajoite_3   [arguments]     ${testipaikka}
     #Select From List By Index                   
 
     #Peruutus
-    Click Element                               css=#feature-attributes-footer > div > button.cancel.btn.btn-secondary
-
-
-
-Ajoneuvorajoite_4   [arguments]     ${testipaikka}
-    Log     Rajoituksen luominen
-    Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
-    Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5   50 m
-
-    Click Element At Coordinates                ${Kartta}   0  0
-
-    Odota sivun latautuminen
-    Siirry Muokkaustilaan
-    Click Element At Coordinates                ${Kartta}  0  0
-    Wait Until Element Is Visible               css=#feature-attributes
-
+    Element Should Be Visible                   css=#feature-attributes-footer .btn-secondary
+    Click Element                               css=#feature-attributes-footer .btn-secondary
 
 
 Ajoneuvorajoite_5   [arguments]     ${testipaikka}
     Log     Rajoituksen poisto
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
-    Zoomaa kartta                               5   50 m
+    Zoomaa kartta                               5   5 m
 
     Click Element At Coordinates                ${Kartta}   0  0
 
@@ -107,7 +114,7 @@ Ajoneuvorajoite_5   [arguments]     ${testipaikka}
 
 
 Ajoneuvorajoite_6   [arguments]     ${testipaikka}
-    Log     Rajoituksen poisto
+    Log     Valitaan laatikolla useampi kohde
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
@@ -123,7 +130,7 @@ Ajoneuvorajoite_6   [arguments]     ${testipaikka}
 
 
 Ajoneuvorajoite_7   [arguments]     ${testipaikka}
-    Log     Katkaisutyökalu
+    Log     Katkaisutyökalun testaaminen
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
@@ -233,6 +240,6 @@ ${FA_Rajoitus_B}            css=.prohibition-b
 ${FA_Rajoitus_B_DDM}        css=.prohibition-b option:nth-child(8)
 #${FA_Ajoneuvorajoitus}      css=#feature-attributes-form > div > div > div:nth-child(4) > p
 ${Popup_AjoneuvoRajoitus}     id=feature-attributes-form
-#${Popup_AjoneuvoRajoitus_Sotilas}  css=.form-control option[data="Sotilasajoneuvo"]
-#${Popup_AjoneuvoRajoitus_Moottori}  css=.form-control option[data="Moottoriajoneuvo"]
+${Popup_AjoneuvoRajoitus_Moottori}  css=.form-control option[data="Moottoriajoneuvo"]
+${Popup_AjoneuvoRajoitus_Mopo}  css=.form-control option[data="Mopo"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit

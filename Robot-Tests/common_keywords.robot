@@ -25,10 +25,11 @@ Resource                    KW_KapyTietolaji.robot
 Resource                    KW_VAK.robot
 Resource                    KW_Ajoneuvokohtainenrajoitus.robot
 
+
 #Resource                    KW_AKR.robot
 
 *** Variables ***
-${BROWSER}                  Chrome  #HeadlessChrome
+${BROWSER}                  chrome  #HeadlessChrome
 ${DELAY}                    0.2
 
 ${LOGIN URL}                https://digiroadtest.testivaylapilvi.fi/
