@@ -16,17 +16,16 @@ Ajoneuvorajoite_1   [arguments]     ${testipaikka}
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
+    Odota sivun latautuminen
 
-    Click Element At Coordinates                ${Kartta}   0  0
-    #Wait Until Element Is Visible               
+    Click Element At Coordinates                ${Kartta}   0  2
+    Wait Until Element Is Visible               ${FA_otsikko}
     
-    #${status}=    Run Keyword And Return Status      Element Should Contain     ${FA_Ajoneuvorajoitus}    
-    #Run Keyword If  ${status}==False            Nollaa Ajoneuvorajoitus
-
     #double click
-    Sleep       3       #väliaikaisratkaisu jolla varmistetaan että valintanäkymä latautuu, korjattava asap dynaamiseksi
+    
     Click Element At Coordinates                ${Kartta}  -100  -100
-    Doubleclick Element At Coordinates          ${Kartta}   0   0
+    Tupla Klikkaa Kartan Keskelle
+    Wait Until Element Is Visible               ${FA_otsikko}
 
 
 
@@ -40,7 +39,7 @@ Ajoneuvorajoite_2   [arguments]     ${testipaikka}
 
     Odota sivun latautuminen
     Siirry Muokkaustilaan
-    Click Element At Coordinates                ${Kartta}  0  0
+    Click Element At Coordinates                ${Kartta}  1  0
     Wait Until Element Is Visible               css=#feature-attributes
 
 
@@ -55,10 +54,11 @@ Ajoneuvorajoite_3   [arguments]     ${testipaikka}
     Tupla Klikkaa Kartan Keskelle
     Wait Until Element Is Visible               css=#feature-attributes-form > div > div > div.form-elements-container > div > label
 
+    #väliaikainen, odotetaan fronttikoodin attribuuttien nimeämistä.
     Click Element                               css=.form-control
-    Click Element                               css=.form-control option[data=10]
+    Click Element                               css=.form-control option[value="10"]
 
-    #Click Element                               css=.linear-asset.form-controls > cancel.btn.btn-secondary
+    Click Element                               css=.cancel.btn.btn-secondary
 
 
 
@@ -80,9 +80,9 @@ Ajoneuvorajoite_4   [arguments]     ${testipaikka}
     #Luodaan ajoneuvorajoite, voimassaoloaika ja poikkeus
     #Click Element At Coordinates                ${Kartta}  0  0
     Wait Until Element Is Visible                   css=#feature-attributes-form
-    Click Element                               ${Popup_AjoneuvoRajoitus}
-    Click Element                               css=.form-control option[value=3]
-    Sleep           10
+    Click Element                               css=.form-control
+    Click Element                               css=.form-control option[value="10"]
+    Sleep           5
     #Click Element                               ${Popup_AjoneuvoRajoitus}
     #Click Element                               ${Popup_AjoneuvoRajoitus_Moottori}
 
@@ -93,8 +93,8 @@ Ajoneuvorajoite_4   [arguments]     ${testipaikka}
     #Select From List By Index                   
 
     #Peruutus
-    Element Should Be Visible                   css=#feature-attributes-footer .btn-secondary
-    Click Element                               css=#feature-attributes-footer .btn-secondary
+    Element Should Be Visible                   ${AKR_Peruuta_Muutos}
+    Click Element                               ${AKR_Peruuta_Muutos}
 
 
 Ajoneuvorajoite_5   [arguments]     ${testipaikka}
@@ -238,8 +238,9 @@ ${FA_Rajoitus_A}            css=.prohibition-a
 ${FA_Rajoitus_A_DDM}        css=.prohibition-a option:nth-child(2)
 ${FA_Rajoitus_B}            css=.prohibition-b
 ${FA_Rajoitus_B_DDM}        css=.prohibition-b option:nth-child(8)
-#${FA_Ajoneuvorajoitus}      css=#feature-attributes-form > div > div > div:nth-child(4) > p
-${Popup_AjoneuvoRajoitus}     id=feature-attributes-form
+${FA_Ajoneuvorajoitus}      css=#feature-attributes-form > div > div > div:nth-child(4) > p
+${Popup_AjoneuvoRajoitus}     css=.form-control.select
 ${Popup_AjoneuvoRajoitus_Moottori}  css=.form-control option[data="Moottoriajoneuvo"]
 ${Popup_AjoneuvoRajoitus_Mopo}  css=.form-control option[data="Mopo"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit
+${AKR_Peruuta_Muutos}        css=.cancel.btn.btn-secondary

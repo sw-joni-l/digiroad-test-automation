@@ -17,14 +17,14 @@ Ajoneuvorajoitus 1
     [Tags]  AWS  Rajoite
     [Documentation]  Ajoneuvorajoituksen tarkastelu katselumoodissa.
 
-    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_1      6901965, 433783
+    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_1      6888907, 429796
 
 
 Ajoneuvorajoitus 2
     [Tags]  AWS  Rajoite
     [Documentation]  Ajoneuvorajoituksen muokkaus koko ketjulle
 
-    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_2      6901965, 433783
+    KW_Ajoneuvokohtainenrajoitus.Ajoneuvorajoite_2      6888907, 429796
 
 
 Ajoneuvorajoitus 3
