@@ -12,7 +12,7 @@ ${Rajoituksen_poisto}                       Haluatko varmasti poistaa rajoitukse
 *** Keywords ***
 
 AKR_1   [arguments]     ${testipaikka}
-    Log     Rajoituksen tarkastelu katselumoodissa.
+    Log     Rajoituksen tarkastelu katselutilassa.
     #testataan valinnan toimivuus
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
@@ -112,6 +112,7 @@ AKR_5   [arguments]     ${testipaikka}
     Siirry Muokkaustilaan
     Click Element At Coordinates                ${Kartta}  0  20
 
+    #Poistetaan rajoitus
     Wait Until Element Is Visible               css=.delete.btn-delete
     Click Element                               css=.delete.btn-delete
 
@@ -129,6 +130,8 @@ AKR_6   [arguments]     ${testipaikka}
     Zoomaa kartta                               5   50 m
     Odota sivun latautuminen
     Siirry Muokkaustilaan
+
+    #Valitaan laatikolla alue
     Element should be visible                   css=.prohibition .polygon
     Click Element                               css=.prohibition .polygon
     Suorita monivalinta
@@ -184,7 +187,7 @@ AKR_7   [arguments]     ${testipaikka}
     Click Element                               ${FA_Prohibition_B_DDM}
 
     Log  "Olet muokannut.." -dialogi jos katkaisun jälkeen klikkaa karttaa ennen tallennusta    #206.104
-    Click Element At Coordinates                ${Kartta}  0  200   #klikattava käsin
+    Click Element At Coordinates                ${Kartta}  200  0   #klikattava käsin
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Element Should Contain                      ${MuokkausVaroitus}  ${MuokkausVaroitus_teksti}
     Click Element                               ${Muokkausvaroitus_Sulje_btn}
