@@ -205,7 +205,7 @@ AKR_7   [arguments]     ${testipaikka}
 
     Siirry Muokkaustilaan
     Click Element                               ${Popup_AjoneuvoRajoitus}
-    Click Element                               ${Popup_AjoneuvoRajoitus_Numero}
+    Click Element                               ${Popup_AjoneuvoRajoitus_Mopo}
     Click Element                               ${FA_header_Tallenna}
     Wait Until Element Is Not Visible           ${Spinner_Overlay}
     Odota sivun latautuminen
@@ -216,7 +216,7 @@ AKR_7   [arguments]     ${testipaikka}
     Wait Until Element Is Visible               ${FA_otsikko}
     Siirry Muokkaustilaan
     Click Element                               ${Popup_AjoneuvoRajoitus}
-    Click Element                               ${Popup_AjoneuvoRajoitus_Numero}
+    Click Element                               ${Popup_AjoneuvoRajoitus_Mopo}
     Click Element                               ${FA_header_Tallenna}
     Wait Until Element Is Not Visible           ${Spinner_Overlay}
     Odota sivun latautuminen
@@ -225,7 +225,6 @@ AKR_7   [arguments]     ${testipaikka}
     Siirry Katselutilaan
     Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
-    ${date}=  Get Current Date                  result_format=%d.%m.%Y
     Element Should Contain                      ${FA_Muokattu_viimeksi}     ${date}
     #Element Should Contain                      ${FA_otsikko}  87408330
 END
@@ -252,11 +251,12 @@ ${FA_Prohibition_A}            css=.prohibition-a
 ${FA_Prohibition_A_DDM}        css=.prohibition-a option:nth-child(2)
 ${FA_Prohibition_B}            css=.prohibition-b
 ${FA_Prohibition_B_DDM}        css=.prohibition-b option:nth-child(8)
-${FA_Ajoneuvorajoitus}      css=.feature-attributes-form
-${Popup_AjoneuvoRajoitus}     css=.form-control.select
-${Popup_AjoneuvoRajoitus_Moottori}  css=.form-control option[data="Moottoriajoneuvo"]
-${Popup_AjoneuvoRajoitus_Mopo}  css=.form-control option[data="Mopo"]
-${Popup_AjoneuvoRajoitus_Numero}  css=.form-control option[value="10"]
+${FA_Ajoneuvorajoitus}         css=.feature-attributes-form
+${Popup_AjoneuvoRajoitus}      css=.form-control.select
+${Popup_AjoneuvoRajoitus_Moottori}      css=.form-control option[data-value="Moottoriajoneuvo"]
+${Popup_AjoneuvoRajoitus_Mopo}      css=.form-control option[data-value="Mopo"]
+${Popup_AjoneuvoRajoitus_Numero}    css=.form-control option[value="10"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit
 ${AKR_Peruuta_Muutos}        css=.cancel.btn.btn-secondary
 ${AKR_Popup_Peruuta_Muutos}        css=.btn.btn-secondary.close
+${date}=                        Get Current Date                  result_format=%d.%m.%Y

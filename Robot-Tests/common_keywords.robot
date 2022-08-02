@@ -34,7 +34,8 @@ Resource                    C:/robot/DRownvariables.robot
 ${BROWSER}                  chrome  #HeadlessChrome
 ${DELAY}                    0.2
 
-${LOGIN URL}                https://digiroadtest.testivaylapilvi.fi/
+#${LOGIN URL}                https://digiroadtest.testivaylapilvi.fi/
+${LOGIN URL}                https://digiroaddev.testivaylapilvi.fi/
 ${LiviUserNameField}        id=username
 ${LiviPasswordField}        id=password
 ${LiviLoginButton}          css=.submit
