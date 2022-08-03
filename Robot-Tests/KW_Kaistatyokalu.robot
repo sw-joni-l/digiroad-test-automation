@@ -124,8 +124,8 @@ ${FA_Lisää_kaista_oikealle}         css=.list-lane-buttons > li:nth-of-type(3)
 ${FA_Lisää_kaista_vasemmalle}       css=.list-lane-buttons > li:nth-of-type(2) .btn
 ${KT_Kaistan_tyyppi}                lane_type
 ${KT_Kaistan_tyyppi_DDM}            css=.form-control.lane-modelling-tool option:nth-child(2)  #ohituskaista
-${KT_Päätä_Lisakaista}              css=.lane-buttons button:nth-child(1)
-${KT_Poista_Lisakaista}             css=.lane-buttons button:nth-child(3)
+${KT_Päätä_Lisakaista}              css=button.btn.btn-secondary.lane-button.expire-lane    #DROTH-3348
+${KT_Poista_Lisakaista}             css=button.btn.btn-secondary.lane-button.delete-lane    #DROTH-3348
 
 ${KT_Tien_Numero}                   css=.input-unit-combination div:nth-child(2) p
 ${KT_Tien_Osanumero}                css=.input-unit-combination div:nth-child(3) p
