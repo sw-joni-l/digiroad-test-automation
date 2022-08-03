@@ -24,6 +24,7 @@ Valo 2  [Arguments]  ${testipaikka}
     Siirry Testipaikkaan                ${TL_Liikennevalo_RB}  ${testipaikka}
     Click Element At Coordinates        ${Kartta}  0  20
     Wait Until Element Is Visible       ${FA_otsikko}
+    Odota sivun latautuminen            #DROTH-3342
     Siirry Muokkaustilaan
     Click Element  css=button.change-validity-direction
     Element Should Be Enabled           ${FA_footer_Tallenna}
