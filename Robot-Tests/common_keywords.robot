@@ -23,11 +23,10 @@ Resource                    KW_Pysakointikielto.robot
 Resource                    KW_Liikennevalo.robot
 Resource                    KW_KapyTietolaji.robot
 Resource                    KW_VAK.robot
-#Resource                    KW_AKR.robot
-Resource                    C:/robot/DRownvariables.robot
+
 
 *** Variables ***
-${BROWSER}                  Chrome  #Chrome
+${BROWSER}                  Firefox  #Chrome
 ${DELAY}                    0.2
 
 ${LOGIN URL}                https://digiroadtest.testivaylapilvi.fi/

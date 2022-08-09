@@ -24,8 +24,7 @@ Kaistatyökalu_1  [arguments]  ${testipaikka}
 
 
     Valitse Kaista                              1
-    #debugataan odottamaan tässä kohtaa
-    Sleep                                       5
+    Wait Until Element Is Visible               ${KT_Poista_Lisakaista}
     Click Element                               ${KT_Poista_Lisakaista}
     Element Should Not Be Clickable             ${KT_Poista_Lisakaista}    
     Element Should Contain                      ${KT_Kaista}    2
