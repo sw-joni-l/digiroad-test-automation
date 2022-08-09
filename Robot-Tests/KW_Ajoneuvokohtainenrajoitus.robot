@@ -186,7 +186,7 @@ AKR_7   [arguments]     ${testipaikka}
     Click Element                               ${FA_Prohibition_B}
     Click Element                               ${FA_Prohibition_B_DDM}
 
-    Log  "Olet muokannut.." -dialogi jos katkaisun jälkeen klikkaa karttaa ennen tallennusta    #206.104
+    Sleep   3
     Click Element At Coordinates                ${Kartta}  200  0   #klikattava käsin
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Element Should Contain                      ${MuokkausVaroitus}  ${MuokkausVaroitus_teksti}
@@ -223,8 +223,10 @@ AKR_7   [arguments]     ${testipaikka}
 
     Log  Valittaessa ajoneuvorajoituksen ominaisuustietonäkymässä näkyy ajoneuvorajoituksen ID, lisäys ja muokkaus tiedot. 206.30
     Siirry Katselutilaan
-    Click Element At Coordinates                ${Kartta}  0  20
+    Odota sivun latautuminen
+    Click Element At Coordinates                ${Kartta}  0  20    #klikattava käsin
     Wait Until Element Is Visible               ${FA_otsikko}
+    ${date}=                        Get Current Date                  result_format=%d.%m.%Y
     Element Should Contain                      ${FA_Muokattu_viimeksi}     ${date}
     #Element Should Contain                      ${FA_otsikko}  87408330
 END
@@ -259,4 +261,3 @@ ${Popup_AjoneuvoRajoitus_Numero}    css=.form-control option[value="10"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit
 ${AKR_Peruuta_Muutos}        css=.cancel.btn.btn-secondary
 ${AKR_Popup_Peruuta_Muutos}        css=.btn.btn-secondary.close
-${date}=                        Get Current Date                  result_format=%d.%m.%Y
