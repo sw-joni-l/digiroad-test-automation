@@ -26,10 +26,8 @@ Kaistatyökalu_1  [arguments]  ${testipaikka}
     Valitse Kaista                              1
     #debugataan odottamaan tässä kohtaa
     Sleep                                       5
-    Click Element                               ${KT_Poista_Lisakaista}    #css=.lane-buttons button:nth-child(3)
+    Click Element                               ${KT_Poista_Lisakaista}
     Element Should Not Be Clickable             ${KT_Poista_Lisakaista}    
-    #Wait Until Element Is Not Visible           ${KT_Poista_Lisakaista}
-    #Element should not be visible               ${KT_Poista_Lisakaista}
     Element Should Contain                      ${KT_Kaista}    2
     Click Element                               ${FA_footer_Peruuta}
 
@@ -112,7 +110,7 @@ Poista Ylimääräiset Kaistat
 
 
 Element Should Not Be Clickable
-    #kokeilee, onko argumenttina annettu elementti klikattavissa ja antaa failin jos on
+    #kokeilee, onko argumenttina annettu elementti klikattavissa (ei vain näkyvissä) ja antaa failin jos on
     [Arguments]   ${element}
     ${status}=    Run Keyword And Return Status    Click Element    ${element}
     Run Keyword If    'disabled'=='${status}'    Fail    "Elementin ei tule olla klikattavissa"
