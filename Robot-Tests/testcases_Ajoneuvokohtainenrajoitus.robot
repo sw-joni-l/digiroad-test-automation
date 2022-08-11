@@ -52,9 +52,10 @@ Ajoneuvorajoitus 6
     [Tags]  AWS  AKR
     [Documentation]  Usean kohteen valinta ja muokkaus monikulmiovalinnalla.
 
-    KW_Ajoneuvokohtainenrajoitus.AKR_6      6902484, 431976
+    KW_Ajoneuvokohtainenrajoitus.AKR_6      6902077, 432044
 
 
+#Jätetään odottamaan klikkausten korjausta
 Ajoneuvorajoitus 7
     [Tags]  AWS  AKR
     [Documentation]  Ajoneuvorajoituksen katkaisu kahdeksi osaksi leikkaustyökalulla.

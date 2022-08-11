@@ -157,27 +157,27 @@ AKR_7   [arguments]     ${testipaikka}
     Vaihda Tietolaji                            ${TL_Ajoneuvokohtaiset_rajoitukset_RB}
     Paikanna osoite                             ${testipaikka}
     Zoomaa kartta                               5   50 m
-#   Copied from nopeusrajoitus
+
     Odota sivun latautuminen
     Siirry Muokkaustilaan
     Log  Leikataan rajoitus kahteen osaan 206.86
     Log  Katkaisun jälkeen peruuta-nappi toimii 206.91
     Element should be visible                   css=.prohibition .cut
     Click Element                               css=.prohibition .cut
-    Sleep   5
-    Click Element At Coordinates                ${Kartta}  0  10
+    Sleep                                       5
+    Click Element At Coordinates                css=.ol-unselectable      -50     0
     Wait Until Element Is Visible               xpath=//*[contains(text(),'Rajoitus')]
-    Sleep                                       5 seconds
+    Sleep                                       5
     Click Element                               ${FA_footer_Peruuta}
-    Log  Katkaisun jälkeen peruuta-napin painalluksen jälkeen katkaisutyökalu jää käyttöön  # 206.92
+
+    Log  Katkaisun jälkeen peruuta-napin painalluksen jälkeen katkaisutyökalu jää käyttöön
     Element Should Be Visible                   xpath=//*[@id="map-tools"]/div/div[3]/div[5]/div/div[4]/div[2]
-    Log  Katkaisun jälkeen peruuta-napin painalluksen jälkeen yksittäisen ajoneuvorajoituksen valinta poistuu     #206.93
+    Log  Katkaisun jälkeen peruuta-napin painalluksen jälkeen yksittäisen ajoneuvorajoituksen valinta poistuu
     Element Should Not Be Visible               xpath=//*[@id="feature-attributes-header"]/span[2]
 
-
-    Click Element At Coordinates                ${Kartta}  0  0
-    Wait Until Element Is Visible               ${MuokkausVaroitus}
-    Click Element                               ${Muokkausvaroitus_Sulje_btn}
+    Click Element At Coordinates                css=.ol-viewport      -50     0
+    #Wait Until Element Is Visible               ${MuokkausVaroitus}
+    #Click Element                               ${Muokkausvaroitus_Sulje_btn}
 
     Log  Asetetaan leikkauskohdan rajoitukset
     Wait Until Element Is Visible               ${FA_Prohibition_A}
@@ -187,7 +187,7 @@ AKR_7   [arguments]     ${testipaikka}
     Click Element                               ${FA_Prohibition_B_DDM}
 
     Sleep   3
-    Click Element At Coordinates                ${Kartta}  200  0   #klikattava käsin
+    Click Element At Coordinates                css=.ol-unselectable      -50     0   #klikattava käsin
     Wait Until Element Is Visible               ${MuokkausVaroitus}
     Element Should Contain                      ${MuokkausVaroitus}  ${MuokkausVaroitus_teksti}
     Click Element                               ${Muokkausvaroitus_Sulje_btn}
@@ -199,36 +199,21 @@ AKR_7   [arguments]     ${testipaikka}
     Siirry Katselutilaan
 
     Log  Yhden linkin mittaisen ajoneuvorajoituksen katkaisun jälkeen uudet ajoneuvorajoituspätkien arvot ovat muokattavissa 206.102
-    Click Element At Coordinates                ${Kartta}  0  20
+    Click Element At Coordinates                ${Kartta}  0  10
     
     #Wait Until Element Is Visible               css=.feature-attributes
 
     Siirry Muokkaustilaan
     Click Element                               ${Popup_AjoneuvoRajoitus}
-    Click Element                               ${Popup_AjoneuvoRajoitus_Mopo}
+    Click Element                               ${Popup_AjoneuvoRajoitus_Moottori}
+    Click Element                               ${Popup_AjoneuvoRajoitus_Huoltoajo}
     Click Element                               ${FA_header_Tallenna}
     Wait Until Element Is Not Visible           ${Spinner_Overlay}
     Odota sivun latautuminen
     Siirry Katselutilaan
-
-
-    Click Element At Coordinates                ${Kartta}  0  20
     Wait Until Element Is Visible               ${FA_otsikko}
-    Siirry Muokkaustilaan
-    Click Element                               ${Popup_AjoneuvoRajoitus}
-    Click Element                               ${Popup_AjoneuvoRajoitus_Mopo}
-    Click Element                               ${FA_header_Tallenna}
-    Wait Until Element Is Not Visible           ${Spinner_Overlay}
-    Odota sivun latautuminen
-
-    Log  Valittaessa ajoneuvorajoituksen ominaisuustietonäkymässä näkyy ajoneuvorajoituksen ID, lisäys ja muokkaus tiedot. 206.30
-    Siirry Katselutilaan
-    Odota sivun latautuminen
-    Click Element At Coordinates                ${Kartta}  0  20    #klikattava käsin
-    Wait Until Element Is Visible               ${FA_otsikko}
-    ${date}=                        Get Current Date                  result_format=%d.%m.%Y
-    Element Should Contain                      ${FA_Muokattu_viimeksi}     ${date}
-    #Element Should Contain                      ${FA_otsikko}  87408330
+    ${date}=                                    Get Current Date                  result_format=%d.%m.%Y %H:%M:%S
+    Element Should Contain                      ${FA_Muokattu_viimeksi}     /
 END
 
 
@@ -258,6 +243,7 @@ ${Popup_AjoneuvoRajoitus}      css=.form-control.select
 ${Popup_AjoneuvoRajoitus_Moottori}      css=.form-control option[data-value="Moottoriajoneuvo"]
 ${Popup_AjoneuvoRajoitus_Mopo}      css=.form-control option[data-value="Mopo"]
 ${Popup_AjoneuvoRajoitus_Numero}    css=.form-control option[value="10"]
+${Popup_AjoneuvoRajoitus_Huoltoajo}    css=.form-control option[data-value="Huoltoajo"]
 ${FA_Jaa_Ajoneuvorajoitus}    id=separate-limit
 ${AKR_Peruuta_Muutos}        css=.cancel.btn.btn-secondary
 ${AKR_Popup_Peruuta_Muutos}        css=.btn.btn-secondary.close
